@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: all;
+}
+@plugin "daisyui/theme" {
+  name: 'mylight';
+  default: true;
+  color-scheme: light;
+
+  --color-base-100: #ffffff;
+  --color-base-200: #f3f4f6;
+  --color-base-300: #e5e7eb;
+  --color-base-content: #0a0a23;
+
+  --color-primary: #30d5f3;
+  --color-primary-content: #ffffff;
+
+  --color-secondary: #0a0a23;
+  --color-secondary-content: #ffffff;
+
+  --color-accent: #d946ef;
+  --color-accent-content: #ffffff;
+
+  --color-neutral: #1f2937;
+  --color-neutral-content: #f9fafb;
+
+  --color-info: #38bdf8;
+  --color-info-content: #ffffff;
+
+  --color-success: #4ade80;
+  --color-success-content: #ffffff;
+
+  --color-warning: #facc15;
+  --color-warning-content: #1f2937;
+
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+}
+
+@plugin "daisyui/theme" {
+  name: 'mydark';
+  default: false;
+  color-scheme: dark;
+
+  --color-base-100: #000723;
+  --color-base-200: #1a1a2e;
+  --color-base-300: #2e2e4d;
+  --color-base-content: #ffffff;
+
+  --color-primary: #30d5f3;
+  --color-primary-content: #0a0a23;
+
+  --color-secondary: #ffffff;
+  --color-secondary-content: #0a0a23;
+
+  --color-accent: #d946ef;
+  --color-accent-content: #ffffff;
+
+  --color-neutral: #1f2937;
+  --color-neutral-content: #f9fafb;
+
+  --color-info: #38bdf8;
+  --color-info-content: #0a0a23;
+
+  --color-success: #4ade80;
+  --color-success-content: #0a0a23;
+
+  --color-warning: #facc15;
+  --color-warning-content: #0a0a23;
+
+  --color-error: #ef4444;
+  --color-error-content: #ffffff;
+}
+
+@theme inline {
+  --animate-first: moveVertical 30s ease infinite;
+  --animate-second: moveInCircle 20s reverse infinite;
+  --animate-third: moveInCircle 40s linear infinite;
+  --animate-fourth: moveHorizontal 40s ease infinite;
+  --animate-fifth: moveInCircle 20s ease infinite;
+
+  @keyframes moveHorizontal {
+    0% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+      transform: translateX(50%) translateY(10%);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-10%);
+    }
+  }
+
+  @keyframes moveInCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveVertical {
+    0% {
+      transform: translateY(-50%);
+    }
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #22d3ee;
+  }
+  50% {
+    text-shadow: 0 0 20px #3b82f6;
+  }
+  100% {
+    text-shadow: 0 0 5px #22d3ee;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen-ios {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Complete scrollbar hiding for all browsers */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
