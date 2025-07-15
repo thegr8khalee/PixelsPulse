@@ -77,7 +77,9 @@ export const BackgroundGradientAnimation = ({
       }
       setCurX(curX + (tgX - curX) / 20);
       setCurY(curY + (tgY - curY) / 20);
-      interactiveRef.current.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+      interactiveRef.current.style.transform = `translate(${Math.round(
+        curX
+      )}px, ${Math.round(curY)}px)`;
     }
 
     move();
@@ -99,7 +101,7 @@ export const BackgroundGradientAnimation = ({
   return (
     <div
       className={cn(
-        'h-screen w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))] min-h-[140vh] md:min-h[100vh] sm:min-h-[130vh] lg:min-h-[100vh] lg:pt-0',
+        'w-full relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))] lg:pt-0',
         containerClassName
       )}
     >
@@ -124,7 +126,7 @@ export const BackgroundGradientAnimation = ({
       <div className={cn('', className)}>{children}</div>
       <div
         className={cn(
-          'gradients-container h-full w-full blur-lg',
+          'absolute top-1/2 gradients-container h-full w-full blur-lg',
           isSafari ? 'blur-2xl' : '[filter:url(#blurMe)_blur(40px)]'
         )}
       >

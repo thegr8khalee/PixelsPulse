@@ -1,63 +1,188 @@
+import { MenuIcon } from 'lucide-react';
 import React from 'react';
 
 const Navbar = () => {
   return (
-    <div className='navbar bg-base-100 shadow-sm sticky top-0 z-50'>
-      <div className='navbar-start'>
-        <div className='dropdown'>
-          <div tabIndex={0} role='button' className='btn btn-ghost '>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-5 w-5'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
+    <div className='drawer sticky top-0 z-110 font-[poppins]'>
+      {/* Checkbox for drawer state */}
+      <input id='my-drawer-3' type='checkbox' className='drawer-toggle' />
+      <div className='drawer-content flex flex-col'>
+        {/* Navbar */}
+        <div className='z-110 navbar bg-base-100 shadow-sm sticky top-0'>
+          <div className='navbar-start'>
+            {/* Hamburger menu for small screens (toggles drawer) */}
+            <label
+              htmlFor='my-drawer-3'
+              aria-label='open sidebar'
+              className='btn btn-ghost lg:hidden'
             >
-              {' '}
-              <path
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='2'
-                d='M4 6h16M4 12h16M4 18h7'
-              />{' '}
-            </svg>
+              <MenuIcon />
+            </label>
+            {/* Desktop Navigation - Hidden on small screens */}
+            <div className='hidden lg:flex'>
+              <ul className='menu menu-horizontal px-1'>
+                <li>
+                  <a href='/'>Home</a>
+                </li>
+                {/* Services Dropdown */}
+                <li>
+                  <details>
+                    <summary>Services</summary>
+                    <ul className='p-2 w-48 bg-base-100 rounded-t-none z-10 shadow'>
+                      <li>
+                        <a href='/services/web-development'>Web Development</a>
+                      </li>
+                      <li>
+                        <a href='/services/mobile-apps'>Mobile Apps</a>
+                      </li>
+                      <li>
+                        <a href='/services/ui-ux-design'>UI/UX Design</a>
+                      </li>
+                      <li>
+                        <a href='/services/branding-graphics-design'>
+                          Branding & Graphics Design
+                        </a>
+                      </li>
+                      <li>
+                        <a href='/services/landing-pages-microsites'>
+                          Landing Pages & Microsites
+                        </a>
+                      </li>
+                      <li>
+                        <a href='/services/performance-optimization'>
+                          Performance Optimization
+                        </a>
+                      </li>
+                      <li>
+                        <a href='/services/maintenance-support'>
+                          Maintenance & Support
+                        </a>
+                      </li>
+                      <li>
+                        <a href='/services/e-commerce-solution'>
+                          E-commerce Solutions
+                        </a>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+                <li>
+                  <a href='/portfolio'>Portfolio</a>
+                </li>
+                <li>
+                  <a href='/about'>About</a>
+                </li>
+                <li>
+                  <a href='/contact'>Contact Us</a>
+                </li>{' '}
+                {/* Added Contact Us */}
+              </ul>
+            </div>
           </div>
-          <ul
-            tabIndex={0}
-            className='menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow'
-          >
-            <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Portfolio</a>
-            </li>
-            <li>
-              <a>About</a>
-            </li>
-          </ul>
+          <div className='navbar-center'>
+            <a
+              href='/'
+              className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center"
+            >
+              <img
+                src='/android-chrome-512x512.png'
+                alt='PixelPulse.dev Logo'
+                className='size-12'
+              />
+              <p>PixelsPulse</p>
+              <p className='text-accent'>.</p>
+            </a>
+          </div>
+          {/* Moved 'dev' part to be adjacent to the logo within navbar-center for better alignment */}
+          <div className='text-xs items-end font-[poppins] font-medium pt-1'>
+            dev
+          </div>
+          <div className='navbar-end'>
+            {/* Contact Button for desktop */}
+            <div className='hidden lg:flex'>
+              <a
+                href='/contact'
+                className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-xl'
+              >
+                Get a Consultation
+              </a>
+            </div>
+          </div>
         </div>
+        {/* Page content here */}
+        {/* Your main page content should go here */}
       </div>
-      <div className='navbar-center'>
-        <a className="btn btn-ghost text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['Cal_Sans'] font-medium">
-          <img
-            src='./public/android-chrome-512x512.png'
-            alt=''
-            className='size-12'
-          />
-          PixelsPulse
-        </a>
-      </div>
-      <div className='navbar-end'>
-        {/* <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
-    </button>
-    <button className="btn btn-ghost btn-circle">
-      <div className="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /> </svg>
-        <span className="badge badge-xs badge-primary indicator-item"></span>
-      </div>
-    </button> */}
+      <div className='drawer-side z-9999'>
+        <label
+          htmlFor='my-drawer-3'
+          aria-label='close sidebar'
+          className='drawer-overlay'
+        ></label>
+        <ul className='menu bg-base-200 w-80 min-h-full p-4'>
+          {/* Sidebar content here */}
+          <li>
+            <a href='/'>Home</a>
+          </li>
+          {/* Services Dropdown (for mobile side drawer) */}
+          <li>
+            <details>
+              <summary>Services</summary>
+              <ul className='p-2 bg-base-100 rounded-box z-10 shadow'>
+                <li>
+                  <a href='/web-development'>Web Development</a>
+                </li>
+                <li>
+                  <a href='/mobile-app'>Mobile Apps</a>
+                </li>
+                <li>
+                  <a href='/ui-ux-design'>UI/UX Design</a>
+                </li>
+                <li>
+                  <a href='/branding-graphics-design'>
+                    Branding & Graphics Design
+                  </a>
+                </li>
+                <li>
+                  <a href='/landing-pages-microsites'>
+                    Landing Pages & Microsites
+                  </a>
+                </li>
+                <li>
+                  <a href='/performance-optimization'>
+                    Performance Optimization
+                  </a>
+                </li>
+                <li>
+                  <a href='/maintenance-support'>
+                    Maintenance & Support
+                  </a>
+                </li>
+                <li>
+                  <a href='/e-commerce'>
+                    E-commerce Solutions
+                  </a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a href='/portfolio'>Portfolio</a>
+          </li>
+          <li>
+            <a href='/about'>About</a>
+          </li>
+          <li>
+            <a href='/contact'>Contact Us</a>
+          </li>
+          <li className='mt-4'>
+            <a
+              href='/contact'
+              className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-xl'
+            >
+              Get a Consultation
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   );

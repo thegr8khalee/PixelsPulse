@@ -13,11 +13,11 @@ const AboutSection = () => {
     <section className='py-20 px-8 sm:px-6 lg:px-8 bg-base-100'>
       <div className='max-w-7xl mx-auto'>
         <div className='text-center mb-16 space-y-8'>
-          <motion.div>
-            <h2 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl mb-1 font-['Cal_Sans']">
+          <motion.div {...fadeUp}>
+            <h2 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl mb-1 font-['Poppins'] font-bold">
               About Us
             </h2>
-            <p className="text-lg text-base-content/80 max-w-2xl mx-auto font-['poppins'] mb-2">
+            <p className="text-lg max-w-2xl mx-auto font-['montserrat'] mb-2 text-accent">
               "We Pulse With Code, Design & Vision."
             </p>
             <p className='font-["poppins"]'>
@@ -27,8 +27,8 @@ const AboutSection = () => {
             </p>
           </motion.div>
 
-          <motion.div {...fadeUp}>
-            <h3 className="text-4xl mb-1 mt-4 font-['Cal_Sans']">Mission</h3>
+          {/* <motion.div {...fadeUp}>
+            <h3 className="text-4xl mb-1 mt-4 font-['Poppins'] font-bold">Mission</h3>
             <p className='font-["poppins"]'>
               To bridge design and development with precision and heart —
               helping brands, startups, and businesses thrive in the digital
@@ -38,7 +38,7 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div {...fadeUp}>
-            <h3 className="text-4xl mb-1 mt-4 font-['Cal_Sans']">Our Story</h3>
+            <h3 className="text-4xl mb-1 mt-4 font-['Poppins'] font-bold">Our Story</h3>
             <p className='font-["poppins"]'>
               Founded by a group of tech-savvy creators and led by Ibrahim
               Abdullahi, Pixelspulse began as a passion project blending
@@ -48,7 +48,7 @@ const AboutSection = () => {
               digital branding, and AI-infused tools that move at the speed of
               innovation.
             </p>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

@@ -1,18 +1,26 @@
 import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const GlassmorphicHero = () => {
+  const navigate = useNavigate();
+  const handleContact = () => {
+    navigate('/contact');
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+  };
   return (
-    <div className='flex items-center justify-center min-h-[100vh] py-12 lg:py-0 px-4 sm:px-6 lg:px-8'>
-      <div className='relative z-10 w-full max-w-7xl h-full flex items-center'>
+    <div className='flex items-center justify-center py-12 px-4 sm:px-6 lg:px-16'>
+      <div className='relative z-10 w-full max-w-7xl flex items-center'>
         {/* Main Glass Card - now with min-height */}
         <motion.div
-          className='backdrop-blur-xl bg-white/5 rounded-3xl p-8 sm:p-12 lg:p-16 border-hidden shadow-2xl flex flex-col md:flex-row items-center gap-8 lg:gap-16 min-h-[70vh] md:min-h-[60vh] w-full'
+          className='backdrop-blur-xl bg-white/5 rounded-3xl py-8 px-4 sm:p-12 lg:p-16 lg:px-24 border-hidden shadow-2xl flex flex-col md:flex-row items-center gap-8 lg:gap-16 w-full justify-between'
           initial={{
-            opacity: 1,
+            opacity: 0,
           }}
-          viewport={{ once: false, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.5 }}
           whileInView={{ opacity: 1, scale: 1.05 }}
           transition={{ duration: 1 }}
         >
@@ -21,34 +29,44 @@ const GlassmorphicHero = () => {
 
           {/* Text Content */}
           <div className='md:w-1/2 text-center md:text-left flex flex-col justify-center h-full'>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-['Cal_Sans'] text-secondary mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl  font-['poppins'] font-bold text-secondary mb-6 leading-tight">
               Your Brand's{' '}
-              <span className="text-[#61e8ff] font-['Cal_Sans']">
-                Digital Heartbeat
-              </span>
+              <span className='text-[#61e8ff] '>Digital Heartbeat</span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto md:mx-0 mb-10 font-['poppins']">
-              We craft sleek, fast, and responsive websites with pixel-perfect
-              design and purposeful code.
+            <p className="sm:text-xl md:text-base  max-w-3xl mx-auto md:mx-0 mb-10 font-['poppins']">
+              We don't just build websites; we engineer digital experiences that
+              resonate, engage, and convert. Let us infuse life into your online
+              presence.
             </p>
 
-            <div className='flex flex-col sm:flex-row justify-center md:justify-start gap-4'>
-              <button className="px-8 py-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white font-['poppins'] text-lg shadow-lg hover:shadow-xl">
-                Get A Quote
-              </button>
-              <button className='px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium text-lg shadow-lg hover:shadow-xl'>
-                Learn More
+            <div className='md:hidden flex items-center justify-center h-40 sm:h-50 pb-9'>
+              <img
+                src='/mobile2.png'
+                alt='Mobile application showcase'
+                className='w-50 sm:w-60'
+              />
+            </div>
+
+            <div className='flex flex-col sm:flex-row justify-center md:justify-start gap-4 w-full mt-4'>
+              {/* <button className="sm:flex-1 btn py-3.5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white font-['poppins'] shadow-lg hover:shadow-xl">
+                Get a Free Consultation
+              </button> */}
+              <button
+                onClick={() => handleContact()}
+                className='sm:flex-1 btn border-none py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium  shadow-lg hover:shadow-xl font-[poppins]'
+              >
+                Let's Build Your Vision
               </button>
             </div>
           </div>
 
           {/* Image Container */}
-          <div className='md:w-1/2 flex items-center justify-center h-full mt-8 md:mt-0'>
+          <div className='md:flex hidden items-center justify-center h-70 mt-8 md:mt-0'>
             <img
               src='/mobile2.png'
               alt='Mobile application showcase'
-              className='w-full max-w-md md:max-w-none object-contain h-auto max-h-[50vh] md:max-h-[60vh]'
+              className='md:w-80 lg:w-100'
             />
           </div>
         </motion.div>
