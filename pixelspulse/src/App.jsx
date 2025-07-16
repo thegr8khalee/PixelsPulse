@@ -8,7 +8,7 @@ import Portfolio from './pages/Portfolio';
 import Web from './pages/Web';
 import Apps from './pages/Apps';
 import UI from './pages/UI';
-import Branding from './pages/branding';
+// import Branding from './pages/Branding';
 import LandingPages from './pages/LandingPages';
 import Performance from './pages/Performance';
 import Maintenance from './pages/Maintenance';
@@ -17,6 +17,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import { Toaster } from 'react-hot-toast';
 import Terms from './pages/Terms';
+import Branding from './pages/Branding1';
 
 const App = () => {
   return (
