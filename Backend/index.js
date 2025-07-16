@@ -25,10 +25,10 @@ const __dirname = path.resolve();
 app.use('/api/contact', ContactRoutes);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+  app.use(express.static(path.join(__dirname, '../pixelspulse/dist')));
 
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '../pixelspulse', 'dist', 'index.html'));
   });
 }
 
