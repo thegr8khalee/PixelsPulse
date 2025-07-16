@@ -20,50 +20,67 @@ const Services = () => {
       description:
         'From dynamic corporate sites to complex web applications, we build robust, scalable, and user-centric web solutions tailored to your unique needs.',
       //   icon: "💻",
-      image: 'web.jpg', // replace with your actual image path
+      image: 'web.jpg',
+      link: '/web-development' // replace with your actual image path
     },
     {
       title: 'UI/UX Design',
       description:
         'Craft captivating and user-friendly interfaces that not only look stunning but also provide seamless, enjoyable interactions for your audience.',
-      image: 'ui.jpg', // replace with your actual image path
+      image: 'ui.jpg',
+      link: '/ui-ux-design' // replace with your actual image path
     },
     {
       title: 'Mobile Apps',
       description:
         'Reach your audience everywhere with intuitive iOS and Android applications. We design and develop engaging mobile experiences that drive connection and growth.',
-      image: 'mobile.jpg', // replace with your actual image path
+      image: 'mobile.jpg',
+      link: '/mobile-app' // replace with your actual image path
     },
     {
       title: 'Branding',
       description: 'Complete visual identity and brand strategy.',
-      image: 'brand.jpg', // replace with your actual image path
+      image: 'brand.jpg',
+      link: '/branding-graphics-design' // replace with your actual image path
     },
     {
       title: 'Landing Pages & Micro-sites',
       description:
         'High-converting, visually striking pages for launches, products, or campaigns.',
-      image: 'landing.jpg', // replace with your actual image path
+      image: 'landing.jpg',
+      link: '/landing-pages-microsites' // replace with your actual image path
     },
     {
       title: 'Performance optimization',
       description:
         'Speed, accessibility, and core web vitals — fine-tuned to perfection.',
-      image: 'performance.jpg', // replace with your actual image path
+      image: 'performance.jpg',
+      link: '/performance-optimization' // replace with your actual image path
     },
     {
       title: 'Maintenance & Support',
       description:
         'Ongoing updates, backups, and tech support to keep your product stable and secure.',
-      image: 'maintain.jpg', // replace with your actual image path
+      image: 'maintain.jpg',
+      link: '/maintenance-support' // replace with your actual image path
     },
     {
       title: 'E-commerce Solutions',
       description:
         'Launch and scale your online store with custom e-commerce solutions. We build secure, user-friendly platforms designed for sales growth.',
-      image: 'e-commerce.jpeg', // replace with your actual image path
+      image: 'e-commerce.jpeg',
+      link: '/e-commerce' // replace with your actual image path
     },
   ];
+
+//   const navigate = useNavigate()
+
+  const handleClick = (link) => {
+    navigate(link)
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10);
+  }
   return (
     <div>
       <section id='Hero' className='w-full text-center'>
@@ -140,7 +157,7 @@ const Services = () => {
                     <p className='text-gray-400 flex-grow'>
                       {service.description}
                     </p>
-                    <button className='mt-6 self-start text-sm font-medium text-accent hover:text-[#61e8ff]/80 transition-colors font-[montserrat]'>
+                    <button onClick={() => handleClick(service.link)} className='mt-6 self-start text-sm font-medium text-accent hover:text-[#61e8ff]/80 transition-colors font-[montserrat]'>
                       Learn more
                     </button>
                   </div>
