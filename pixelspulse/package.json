@@ -16,6 +16,7 @@
     "framer-motion": "^12.9.4",
     "lucide-react": "^0.506.0",
     "motion": "^12.9.4",
+    "pixelspulse": "file:..",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",

@@ -97,11 +97,11 @@ const LandingPage = () => {
                   <p className='font-["poppins"] text-gray-400'>
                     E-commerce website, products catalog, full brand Identity.
                   </p>
-                  <div className='card-actions w-full'>
+                  {/* <div className='card-actions w-full'>
                     <a className='text-accent font-[montserrat]'>
                       Learn More
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -120,11 +120,11 @@ const LandingPage = () => {
                   <p className='font-["poppins"] text-gray-400'>
                     Real-estate Website, UI/UX design and full brand identity.
                   </p>
-                  <div className='card-actions w-full'>
+                  {/* <div className='card-actions w-full'>
                     <a className='text-accent  font-[montserrat]'>
                       Learn More
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -144,11 +144,11 @@ const LandingPage = () => {
                     An eye-catching Logo design perfect for 3D and use as a
                     watermark.
                   </p>
-                  <div className='card-actions w-full'>
+                  {/* <div className='card-actions w-full'>
                     <a className='text-accent  font-[montserrat]'>
                       Learn More
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -168,16 +168,16 @@ const LandingPage = () => {
                     Beautifully design Products and Collections Catalogs with
                     details.
                   </p>
-                  <div className='card-actions w-full'>
+                  {/* <div className='card-actions w-full'>
                     <a className='text-accent font-[montserrat]'>
                       Learn More
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </motion.div>
-          <div className='w-full text-xl text-center mt-8 font-semibold text-primary'>
+          <div className='w-full text-xl text-center mt- font-semibold text-primary'>
             <a href="/portfolio">Explore Projects</a>
           </div>
 

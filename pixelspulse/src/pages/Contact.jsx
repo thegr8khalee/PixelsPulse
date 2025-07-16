@@ -39,7 +39,7 @@ import {
 } from 'lucide-react';
 import { useContactStore } from '../store/use.email.store';
 // import whatsapp from '../images/whatsapp_4401461.png'; // Assuming correct path
-import ig from '../images/ig.png';
+// import ig from '../images/ig.png';
 // import tiktok from '../images/tik-tok_4782345 (1).png';
 // import x from '../images/twitter_5968830.png';
 
@@ -72,7 +72,7 @@ const Contact = () => {
           </div>
         </BackgroundGradientAnimation>
       </section>
-      <section className='w-full flex flex-col justify-center items-center  px-4 mt-6 mb-20'>
+      <section className='w-full flex flex-col justify-center items-center  px-4 mt-6 mb-20 font-[poppins]'>
         <div className='bg-base-100 pb-4 w-full max-w-4xl rounded-lg shadow-xl'>
           <form onSubmit={handleSubmit} className='space-y-4'>
             <div>
@@ -149,7 +149,7 @@ const Contact = () => {
             </button>
           </form>
         </div>
-        <div className='bg-base-100 p-6 w-full rounded-lg shadow-xl'>
+        <div className='bg-base-100 w-full max-w-4xl rounded-lg shadow-xl'>
           <h2 className='text-2xl font-semibold font-[poppins] mb-6 text-primary'>
             Our Contact Details
           </h2>
@@ -177,38 +177,31 @@ const Contact = () => {
                   href='https://www.instagram.com/pixelspulse.dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
                   target='_blank'
                   rel='noopener noreferrer'
-                  aria-label='Instagram'
+                  className='hover:opacity-80 transition-opacity'
                 >
-                  <img src={ig} alt='Instagram' className='size-10' />
+                  <img src='instagram.png' className='size-7' alt='' />
+                </a>
+                <a
+                  href='https://x.com/pixelspulsedev'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='hover:opacity-80 transition-opacity'
+                >
+                  <img src='twitter.png' className='size-7' alt='' />
+                </a>
+                <a
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  href='https://www.linkedin.com/company/pixelspulse/about/?viewAsMember=true'
+                  className='hover:opacity-80 transition-opacity'
+                >
+                  <img src='linkedin.png' className='size-7' alt='' />
                 </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* <section className='py-20 px-4 sm:px-6 lg:px-8 bg-base-200'>
-        <motion.div
-          className='max-w-4xl mx-auto text-center'
-          initial={{
-            opacity: 0.2,
-            scale: 0.9,
-          }}
-          viewport={{ once: false, amount: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-bold">
-            Ready to feel the pulse of{' '}
-            <span className='text-primary'>digital success?</span>
-          </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
-            Let's start a conversation about your next project.
-          </p>
-          <button className='px-8 py-3 rounded-lg bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'>
-            Contact Us Today
-          </button>
-        </motion.div>
-      </section> */}
     </div>
   );
 };

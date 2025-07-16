@@ -16,6 +16,7 @@ import ECommerce from './pages/ECommerce';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import { Toaster } from 'react-hot-toast';
+import Terms from './pages/Terms';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
         <Route path='/e-commerce' element={<ECommerce />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/terms' element={<Terms />} />
       </Routes>
       <Footer />
       <Toaster/>

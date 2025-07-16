@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion'; // Keeping this as it was in the original user code
 import { X } from 'lucide-react';
+import { BackgroundGradient } from '../components/card.jsx';
+import { cn } from '../lib/utils.jsx';
 
 // Project data (replace with your actual project details and add more images)
 const projects = [
@@ -15,13 +17,15 @@ const projects = [
     images: [
       // Array of image paths for the modal
       'emm.png',
-      'https://placehold.co/800x600/E0E7FF/3F51B5?text=MIMI+Detail+1', // Placeholder for additional image
-      'https://placehold.co/800x600/E0E7FF/3F51B5?text=MIMI+Detail+2', // Placeholder for additional image
+      'em2.png', // Placeholder for additional image
+      'em4.png', // Placeholder for additional image
+      'em5.png',
+
     ],
     fullDescription:
       'Everything MIMI is a comprehensive e-commerce platform for a furniture and interior design company. We developed a user-friendly online store, integrated a detailed products catalog, and crafted a full brand identity that resonates with their aesthetic. The site focuses on high-quality visuals and a seamless shopping experience, allowing customers to easily browse, select, and purchase furniture and interior design elements.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Stripe'],
-    liveLink: 'https://www.example.com/mimi', // Replace with actual link
+    technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'DaisyUI'],
+    liveLink: 'https://em-furniture-and-interior.onrender.com', // Replace with actual link
   },
   {
     id: 'domora',
@@ -29,13 +33,13 @@ const projects = [
     category: 'Real-estate Website, UI/UX design and full brand identity.',
     images: [
       'Domora.png',
-      'https://placehold.co/800x600/D1C4E9/673AB7?text=Domora+Detail+1',
-      'https://placehold.co/800x600/D1C4E9/673AB7?text=Domora+Detail+2',
+      'domora1.png',
+    //   'https://placehold.co/800x600/D1C4E9/673AB7?text=Domora+Detail+2',
     ],
     fullDescription:
       'Domora is an ongoing real-estate project focused on creating a modern and intuitive platform for property listings and management. Our work includes comprehensive UI/UX design to ensure a seamless user journey for both buyers and sellers, along with developing a full brand identity that conveys trust and sophistication in the real-estate market. The website will feature advanced search filters, interactive maps, and detailed property profiles.',
-    technologies: ['Next.js', 'Firebase', 'Figma', 'Tailwind CSS'],
-    liveLink: 'https://www.example.com/domora', // Replace with actual link
+    technologies: ['React', 'Firebase', 'Figma', 'Tailwind CSS', 'Node.js', 'Canva'],
+    liveLink: 'https://www.figma.com/design/RKSzc7mx8w8tWuneSJkuVn/Domora?node-id=0-1&t=2lFlvOHcUZ4fgqrW-1', // Replace with actual link
   },
   {
     id: 'kaduna',
@@ -44,7 +48,7 @@ const projects = [
       'An eye-catching Logo design perfect for 3D and use as a watermark.',
     images: [
       'kad.png',
-      'https://placehold.co/800x600/C8E6C9/4CAF50?text=Kaduna+Logo+Detail',
+    //   'https://placehold.co/800x600/C8E6C9/4CAF50?text=Kaduna+Logo+Detail',
     ],
     fullDescription:
       "For Kaduna Real Estate Properties, we focused on creating a distinctive and memorable logo design. The logo was crafted with versatility in mind, ensuring it looks equally striking in 2D and 3D applications, and can be effectively used as a watermark on property images. The design captures the essence of stability and growth, reflecting the company's presence in the real estate sector.",
@@ -52,8 +56,9 @@ const projects = [
       'Adobe Illustrator',
       'Adobe Photoshop',
       '3D Modeling Software',
+      'Canva'
     ],
-    liveLink: 'https://www.example.com/kaduna-logo', // Replace with actual link
+    liveLink: 'https://www.canva.com/design/DAFWmSb06U0/ys0H3SV20SPoTO-hJZt6aw/view?utm_content=DAFWmSb06U0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h45ffc72636', // Replace with actual link
   },
   {
     id: 'pheez',
@@ -62,13 +67,13 @@ const projects = [
       'Beautifully design Products and Collections Catalogs with details.',
     images: [
       'Pheez.png',
-      'https://placehold.co/800x600/BBDEFB/2196F3?text=PHEEZYHOMES+Catalog+1',
-      'https://placehold.co/800x600/BBDEFB/2196F3?text=PHEEZYHOMES+Catalog+2',
+    //   'em2.png',
+    //   'https://placehold.co/800x600/BBDEFB/2196F3?text=PHEEZYHOMES+Catalog+2',
     ],
     fullDescription:
       'PHEEZYHOMES & Interior required meticulously designed product and collections catalogs. We created visually stunning layouts with rich details, ensuring each item was presented in the best light. The catalogs are designed to be both informative and aesthetically pleasing, guiding customers through their extensive range of home and interior products with clarity and elegance.',
-    technologies: ['Adobe InDesign', 'Adobe Photoshop', 'Product Photography'],
-    liveLink: 'https://www.example.com/pheez-catalog', // Replace with actual link
+    technologies: ['Canva'],
+    liveLink: 'https://www.canva.com/design/DAGnWm_n-ZI/bUFkenrRw3MoNWHDKYlgRg/view?utm_content=DAGnWm_n-ZI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf0b190c6f1', // Replace with actual link
   },
 ];
 
@@ -100,8 +105,20 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
   }, [onClose]);
 
   return (
-    <div className='z-9999 px-2 modal modal-open flex items-center justify-center overflow-y-auto'>
-      <div className='h-[90vh] modal-box p-0 relative max-w-5xl rounded-lg shadow-2xl bg-base-100'>
+    <div
+      className='z-9999 px-2 modal modal-open flex items-center justify-center overflow-y-auto'
+      style={{
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+      }}
+    >
+      <div
+        className='h-[90vh] modal-box p-0 pb-10 relative max-w-3xl rounded-3xl shadow-2xl bg-base-200'
+        style={{
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+        }}
+      >
         <button
           className='z-999 btn btn-sm btn-circle absolute right-4 top-4'
           onClick={onClose}
@@ -109,7 +126,7 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
         >
           <X size={20} />
         </button>
-        <figure className='mb-2 w-full h-90 rounded-lg overflow-hidden relative'>
+        <figure className='mb-2 w-full h-50 sm:h-90 rounded-lg overflow-hidden relative'>
           <img
             src={mainImage}
             alt={project.title}
@@ -222,37 +239,51 @@ const Portfolio = () => {
       </section>
 
       <section className='w-full flex justify-center px-4 mt-6 mb-20'>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl w-full'>
-          {projects.map((project) => (
+        <div className='grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+          {projects.map((service, index) => (
             <div
-              key={project.id}
-              className='flex flex-col space-y-1 pb-2 bg-base-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer'
-              onClick={() => openLightbox(project)} // Open lightbox on card click
+              key={index}
+              className={cn(
+                'rounded-3xl overflow-hidden h-full',
+                'bg-base-200 hover:bg-base-300 transition-all duration-300'
+              )}
+              containerClassName='h-full'
             >
-              <figure className='overflow-hidden '>
-                <img
-                  src={project.images[0]} // Display the first image from the array in the grid
-                  alt={project.title}
-                  className='w-full h-56 rounded-t-xl hover:scale-105 transition-transform duration-300 '
-                  // No onError here, assuming user's local path is valid for grid view
-                />
-              </figure>
-              <div className='space-y-1 mt-1 px-4 '>
-                <div>
-                  <h2 className="font-['poppins'] font-semibold text-lg">
-                    {project.title}
-                  </h2>
-                  <p className='font-["poppins"] text-gray-400 text-sm'>
-                    {project.category}
-                  </p>
+              <motion.div
+                className='h-full flex flex-col'
+                // initial={{
+                //   opacity: 0.2, scale: 0.9
+                // }}
+                // viewport={{ once: false, amount: 0.5 }}
+                // whileInView={{ opacity: 1, scale: 1 }}
+                // transition={{ duration: 1 }}
+              >
+                {/* Image container */}
+                <div className='h-50 sm:h-70 md:h-55 overflow-hidden'>
+                  <img
+                    src={service.images[0]}
+                    alt={service.title}
+                    className='w-full h-full object-cover'
+                  />
                 </div>
 
-                <div className='card-actions w-full pt-1'>
-                  <span className='text-accent text-sm font-[montserrat] hover:underline cursor-pointer'>
-                    Learn More
-                  </span>
+                {/* Content container */}
+                <div className='p-6 pt-0 flex flex-col flex-grow'>
+                  {/* <div className='text-4xl mb-4'>{service.icon}</div> */}
+                  <h3 className='text-xl font-bold text-white my-2 font-[poppins]'>
+                    {service.title}
+                  </h3>
+                  <p className='text-gray-400 flex-grow'>
+                    {service.category}
+                  </p>
+                  <button
+                    onClick={() => openLightbox(service)}
+                    className='mt-6 self-start text-sm font-medium text-accent hover:text-[#61e8ff]/80 transition-colors font-[montserrat]'
+                  >
+                    Learn more
+                  </button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
