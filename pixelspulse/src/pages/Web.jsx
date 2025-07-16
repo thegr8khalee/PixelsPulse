@@ -36,7 +36,7 @@ const Web = () => {
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img
-            src='webdev.png'
+            src='webdev.jpg'
             alt='Web Development'
             className='relative w-full h-full object-cover'
           />

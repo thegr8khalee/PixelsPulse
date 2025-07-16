@@ -30,36 +30,36 @@ const Navbar = () => {
                     <summary>Services</summary>
                     <ul className='p-2 w-48 bg-base-100 rounded-t-none z-10 shadow'>
                       <li>
-                        <a href='/services/web-development'>Web Development</a>
+                        <a href='/web-development'>Web Development</a>
                       </li>
                       <li>
-                        <a href='/services/mobile-apps'>Mobile Apps</a>
+                        <a href='/mobile-app'>Mobile Apps</a>
                       </li>
                       <li>
-                        <a href='/services/ui-ux-design'>UI/UX Design</a>
+                        <a href='/ui-ux-design'>UI/UX Design</a>
                       </li>
                       <li>
-                        <a href='/services/branding-graphics-design'>
+                        <a href='/branding-graphics-design'>
                           Branding & Graphics Design
                         </a>
                       </li>
                       <li>
-                        <a href='/services/landing-pages-microsites'>
+                        <a href='/landing-pages-microsites'>
                           Landing Pages & Microsites
                         </a>
                       </li>
                       <li>
-                        <a href='/services/performance-optimization'>
+                        <a href='/performance-optimization'>
                           Performance Optimization
                         </a>
                       </li>
                       <li>
-                        <a href='/services/maintenance-support'>
+                        <a href='/maintenance-support'>
                           Maintenance & Support
                         </a>
                       </li>
                       <li>
-                        <a href='/services/e-commerce-solution'>
+                        <a href='/e-commerce'>
                           E-commerce Solutions
                         </a>
                       </li>
