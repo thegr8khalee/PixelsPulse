@@ -22,7 +22,7 @@ import Branding from './pages/Branding1';
 const App = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/services' element={<Services />} />

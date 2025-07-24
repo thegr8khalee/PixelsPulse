@@ -8,17 +8,17 @@ export const BackgroundGradientAnimation = ({
   firstColor = '97, 232, 255',
   secondColor = '97, 232, 255',
   thirdColor = '250, 103, 255',
-  fourthColor = '200, 50, 50',
+  fourthColor = '97, 232, 255',
   fifthColor = '97, 232, 255',
   pointerColor = '250, 103, 255',
-  size = '80%',
+  size = '100%',
   blendingValue = 'hard-light',
   children,
   className,
   interactive = true,
   containerClassName,
-  pulseIntensity = 0.2, // New prop to control pulse strength
-  pulseSpeed = 15, // New prop to control pulse speed (seconds per cycle)
+  pulseIntensity = 1, // New prop to control pulse strength
+  pulseSpeed = 100, // New prop to control pulse speed (seconds per cycle)
 }) => {
   const interactiveRef = useRef(null);
   const [pulseScale, setPulseScale] = useState(1);
