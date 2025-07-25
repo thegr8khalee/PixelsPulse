@@ -22,13 +22,13 @@ const LandingPage = () => {
       <div className='flex-1'>
         <BackgroundGradientAnimation className='items-center justify-center h-screen'>
           <div className='flex items-start justify-center pt-0 p-4'>
-            {/* <GlassCard
+            <GlassCard
               blurAmount={12}
               borderRadius='1.5rem'
               backgroundColor='rgba(255, 255, 255, 0.05)'
               borderColor='rgba(255, 255, 255, 0.2)'
               className='w-full max-w-2xl'
-            ></GlassCard> */}
+            ></GlassCard>
           </div>
         </BackgroundGradientAnimation>
       </div>
