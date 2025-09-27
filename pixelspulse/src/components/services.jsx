@@ -94,7 +94,7 @@ const ServicesSection = () => {
               key={index}
               className={cn(
                 'rounded-3xl overflow-hidden h-full',
-                'bg-base-100 hover:bg-base-200 transition-all duration-300'
+                'bg-base-100 transition-all duration-300'
               )}
               containerClassName='h-full'
             >

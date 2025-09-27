@@ -18,6 +18,10 @@ import Contact from './pages/Contact';
 import { Toaster } from 'react-hot-toast';
 import Terms from './pages/Terms';
 import Branding from './pages/Branding1';
+import Help from './pages/Help';
+import Privacy from './pages/privacy';
+import CookiePolicy from './pages/cookie';
+import UnsubscribeSuccess from './pages/unsubscribeSuccess';
 
 const App = () => {
   return (
@@ -38,6 +42,10 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/terms' element={<Terms />} />
+        <Route path='/help' element={<Help />} />
+        <Route path='/privacy' element={<Privacy />} />
+        <Route path='/cookie' element={<CookiePolicy />} />
+        <Route path='/unsubscribe-success' element={<UnsubscribeSuccess />} />
       </Routes>
       <Footer />
       <Toaster/>

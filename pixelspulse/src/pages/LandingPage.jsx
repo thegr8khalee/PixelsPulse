@@ -17,11 +17,11 @@ const LandingPage = () => {
     }, 10);
   };
   return (
-    <div className='relative min-h-screen flex flex-col overflow-x-hidden'>
+    <div className='relative flex flex-col overflow-x-hidden'>
       {/* Gradient Background Section */}
       <div className='flex-1'>
-        <BackgroundGradientAnimation className='items-center justify-center'>
-          <div className='flex items-start justify-center pt-0 p-4'>
+        <BackgroundGradientAnimation className='items-center h-screen justify-center flex pt-16'>
+          <div className='flex items-start justify-center pt-0 p-4 h-full'>
             <GlassCard
               blurAmount={12}
               borderRadius='1.5rem'

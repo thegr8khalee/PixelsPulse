@@ -3,7 +3,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <div className='drawer sticky top-0 z-110 font-[poppins]'>
+    <div className='drawer fixed top-0 z-110 font-[poppins]'>
       {/* Checkbox for drawer state */}
       <input id='my-drawer-3' type='checkbox' className='drawer-toggle' />
       <div className='drawer-content flex flex-col'>

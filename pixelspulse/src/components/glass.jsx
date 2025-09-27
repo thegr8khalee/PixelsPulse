@@ -12,11 +12,11 @@ const GlassmorphicHero = () => {
     }, 10);
   };
   return (
-    <div className='flex items-center justify-center py-12 px-4 sm:px-6 lg:px-16'>
-      <div className='relative z-10 w-full max-w-7xl flex items-center'>
+    <div className='flex h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-16'>
+      <div className='relative z-10 w-full h-full max-w-7xl flex items-center'>
         {/* Main Glass Card - now with min-height */}
         <motion.div
-          className='backdrop-blur-xl bg-white/5 rounded-3xl py-8 px-4 sm:p-12 lg:p-16 lg:px-24 border-hidden shadow-2xl flex flex-col md:flex-row items-center gap-8 lg:gap-16 w-full justify-between'
+          className='backdrop-blur-xl bg-white/5 rounded-3xl py-8 h-full px-4 sm:p-12 lg:p-16 lg:px-24 border-hidden shadow-2xl flex flex-col md:flex-row items-center gap-8 lg:gap-16 w-full justify-between'
           initial={{
             opacity: 0,
           }}
@@ -40,11 +40,11 @@ const GlassmorphicHero = () => {
               presence.
             </p>
 
-            <div className='md:hidden flex items-center justify-center h-40 sm:h-50 pb-9'>
+            <div className='md:hidden flex items-center justify-center h-70 sm:h-50 pb-9'>
               <img
                 src='/mobile2.png'
                 alt='Mobile application showcase'
-                className='w-50 sm:w-60'
+                className='w-90 sm:w-60'
               />
             </div>
 
