@@ -45,7 +45,7 @@ const App = () => {
         <Route path='/help' element={<Help />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/cookie' element={<CookiePolicy />} />
-        <Route path='/unsubscribe-success' element={<UnsubscribeSuccess />} />
+        <Route path='/unsubscribe/:email' element={<UnsubscribeSuccess />} />
       </Routes>
       <Footer />
       <Toaster/>
