@@ -14,18 +14,26 @@ const projects = [
     id: 'mimi',
     title: 'Everything MIMI',
     category: 'E-commerce website, products catalog, full brand Identity.',
-    images: [
-      // Array of image paths for the modal
-      'emm.png',
-      'em2.png', // Placeholder for additional image
-      'em4.png', // Placeholder for additional image
-      'em5.png',
-
-    ],
+    images: ['emm.png', 'em2.png', 'em4.png', 'em5.png'],
     fullDescription:
       'Everything MIMI is a comprehensive e-commerce platform for a furniture and interior design company. We developed a user-friendly online store, integrated a detailed products catalog, and crafted a full brand identity that resonates with their aesthetic. The site focuses on high-quality visuals and a seamless shopping experience, allowing customers to easily browse, select, and purchase furniture and interior design elements.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'DaisyUI'],
-    liveLink: 'https://em-furniture-and-interior.onrender.com', // Replace with actual link
+    liveLink: 'https://emfurnitureandinterior.com', // Replace with actual link
+  },
+  {
+    id: 'pheez',
+    title: 'PHEEZYHOMES & Interior',
+    category: 'E-commerce Website · Product & Collections Catalogs',
+    images: [
+      'Pheez.png',
+      'pheez1.png',
+      'pheez2.png',
+    ],
+    fullDescription:
+      'PHEEZYHOMES & Interior required a meticulously designed e-commerce website featuring product, collection, and project management systems. We delivered a visually striking layout with rich details, ensuring each item is presented beautifully. The catalogs are crafted to be both informative and aesthetically engaging, guiding customers through their wide range of home and interior products with clarity and elegance.',
+    technologies: ['Canva', 'Node.js', 'Express', 'React', 'MongoDB'], // You can also add: 'UI Design', 'Prototyping'
+    liveLink:
+      'https://www.pheezyhomesinteriors.com',
   },
   {
     id: 'domora',
@@ -34,12 +42,20 @@ const projects = [
     images: [
       'Domora.png',
       'domora1.png',
-    //   'https://placehold.co/800x600/D1C4E9/673AB7?text=Domora+Detail+2',
+      //   'https://placehold.co/800x600/D1C4E9/673AB7?text=Domora+Detail+2',
     ],
     fullDescription:
       'Domora is an ongoing real-estate project focused on creating a modern and intuitive platform for property listings and management. Our work includes comprehensive UI/UX design to ensure a seamless user journey for both buyers and sellers, along with developing a full brand identity that conveys trust and sophistication in the real-estate market. The website will feature advanced search filters, interactive maps, and detailed property profiles.',
-    technologies: ['React', 'Firebase', 'Figma', 'Tailwind CSS', 'Node.js', 'Canva'],
-    liveLink: 'https://www.figma.com/design/RKSzc7mx8w8tWuneSJkuVn/Domora?node-id=0-1&t=2lFlvOHcUZ4fgqrW-1', // Replace with actual link
+    technologies: [
+      'React',
+      'Firebase',
+      'Figma',
+      'Tailwind CSS',
+      'Node.js',
+      'Canva',
+    ],
+    liveLink:
+      'https://www.figma.com/design/RKSzc7mx8w8tWuneSJkuVn/Domora?node-id=0-1&t=2lFlvOHcUZ4fgqrW-1', // Replace with actual link
   },
   {
     id: 'kaduna',
@@ -48,7 +64,7 @@ const projects = [
       'An eye-catching Logo design perfect for 3D and use as a watermark.',
     images: [
       'kad.png',
-    //   'https://placehold.co/800x600/C8E6C9/4CAF50?text=Kaduna+Logo+Detail',
+      //   'https://placehold.co/800x600/C8E6C9/4CAF50?text=Kaduna+Logo+Detail',
     ],
     fullDescription:
       "For Kaduna Real Estate Properties, we focused on creating a distinctive and memorable logo design. The logo was crafted with versatility in mind, ensuring it looks equally striking in 2D and 3D applications, and can be effectively used as a watermark on property images. The design captures the essence of stability and growth, reflecting the company's presence in the real estate sector.",
@@ -56,24 +72,10 @@ const projects = [
       'Adobe Illustrator',
       'Adobe Photoshop',
       '3D Modeling Software',
-      'Canva'
+      'Canva',
     ],
-    liveLink: 'https://www.canva.com/design/DAFWmSb06U0/ys0H3SV20SPoTO-hJZt6aw/view?utm_content=DAFWmSb06U0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h45ffc72636', // Replace with actual link
-  },
-  {
-    id: 'pheez',
-    title: 'PHEEZYHOMES & Interior',
-    category:
-      'Beautifully design Products and Collections Catalogs with details.',
-    images: [
-      'Pheez.png',
-    //   'em2.png',
-    //   'https://placehold.co/800x600/BBDEFB/2196F3?text=PHEEZYHOMES+Catalog+2',
-    ],
-    fullDescription:
-      'PHEEZYHOMES & Interior required meticulously designed product and collections catalogs. We created visually stunning layouts with rich details, ensuring each item was presented in the best light. The catalogs are designed to be both informative and aesthetically pleasing, guiding customers through their extensive range of home and interior products with clarity and elegance.',
-    technologies: ['Canva'],
-    liveLink: 'https://www.canva.com/design/DAGnWm_n-ZI/bUFkenrRw3MoNWHDKYlgRg/view?utm_content=DAGnWm_n-ZI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf0b190c6f1', // Replace with actual link
+    liveLink:
+      'https://www.canva.com/design/DAFWmSb06U0/ys0H3SV20SPoTO-hJZt6aw/view?utm_content=DAFWmSb06U0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h45ffc72636', // Replace with actual link
   },
 ];
 
@@ -222,9 +224,9 @@ const Portfolio = () => {
   };
 
   return (
-    <div className='pt-16 bg-base-100 text-base-content'>
+    <div className='pt-16 bg-base-100 text-base-content max-w-7xl mx-auto'>
       <section id='Hero' className='w-full text-center'>
-        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2'>
+        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-4'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
             Our Work:
             <span className='text-primary'>Where Ideas Take Digital Form</span>
@@ -273,9 +275,7 @@ const Portfolio = () => {
                   <h3 className='text-xl font-bold text-white my-2 font-[poppins]'>
                     {service.title}
                   </h3>
-                  <p className='text-gray-400 flex-grow'>
-                    {service.category}
-                  </p>
+                  <p className='text-gray-400 flex-grow'>{service.category}</p>
                   <button
                     onClick={() => openLightbox(service)}
                     className='mt-6 self-start text-sm font-medium text-accent hover:text-[#61e8ff]/80 transition-colors font-[montserrat]'
