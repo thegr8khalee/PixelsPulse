@@ -1,6 +1,6 @@
 import { sendEmail, verifyConnection } from './services/gmail.service.js';
 
-const test = async () => {
+export const test1 = async () => {
   // Verify connection
   await verifyConnection();
   
@@ -18,4 +18,4 @@ const test = async () => {
   }
 };
 
-test();
+test1();

@@ -7,6 +7,7 @@ import ContactRoutes from './routes/contact.routes.js'
 import NewstellerRoutes from './routes/newsteller.routes.js'
 import { connectDB } from './lib/db.js';
 import { verifyConnection } from './services/gmail.service.js';
+import { test1 } from './test-gmail.js';
 const app = express();
 
 if (process.env.NODE_ENV !== 'production') {
@@ -40,4 +41,5 @@ app.listen(PORT, () => {
   console.log('Server running on port: ', PORT);
   connectDB();
   verifyConnection();
+  test1();
 });
