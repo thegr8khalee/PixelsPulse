@@ -41,7 +41,7 @@ const About = () => {
   return (
     <div className='pt-16'>
       <section id='Hero' className='w-full text-center'>
-        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2'>
+        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
             Your Brand's Digital Heartbeat:
             <span className='text-primary'> Our Story, Our Passion</span>

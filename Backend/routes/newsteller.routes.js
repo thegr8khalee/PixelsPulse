@@ -4,7 +4,7 @@ import { registerToNewsteller, unsubscribeFromNewsteller } from '../controllers/
 const router = express.Router();
 
 router.post('/', registerToNewsteller);
-router.delete('/unsubscribe/:email', unsubscribeFromNewsteller);
+router.get('/unsubscribe/:email', unsubscribeFromNewsteller);
 
 
 export default router;

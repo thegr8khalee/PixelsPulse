@@ -20,7 +20,7 @@ const LandingPage = () => {
     <div className='relative flex flex-col overflow-x-hidden'>
       {/* Gradient Background Section */}
       <div className='flex-1'>
-        <BackgroundGradientAnimation className='items-center h-screen justify-center flex pt-16'>
+        <BackgroundGradientAnimation className='items-center h-screen justify-center flex pt-16 px-2'>
           <div className='flex items-start justify-center pt-0 p-4 h-full'>
             <GlassCard
               blurAmount={12}
