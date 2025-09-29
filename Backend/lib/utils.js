@@ -1,38 +1,33 @@
-import transporter from '../services/nodemailer.service.js';
+// lib/utils.js
+import { sendEmail } from '../services/gmail.service.js';
 import dotenv from 'dotenv';
 
-dotenv.config(); // Load environment variables (ensure these are loaded early in your app entry point)
+dotenv.config();
 
-// Function to send the welcome email
+/**
+ * Send welcome email using Gmail API
+ */
 export const sendWelcomeEmail = async (recipientEmail) => {
-  const mailOptions = {
-    // Use environment variable for the 'from' address
-    from: `"PixelsPulse Newsletter" <${process.env.EMAIL_USER}>`,
-    to: recipientEmail,
-    subject: 'Welcome to PixelsPulse Newsletter! 🎉',
-
-    text: `
+  const textContent = `
 Hello there 👋,
 
 Thank you for subscribing to the PixelsPulse Newsletter! 
 Expect updates on web development, design inspiration, and digital strategy tips.
 
-We’re more than just a web agency — we’re your digital partners 🚀.
+We're more than just a web agency — we're your digital partners 🚀.
 
 Explore what we do: https://pixelspulse.dev 
 
-If you wish to unsubscribe, click here: https://pixelspulse.dev/api/newsletter/unsubscribe/${encodeURIComponent(
-      recipientEmail
-    )}
+If you wish to unsubscribe, click here: https://pixelspulse.dev/api/newsteller/unsubscribe/${encodeURIComponent(recipientEmail)}
 
 Best regards, 
 The PixelsPulse Team 
 ${process.env.EMAIL_USER} 
 
 © 2025 PixelsPulse. All rights reserved.
-        `,
+  `;
 
-    html: `
+  const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -63,14 +58,14 @@ ${process.env.EMAIL_USER}
                     <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px">Hi there 👋,</p>
                     <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px">
                         Thank you for subscribing to the <b>PixelsPulse Newsletter</b>. 
-                        You’ve officially joined a community that believes every brand has a unique rhythm — 
-                        and we’re here to bring it to life digitally.
+                        You've officially joined a community that believes every brand has a unique rhythm — 
+                        and we're here to bring it to life digitally.
                     </p>
                     <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px">
                         Expect regular updates on web development, design inspiration, digital strategy tips, and exclusive insights tailored just for you.
                     </p>
                     <p style="font-size: 16px; line-height: 1.6; margin: 0 0 15px">
-                        We’re more than just a web agency — we’re your digital partners 🚀.
+                        We're more than just a web agency — we're your digital partners 🚀.
                     </p>
                 </td>
             </tr>
@@ -90,17 +85,13 @@ ${process.env.EMAIL_USER}
                 <td style="background: #0a0a23; color: #ffffff; text-align: center; padding: 20px; font-size: 12px;">
                     <p style="margin: 0; font-family: Montserrat, sans-serif">© 2025 PixelsPulse. All rights reserved.</p>
                     <p style="margin: 5px 0 10px">
-                        <a href="mailto:${
-                          process.env.EMAIL_USER
-                        }" style="color: #30d5f3; text-decoration: none">
+                        <a href="mailto:${process.env.EMAIL_USER}" style="color: #30d5f3; text-decoration: none">
                             ${process.env.EMAIL_USER}
                         </a>
                     </p>
 
                     <!-- UNSUBSCRIBE BUTTON -->
-                    <a href="https://pixelspulse.dev/api/newsteller/unsubscribe/${encodeURIComponent(
-                      recipientEmail
-                    )}" target="_blank"
+                    <a href="https://pixelspulse.dev/api/newsteller/unsubscribe/${encodeURIComponent(recipientEmail)}" target="_blank"
                         style="display: inline-block; margin-top: 10px; background: #d946ef; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-family: Poppins, sans-serif; font-weight: 600; font-size: 14px;">
                         Unsubscribe
                     </a>
@@ -109,9 +100,21 @@ ${process.env.EMAIL_USER}
         </table>
     </body>
 </html>
-        `,
-  };
+  `;
 
-  // The centralized transporter now handles the sending logic
-  return transporter.sendMail(mailOptions);
+  try {
+    const result = await sendEmail({
+      to: recipientEmail,
+      subject: 'Welcome to PixelsPulse Newsletter! 🎉',
+      text: textContent,
+      html: htmlContent,
+      from: `"PixelsPulse Newsletter" <${process.env.EMAIL_USER}>`,
+    });
+
+    console.log(`✅ Welcome email sent to ${recipientEmail}:`, result.messageId);
+    return result;
+  } catch (error) {
+    console.error('❌ Failed to send welcome email:', error.message);
+    throw error;
+  }
 };
