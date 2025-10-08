@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { BackgroundGradient } from '../components/card.jsx';
 import { cn } from '../lib/utils.jsx';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const ServicesSection = () => {
   const services = [
@@ -70,23 +70,23 @@ const ServicesSection = () => {
   return (
     <section className='py-20 px-4 sm:px-6 lg:px-8 '>
       <div className='max-w-7xl mx-auto'>
-        <motion.div
+        <div
           className='text-center mb-16'
           initial={{
             opacity: 0,
           }}
           viewport={{ once: true, amount: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1.05 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <h2 className='text-4xl sm:text-6xl md:text-6xl lg:text-6xl font-[poppins] font-bold text-white mb-4'>
+          <h2 className='text-4xl sm:text-6xl md:text-6xl lg:text-6xl font-[poppins] font-medium text-white mb-4'>
             Our Services
           </h2>
 
           <p className='text-1xl text-gray-400 max-w-2xl mx-auto font-[montserrat]'>
             We deliver exceptional digital experiences tailored to your needs
           </p>
-        </motion.div>
+        </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
           {services.map((service, index) => (
@@ -98,14 +98,8 @@ const ServicesSection = () => {
               )}
               containerClassName='h-full'
             >
-              <motion.div
+              <div
                 className='h-full flex flex-col'
-                // initial={{
-                //   opacity: 0.2, scale: 0.9
-                // }}
-                // viewport={{ once: false, amount: 0.5 }}
-                // whileInView={{ opacity: 1, scale: 1 }}
-                // transition={{ duration: 1 }}
               >
                 {/* Image container */}
                 <div className='h-50 overflow-hidden'>
@@ -119,7 +113,7 @@ const ServicesSection = () => {
                 {/* Content container */}
                 <div className='p-6 pt-0 flex flex-col flex-grow'>
                   <div className='text-4xl mb-4'>{service.icon}</div>
-                  <h3 className='text-xl font-bold text-white mb-2 font-[poppins]'>
+                  <h3 className='text-xl font-semibold text-white mb-2 font-[poppins]'>
                     {service.title}
                   </h3>
                   <p className='text-gray-400 flex-grow'>
@@ -129,7 +123,7 @@ const ServicesSection = () => {
                     Learn more
                   </button>
                 </div>
-              </motion.div>
+              </div>
             </BackgroundGradient>
           ))}
         </div>

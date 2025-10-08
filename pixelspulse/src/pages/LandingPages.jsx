@@ -58,7 +58,7 @@ const LandingPages = () => {
   return (
     <div className='pt-16'>
       <section id='Hero' className='relative w-full text-center'>
-        <div className='h-50 lg:h-70'>
+        <div className='h-50 lg:h-70 w-full'>
           <img
             src='land.jpg'
             alt='Web Development'
