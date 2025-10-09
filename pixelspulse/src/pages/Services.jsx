@@ -5,6 +5,7 @@ import { cn } from '../lib/utils.jsx';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import ServicesSection from '../components/services.jsx';
 
 const Services = () => {
     const navigate = useNavigate();
@@ -108,66 +109,8 @@ const Services = () => {
           Our Core Offerings
         </div>
       </section>
-      <section className='mb-10 px-4 sm:px-6 lg:px-8 '>
-        <div className='max-w-7xl mx-auto'>
-          <motion.div
-            className='text-center mb-16'
-            initial={{
-              opacity: 1,
-            }}
-            viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1.05 }}
-            transition={{ duration: 1 }}
-          ></motion.div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
-            {services.map((service, index) => (
-              <BackgroundGradient
-                key={index}
-                className={cn(
-                  'rounded-3xl overflow-hidden h-full',
-                  'bg-base-100 hover:bg-base-200 transition-all duration-300'
-                )}
-                containerClassName='h-full'
-              >
-                <motion.div
-                  className='h-full flex flex-col'
-                  // initial={{
-                  //   opacity: 0.2, scale: 0.9
-                  // }}
-                  // viewport={{ once: false, amount: 0.5 }}
-                  // whileInView={{ opacity: 1, scale: 1 }}
-                  // transition={{ duration: 1 }}
-                >
-                  {/* Image container */}
-                  <div className='h-50 overflow-hidden'>
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className='w-full h-full object-cover'
-                    />
-                  </div>
-
-                  {/* Content container */}
-                  <div className='p-6 pt-0 flex flex-col flex-grow'>
-                    <div className='text-4xl mb-4'>{service.icon}</div>
-                    <h3 className='text-xl font-bold text-white mb-2 font-[poppins]'>
-                      {service.title}
-                    </h3>
-                    <p className='text-gray-400 flex-grow'>
-                      {service.description}
-                    </p>
-                    <button onClick={() => handleClick(service.link)} className='mt-6 self-start text-sm font-medium text-accent hover:text-[#61e8ff]/80 transition-colors font-[montserrat]'>
-                      Learn more
-                    </button>
-                  </div>
-                </motion.div>
-              </BackgroundGradient>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-base-200'>
+      <ServicesSection />
+      <section className='py-20 px-4 sm:px-6 lg:px-8'>
         <motion.div
           className='max-w-4xl mx-auto text-center'
           initial={{
@@ -184,7 +127,7 @@ const Services = () => {
           <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
             Let's discuss how our services can empower your brand.
           </p>
-          <button onClick={() => handleContact()} className='px-8 py-3 rounded-lg bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'>
+          <button onClick={() => handleContact()} className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'>
             Get a Free Consultation
           </button>
         </motion.div>

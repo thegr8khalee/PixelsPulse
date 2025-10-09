@@ -24,7 +24,7 @@ export const BackgroundGradient = ({
         opacity: 0.5,
         scale: 0.9,
       }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
     >

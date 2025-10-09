@@ -24,13 +24,76 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 const Web = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 10);
   };
+
+  const features = [
+    {
+      icon: Heart,
+      title: 'Increased Online Presence',
+      description: 'Establish a professional and credible digital footprint.',
+    },
+    {
+      icon: UserRound,
+      title: 'Enhanced User Experience',
+      description:
+        'Keep visitors engaged with intuitive navigation and fast loading times.',
+    },
+    {
+      icon: ChartSpline,
+      title: 'Scalability for Growth',
+      description:
+        'Build a foundation that can evolve with your business needs.',
+    },
+    {
+      icon: Eye,
+      title: 'Stronger Brand Identity',
+      description: "Reflect your brand's unique personality and values online.",
+    },
+    {
+      icon: ClockFading,
+      title: 'Operational Efficiency',
+      description:
+        'Streamline processes with custom functionalities and integrations.',
+    },
+  ];
+
+  const features1 = [
+    {
+      icon: Settings2Icon,
+      title: 'Custom Website Design & Development',
+    },
+    {
+      icon: TableOfContents,
+      title: 'Content Management System (CMS) Integration',
+    },
+    {
+      icon: MonitorSmartphone,
+      title: 'Responsive Design',
+    },
+    {
+      icon: Database,
+      title: 'Database Design & Integration',
+    },
+    {
+      icon: Globe,
+      title: 'Cross-Browser & Device Compatibility',
+    },
+    {
+      icon: CloudCog,
+      title: 'SEO-Friendly Structure & Implementation',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Secure & Scalable Architecture',
+    },
+  ];
+
   return (
     <div className='pt-16'>
       <section id='Hero' className='relative w-full text-center'>
@@ -47,7 +110,10 @@ const Web = () => {
               Building Your Digital Foundation:
               <span className='text-primary'>Custom Web Development</span>
             </h1>
-            <button onClick={() => handleContact()} className='sm:w-md mt-4 btn border-none rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium  shadow-lg hover:shadow-xl font-[poppins]'>
+            <button
+              onClick={() => handleContact()}
+              className='sm:w-md mt-4 btn border-none rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium  shadow-lg hover:shadow-xl font-[poppins]'
+            >
               Let's Build Your Vision
             </button>
           </div>
@@ -55,7 +121,7 @@ const Web = () => {
       </section>
       <section className='w-full flex items-center justify-center px-4'>
         <div className='max-w-7xl py-4 space-y-4'>
-          <h1 className='text-2xl sm:text-3xl font-bold font-[poppins] text-primary'>
+          <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
             What We Do
           </h1>
           <p className='font-[poppins]'>
@@ -68,122 +134,33 @@ const Web = () => {
             clean code, responsive design, and seamless user experiences across
             all devices.
           </p>
-          <h1 className='text-2xl sm:text-3xl font-bold font-[poppins] text-primary'>
+          <h1 className='text-2xl sm:text-3xl font-mefium font-[poppins] text-primary'>
             Why It Matters
           </h1>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <Heart className='size-8 stroke-accent'></Heart>
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Increased Online Presence
-                </h1>
-              </div>
-              <p className='font-[montserrat] text-gray-300 mt-2'>
-                Establish a professional and credible digital footprint.
-              </p>
-              {/* </div> */}
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className='flex space-x-2 items-center'>
-                <UserRound className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Enhanced User Experience
-                </h1>
-              </div>
-              <p className='font-[montserrat] text-gray-300 mt-2'>
-                Keep visitors engaged with intuitive navigation and fast loading
-                times.
-              </p>
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <ChartSpline className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Scalability for Growth
-                </h1>
-              </div>
-              <p className='font-[montserrat] text-gray-300 mt-2'>
-                Build a foundation that can evolve with your business needs.
-              </p>
-              {/* </div> */}
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <Eye className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Stronger Brand Identity
-                </h1>
-              </div>
-              <p className='font-[montserrat] text-gray-300 mt-2'>
-                Reflect your brand's unique personality and values online.
-              </p>
-              {/* </div> */}
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <ClockFading className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Operational Efficiency
-                </h1>
-              </div>
-              <p className='font-[montserrat] text-gray-300 mt-2'>
-                Streamline processes with custom functionalities and
-                integrations.
-              </p>
-              {/* </div> */}
-            </motion.div>
+            {features.map(({ icon: Icon, title, description }, i) => (
+              <motion.div
+                key={i}
+                className='relative bg-gradient-to-br from-primary/10 to-accent/10 p-4 rounded-xl'
+                initial={{ opacity: 0.2, scale: 0.9 }}
+                viewport={{ once: true, amount: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className='absolute inset-0 rounded-xl pointer-events-none border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' />
+                <div className='flex space-x-2 items-center'>
+                  <Icon className='size-8 stroke-accent' />
+                  <h1 className='font-semibold font-[poppins] text-lg'>
+                    {title}
+                  </h1>
+                </div>
+                <p className='font-[montserrat] text-gray-300 mt-2'>
+                  {description}
+                </p>
+              </motion.div>
+            ))}
           </div>
-          <h1 className='text-2xl sm:text-3xl font-bold font-[poppins] text-primary'>
+          <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
             Our Process
           </h1>
           <p className='font-[poppins]'>
@@ -326,147 +303,30 @@ const Web = () => {
       </section>
       <section className='w-full flex items-center justify-center px-4'>
         <div className='max-w-7xl w-full py-4 space-y-4'>
-          <h1 className='text-2xl sm:text-3xl font-bold font-[poppins] text-primary'>
+          <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
             Key Features & Deliverables
           </h1>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-4 items-center'>
-                <Settings2Icon className='size-8 stroke-accent' />
+            {features.map(({ icon: Icon, title }, i) => (
+              <motion.div
+                key={i}
+                className='bg-gradient-to-br from-primary/10 to-accent/10 p-4 rounded-xl flex items-center space-x-4'
+                initial={{ opacity: 0.2, scale: 0.9 }}
+                viewport={{ once: true, amount: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.03 }}
+              >
+                <Icon className='size-8 stroke-accent' />
                 <h1 className='font-semibold font-[poppins] text-lg'>
-                  Custom Website Design & Development
+                  {title}
                 </h1>
-                {/* </div> */}
-              </div>
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-4 items-center'>
-                <TableOfContents className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Content Management System (CMS) Integration
-                </h1>
-              </div>
-              {/* </div> */}
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-4 items-center'>
-                <MonitorSmartphone className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Responsive Design
-                </h1>
-                {/* </div> */}
-              </div>
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl items-center flex'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <Database className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Database Design & Integration
-                </h1>
-                {/* </div> */}
-              </div>
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <Globe className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Cross-Browser & Device Compatibility
-                </h1>
-                {/* </div> */}
-              </div>
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <CloudCog className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  SEO-Friendly Structure & Implementation
-                </h1>
-                {/* </div> */}
-              </div>
-            </motion.div>
-            <motion.div
-              className='bg-base-200 p-4 rounded-xl items-center flex'
-              initial={{
-                opacity: 0.2,
-                scale: 0.9,
-              }}
-              viewport={{ once: true, amount: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              {/* <div className='bg-base-200 p-4 rounded-xl'> */}
-              <div className='flex space-x-2 items-center'>
-                <ShieldCheck className='size-8 stroke-accent' />
-                <h1 className='font-semibold font-[poppins] text-lg'>
-                  Secure & Scalable Architecture
-                </h1>
-                {/* </div> */}
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-base-200'>
+      <section className='py-20 px-4 sm:px-6 lg:px-8'>
         <motion.div
           className='max-w-4xl mx-auto text-center'
           initial={{
@@ -477,14 +337,17 @@ const Web = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-bold">
+          <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-medium">
             Ready to Build Your{' '}
             <span className='text-primary'>Dream Website?</span>
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
             Let's discuss your vision and make it a reality.
           </p>
-          <button onClick={() => handleContact()} className='px-8 py-3 rounded-lg bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'>
+          <button
+            onClick={() => handleContact()}
+            className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
+          >
             Get a Free Consultation
           </button>
         </motion.div>

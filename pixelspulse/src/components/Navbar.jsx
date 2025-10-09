@@ -44,6 +44,9 @@ const Navbar = () => {
                         </a>
                       </li>
                       <li>
+                        <a href='/ai'>AI Solutions</a>
+                      </li>
+                      <li>
                         <a href='/landing-pages-microsites'>
                           Landing Pages & Microsites
                         </a>
@@ -54,14 +57,10 @@ const Navbar = () => {
                         </a>
                       </li>
                       <li>
-                        <a href='/maintenance-support'>
-                          Maintenance & Support
-                        </a>
+                        <a href='/maintenance-support'>Maintenance & Support</a>
                       </li>
                       <li>
-                        <a href='/e-commerce'>
-                          E-commerce Solutions
-                        </a>
+                        <a href='/e-commerce'>E-commerce Solutions</a>
                       </li>
                     </ul>
                   </details>
@@ -143,6 +142,9 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
+                  <a href='/ai'>AI Solutions</a>
+                </li>
+                <li>
                   <a href='/landing-pages-microsites'>
                     Landing Pages & Microsites
                   </a>
@@ -153,14 +155,10 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a href='/maintenance-support'>
-                    Maintenance & Support
-                  </a>
+                  <a href='/maintenance-support'>Maintenance & Support</a>
                 </li>
                 <li>
-                  <a href='/e-commerce'>
-                    E-commerce Solutions
-                  </a>
+                  <a href='/e-commerce'>E-commerce Solutions</a>
                 </li>
               </ul>
             </details>

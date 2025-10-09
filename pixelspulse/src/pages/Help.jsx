@@ -202,7 +202,7 @@ const Help = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className='text-2xl font-semibold text-white mb-4 text-center font-[poppins]'
+                className='text-2xl text-white mb-4 text-center font-[poppins]'
               >
                 {section.title}
               </motion.h2>
@@ -210,7 +210,7 @@ const Help = () => {
               {section.data.map((faq, index) => (
                 <motion.div
                   key={index}
-                  className='rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 p-4 cursor-pointer'
+                  className='rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 p-4 cursor-pointer'
                   initial={{ opacity: 0, y: 20 }}
                   viewport={{ once: true, amount: 0.5 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -269,7 +269,7 @@ const Help = () => {
           Reach out at{' '}
           <button 
           onClick={() => window.location.href = '/contact'}
-          className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-xl'>
+          className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full'>
             Contact Page
           </button>{' '}
           or email us at{' '}

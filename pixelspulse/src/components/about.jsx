@@ -12,9 +12,9 @@ const AboutSection = () => {
   return (
     <section className='py-20 px-8 sm:px-6 lg:px-8 bg-base-100 max-w-4xl mx-auto'>
       <div className='max-w-7xl mx-auto'>
-        <div className='text-center mb-16 space-y-8'>
+        <div className='text-start sm:text-center mb-16 space-y-8'>
           <motion.div {...fadeUp}>
-            <h2 className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl mb-1 font-['Poppins'] font-medium">
+            <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins']">
               About Us
             </h2>
             <p className="text-lg max-w-2xl mx-auto font-['montserrat'] mb-2 text-accent">
@@ -31,7 +31,7 @@ const AboutSection = () => {
             <div className='flex flex-col md:flex-row items-center justify-center gap-8 mb-6 max-w-4xl mx-auto'>
               <TestimonialCard className='' />
               <div className='flex flex-col'>
-                <h2 className="sm:text-start mb-4 text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-['Poppins'] font-medium">
+                <h2 className="text-primary sm:text-start mb-4 text-3xl sm:text-4xl md:text-4xl lg:text-4xl font-['Poppins'] font-medium">
                   Our Founder's Message
                 </h2>
                 <p className='text-start font-["montserrat"] max-w-3xl mx-auto'>
@@ -64,7 +64,7 @@ const TestimonialCard = () => {
         <img
           src='ceo.jpg'
           alt='Professional portrait'
-          className='w-80 h-120 object-cover rounded-3xl mx-auto'
+          className='w-full h-120 object-cover rounded-3xl mx-auto'
         />
       </div>
     </div>

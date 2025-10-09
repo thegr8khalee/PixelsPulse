@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export const sendContactEmail = async (req, res) => {
-  const { name, email, subject, message } = req.body;
+  const { name, email, subject, message, phone, company, service, budget } = req.body;
   
   // Basic input validation
   if (!name || !email || !subject || !message) {

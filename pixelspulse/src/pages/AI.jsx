@@ -1,25 +1,22 @@
 import React from 'react';
 import {
-  Book,
-  BookOpen,
-  BringToFront,
+  BrainCircuit, // New AI-relevant icon
   ChartSpline,
-  Coins,
+  Cloud,
+  Code,
   Eye,
-  Hand,
-  Handshake,
-  LayoutPanelTop,
+  Lock,
   MessageCircle,
-  PersonStanding,
+  Repeat,
+  Rocket,
   Search,
-  Smartphone,
-  UserRound,
-  Waypoints,
+  ShieldCheck,
+  TabletSmartphone,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-const UI = () => {
+const AISolutions = () => {
   const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');
@@ -30,41 +27,73 @@ const UI = () => {
 
   const features = [
     {
-      icon: UserRound,
-      title: 'Higher User Satisfaction',
-      description: 'Create products that users love to use and return to.',
+      icon: ChartSpline,
+      title: 'Predictive Insights',
+      description: 'Leverage machine learning to forecast trends and make data-driven decisions.',
     },
     {
-      icon: ChartSpline,
-      title: 'Increased Conversions',
-      description: 'Guide users effortlessly towards desired actions.',
+      icon: Code,
+      title: 'Workflow Automation',
+      description: 'Automate repetitive tasks to boost efficiency and reduce operational costs.',
     },
     {
       icon: Eye,
-      title: 'Stronger Brand Perception',
-      description: 'Build trust and credibility through professional and thoughtful design.',
+      title: 'Personalized Experiences',
+      description: 'Use AI to understand user behavior and deliver highly relevant content or services.',
     },
     {
-      icon: Coins,
-      title: 'Reduced Development Costs',
-      description: 'Clear design specifications minimize rework and errors.',
+      icon: ShieldCheck,
+      title: 'Enhanced Security',
+      description: 'Implement AI-driven anomaly detection for proactive security and fraud prevention.',
     },
     {
-      icon: PersonStanding,
-      title: 'Enhanced Accessibility',
-      description: 'Ensure your digital products are usable by everyone.',
+      icon: TabletSmartphone,
+      title: 'Intelligent Integration',
+      description: 'Embed AI capabilities directly into your existing applications and platforms.',
     },
   ];
 
   const keyFeatures = [
-    { icon: UserRound, title: 'User Research & Persona Development' },
-    { icon: Waypoints, title: 'Information Architecture & Site Mapping' },
-    { icon: LayoutPanelTop, title: 'Wireframing & Interactive Prototyping' },
-    { icon: MessageCircle, title: 'Usability Testing & Feedback Integration' },
-    { icon: Smartphone, title: 'User Interface (UI) Design' },
-    { icon: BringToFront, title: 'Interaction Design & Animation' },
-    { icon: Book, title: 'Design System & Style Guide Creation' },
-    { icon: PersonStanding, title: 'Accessibility Compliance' },
+    {
+      icon: BrainCircuit,
+      title: 'Custom Machine Learning Models',
+      isImage: false,
+    },
+    {
+      icon: Cloud,
+      title: 'Cloud AI Service Integration (e.g., AWS, Azure, GCP)',
+      isImage: false,
+    },
+    {
+      icon: Search,
+      title: 'Natural Language Processing (NLP) & Sentiment Analysis',
+      isImage: false,
+    },
+    {
+      icon: Eye,
+      title: 'Computer Vision & Image Recognition',
+      isImage: false,
+    },
+    {
+      icon: MessageCircle,
+      title: 'AI-Powered Chatbots & Virtual Assistants',
+      isImage: false,
+    },
+    {
+      icon: Lock,
+      title: 'Ethical AI & Data Privacy Audits',
+      isImage: false,
+    },
+    {
+      icon: ChartSpline,
+      title: 'Predictive Analytics & Forecasting Tools',
+      isImage: false,
+    },
+    {
+      icon: Code,
+      title: 'API Development for AI Model Deployment',
+      isImage: false,
+    },
   ];
 
   return (
@@ -72,22 +101,24 @@ const UI = () => {
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img
-            src='UX.jpg'
-            alt='UI/UX Design'
+            src='AI.jpg' // Updated image source
+            alt='AI Solutions and Integrations'
             className='relative w-full h-full object-cover'
           />
         </div>
         <div className='absolute bg-black/50 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
           <div className='max-w-7xl p-4'>
             <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-bold font-[poppins]'>
-              Designing Experiences:{' '}
-              <span className='text-primary'>Intuitive UI/UX Design</span>
+              Transform Your Business:{' '}
+              <span className='text-primary'>
+                AI Solutions & Intelligent Automation
+              </span>
             </h1>
             <button
               onClick={() => handleContact()}
               className='sm:w-md mt-4 btn border-none rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium shadow-lg hover:shadow-xl font-[poppins]'
             >
-              Improve Your User Experience
+              Start Your AI Journey
             </button>
           </div>
         </div>
@@ -95,21 +126,17 @@ const UI = () => {
 
       <section className='w-full flex items-center justify-center px-4'>
         <div className='max-w-7xl py-4 space-y-4'>
+          {/* --- What We Do --- */}
           <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
-            What We Do
+            What We Offer
           </h1>
           <p className='font-[poppins]'>
-            At PixelsPulse, we believe that exceptional user experience (UX) and
-            intuitive user interface (UI) are the heart of any successful
-            digital product. Our UI/UX design services focus on understanding
-            your users' needs and behaviors to create interfaces that are not
-            only aesthetically pleasing but also highly functional and easy to
-            navigate. From user research and wireframing to prototyping and
-            final visual design, we ensure every interaction is delightful.
+            PixelsPulse specializes in designing, developing, and integrating powerful **Artificial Intelligence** and **Machine Learning** solutions. From custom predictive models and intelligent data processing to seamlessly integrating third-party AI services, we help businesses unlock new levels of automation, insight, and customer experience. We turn complex data into strategic advantage.
           </p>
 
+          {/* --- Why It Matters --- */}
           <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
-            Why It Matters
+            The Power of AI
           </h1>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
             {features.map(({ icon: Icon, title, description }, i) => (
@@ -135,11 +162,12 @@ const UI = () => {
             ))}
           </div>
 
+          {/* --- Our Process --- */}
           <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
-            Our Process
+            Our AI Implementation Roadmap
           </h1>
           <p className='font-[poppins]'>
-            Our human-centered design approach includes:
+            Our structured approach ensures your AI solution is effective, scalable, and delivers tangible business value:
           </p>
           <div>
             <motion.div
@@ -151,11 +179,11 @@ const UI = () => {
               <div className='flex space-x-2 items-center'>
                 <Search className='stroke-accent size-8' />
                 <h1 className='font-semibold font-[poppins] text-lg'>
-                  User Research & Discovery
+                  Discovery & Data Assessment
                 </h1>
               </div>
               <p className='ml-10 font-[montserrat] text-gray-300'>
-                Understanding your audience, their needs, and pain points.
+                Identifying high-impact AI opportunities and evaluating data readiness.
               </p>
             </motion.div>
             <div className='ml-3 bg-gray-500 h-10 w-0.5 rounded-full'></div>
@@ -168,13 +196,13 @@ const UI = () => {
             >
               <div className='mt-4'>
                 <div className='flex space-x-2 items-center'>
-                  <Waypoints className='stroke-accent size-8' />
+                  <BrainCircuit className='stroke-accent size-8' />
                   <h1 className='font-semibold font-[poppins] text-lg'>
-                    Information Architecture
+                    Model Prototyping & Training
                   </h1>
                 </div>
                 <p className='ml-10 font-[montserrat] text-gray-300'>
-                  Structuring content for logical and intuitive navigation.
+                  Developing, training, and validating the custom AI/ML model.
                 </p>
               </div>
             </motion.div>
@@ -188,13 +216,13 @@ const UI = () => {
             >
               <div className='mt-4'>
                 <div className='flex space-x-2 items-center'>
-                  <LayoutPanelTop className='stroke-accent size-8' />
+                  <Code className='stroke-accent size-8' />
                   <h1 className='font-semibold font-[poppins] text-lg'>
-                    Wireframing & Prototyping
+                    System Integration & Deployment
                   </h1>
                 </div>
                 <p className='ml-10 font-[montserrat] text-gray-300'>
-                  Sketching and building interactive models to test flows.
+                  Integrating the model into your existing software via robust APIs and backend services.
                 </p>
               </div>
             </motion.div>
@@ -208,13 +236,13 @@ const UI = () => {
             >
               <div className='mt-4'>
                 <div className='flex space-x-2 items-center'>
-                  <Hand className='stroke-accent size-8' />
+                  <ShieldCheck className='stroke-accent size-8' />
                   <h1 className='font-semibold font-[poppins] text-lg'>
-                    Usability Testing
+                    Validation & Ethical Review
                   </h1>
                 </div>
                 <p className='ml-10 font-[montserrat] text-gray-300'>
-                  Gathering feedback to refine and optimize the user journey.
+                  Rigorous testing for accuracy, bias, and system stability.
                 </p>
               </div>
             </motion.div>
@@ -228,13 +256,13 @@ const UI = () => {
             >
               <div className='mt-4'>
                 <div className='flex space-x-2 items-center'>
-                  <BookOpen className='stroke-accent size-8' />
+                  <Rocket className='stroke-accent size-8' />
                   <h1 className='font-semibold font-[poppins] text-lg'>
-                    UI Design & Style Guides
+                    Launch & Monitoring
                   </h1>
                 </div>
                 <p className='ml-10 font-[montserrat] text-gray-300'>
-                  Crafting the visual elements and ensuring brand consistency.
+                  Full deployment and setting up performance tracking dashboards.
                 </p>
               </div>
             </motion.div>
@@ -248,13 +276,13 @@ const UI = () => {
             >
               <div className='mt-4'>
                 <div className='flex space-x-2 items-center'>
-                  <Handshake className='stroke-accent size-8' />
+                  <Repeat className='stroke-accent size-8' />
                   <h1 className='font-semibold font-[poppins] text-lg'>
-                    Handoff & Collaboration
+                    Continuous Optimization
                   </h1>
                 </div>
                 <p className='ml-10 font-[montserrat] text-gray-300'>
-                  Providing clear assets for seamless development.
+                  Ongoing model retraining and infrastructure maintenance for peak performance.
                 </p>
               </div>
             </motion.div>
@@ -264,11 +292,12 @@ const UI = () => {
 
       <section className='w-full flex items-center justify-center px-4'>
         <div className='max-w-7xl w-full py-4 space-y-4'>
+          {/* --- Key Features & Deliverables --- */}
           <h1 className='text-2xl sm:text-3xl font-medium font-[poppins] text-primary'>
-            Key Features & Deliverables
+            Core AI Expertise
           </h1>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-            {keyFeatures.map(({ icon: Icon, title }, i) => (
+            {keyFeatures.map(({ icon, title, isImage }, i) => (
               <motion.div
                 key={i}
                 className='bg-gradient-to-br from-primary/10 to-accent/10 p-4 rounded-xl flex items-center space-x-4'
@@ -278,7 +307,13 @@ const UI = () => {
                 transition={{ duration: 0.5 }}
                 whileHover={{ scale: 1.03 }}
               >
-                <Icon className='size-8 stroke-accent' />
+                {isImage ? (
+                  <img src={icon} className='size-8' alt={title} />
+                ) : (
+                  React.createElement(icon, {
+                    className: 'size-8 stroke-accent',
+                  })
+                )}
                 <h1 className='font-semibold font-[poppins] text-lg'>
                   {title}
                 </h1>
@@ -288,6 +323,7 @@ const UI = () => {
         </div>
       </section>
 
+      {/* --- Call to Action --- */}
       <section className='py-20 px-4 sm:px-6 lg:px-8'>
         <motion.div
           className='max-w-4xl mx-auto text-center'
@@ -297,17 +333,16 @@ const UI = () => {
           transition={{ duration: 1 }}
         >
           <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-medium">
-            Ready for a Design That
-            <span className='text-primary'> Converts?</span>
+            Ready for <span className='text-primary'>Intelligent Growth?</span>
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
-            Let's connect and craft an exceptional user experience.
+            Let's harness the power of AI to innovate and optimize your business.
           </p>
           <button
             onClick={() => handleContact()}
             className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
           >
-            Get a UI/UX Design Consultation
+            Schedule an AI Strategy Session
           </button>
         </motion.div>
       </section>
@@ -315,4 +350,4 @@ const UI = () => {
   );
 };
 
-export default UI;
+export default AISolutions;

@@ -46,6 +46,44 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        {/* <div className='flex flex-col space-y-4'>
+          <div>
+            <h1 className='text-gray-400'>Services</h1>
+            <ul className=''>
+              <li>
+                <a href='/web-development'>Web Development</a>
+              </li>
+              <li>
+                <a href='/mobile-app'>Mobile Apps</a>
+              </li>
+              <li>
+                <a href='/ui-ux-design'>UI/UX Design</a>
+              </li>
+              <li>
+                <a href='/branding-graphics-design'>
+                  Branding & Graphics Design
+                </a>
+              </li>
+              <li>
+                <a href='/ai'>AI Solutions</a>
+              </li>
+              <li>
+                <a href='/landing-pages-microsites'>
+                  Landing Pages & Microsites
+                </a>
+              </li>
+              <li>
+                <a href='/performance-optimization'>Performance Optimization</a>
+              </li>
+              <li>
+                <a href='/maintenance-support'>Maintenance & Support</a>
+              </li>
+              <li>
+                <a href='/e-commerce'>E-commerce Solutions</a>
+              </li>
+            </ul>
+          </div>
+        </div> */}
         <div className='flex flex-col space-y-4'>
           <div>
             <h1 className='text-gray-400'>User Support</h1>
@@ -105,7 +143,7 @@ const Footer = () => {
           </div>
           <form
             onSubmit={handleSubmit}
-            className='bg-white p-1 pl-4 border rounded-xl focus:outline-none w-full flex justify-between'
+            className='bg-white p-1 pl-4 border rounded-full focus:outline-none w-full flex justify-between'
           >
             <input
               type='email'
@@ -118,7 +156,7 @@ const Footer = () => {
             <button
               disabled={isLoading || email.trim() === ''}
               type='submit'
-              className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700  text-white pl-4 p-4 rounded-xl font-medium transition-all duration-200 items-center gap-2 shadow-lg hover:shadow-xl'
+              className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700  text-white pl-4 p-4 rounded-full font-medium transition-all duration-200 items-center gap-2 shadow-lg hover:shadow-xl'
             >
               {isLoading ? 'Subscribing...' : 'Subscribe'}
             </button>
@@ -133,7 +171,7 @@ const Footer = () => {
           <div className='mt-4 w-full'>
             <form
               onSubmit={handleSubmit}
-              className='bg-white p-1 pl-4 border rounded-xl focus:outline-none w-full flex justify-between'
+              className='bg-white p-1 pl-4 border rounded-full focus:outline-none w-full flex justify-between'
             >
               <input
                 type='email'
@@ -146,7 +184,7 @@ const Footer = () => {
               <button
                 disabled={isLoading || email.trim() === ''}
                 type='submit'
-                className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700  text-white pl-4 p-4 rounded-xl font-medium transition-all duration-200 items-center gap-2 shadow-lg hover:shadow-xl'
+                className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700  text-white pl-4 p-4 rounded-full font-medium transition-all duration-200 items-center gap-2 shadow-lg hover:shadow-xl'
               >
                 {isLoading ? 'Subscribing...' : 'Subscribe'}
               </button>

@@ -224,7 +224,7 @@ const Portfolio = () => {
   };
 
   return (
-    <div className='pt-16 bg-base-100 text-base-content max-w-7xl mx-auto'>
+    <div className='pt-16 bg-base-100 text-base-content mx-auto'>
       <section id='Hero' className='w-full text-center'>
         <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-4'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
@@ -240,7 +240,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className='w-full flex justify-center px-4 mt-6 mb-20'>
+      <section className='w-full flex justify-center px-4 mt-6 mb-20 max-w-7xl mx-auto'>
         <div className='grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
           {projects.map((service, index) => (
             <div
@@ -289,7 +289,7 @@ const Portfolio = () => {
         </div>
       </section>
 
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-base-200'>
+      <section className='py-20 px-4 sm:px-6 lg:px-8'>
         {/* Retained motion div as it was in original user code, though framer-motion import is commented out */}
         <div
           className='max-w-4xl mx-auto text-center'
@@ -298,7 +298,7 @@ const Portfolio = () => {
           // whileInView={{ opacity: 1, scale: 1 }}
           // transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-bold">
+          <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-medium">
             Let's Build Something <span className='text-primary'>Bold</span>
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
@@ -307,7 +307,7 @@ const Portfolio = () => {
           </p>
           <button
             onClick={handleContact}
-            className='px-8 py-3 rounded-lg bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
+            className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
           >
             Get a Free Consultation
           </button>
