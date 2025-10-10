@@ -167,15 +167,15 @@ const LandingPage = () => {
             >
               <button
                 className='text-lg group bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white p-4 px-8 rounded-full font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl'
-                onClick={() => handleContact()}
+                onClick={() => navigate('/booking')}
               >
                 Consult With an Expert
               </button>
               <button
                 className='text-lg group bg-white/15 border border-white/25 hover:bg-white/25 text-white p-4 px-8 rounded-full font-medium transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl'
-                onClick={() => navigate('/portfolio')}
+                onClick={() => navigate('/contact')}
               >
-                View Portfolio
+                Contact Us
               </button>
             </motion.div>
           </div>
@@ -559,7 +559,7 @@ const LandingPage = () => {
           </p>
           <div></div>
           <button
-            onClick={() => handleContact()}
+            onClick={() => navigate('/booking')}
             className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
           >
             Get a Free Consultation
