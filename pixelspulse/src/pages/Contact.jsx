@@ -9,6 +9,10 @@ import {
   Upload,
   Check,
   AlertCircle,
+  MapPin,
+  Globe,
+  Calendar,
+  MessageSquare,
 } from 'lucide-react';
 
 const services = [
@@ -33,6 +37,35 @@ const budgetRanges = [
   'Not sure yet',
 ];
 
+const timelines = [
+  'ASAP (Within 2 weeks)',
+  '1 Month',
+  '2-3 Months',
+  '3-6 Months',
+  '6+ Months',
+  'Flexible',
+];
+
+const contactMethods = [
+  'Email',
+  'Phone Call',
+  'WhatsApp',
+  'Video Call',
+];
+
+const industries = [
+  'Technology',
+  'E-commerce',
+  'Healthcare',
+  'Finance',
+  'Education',
+  'Real Estate',
+  'Entertainment',
+  'Food & Beverage',
+  'Fashion',
+  'Other',
+];
+
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -42,18 +75,37 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
+    isWhatsApp: false,
+    whatsapp: '',
     company: '',
     service: '',
     budget: '',
+    timeline: '',
+    contactMethod: '',
+    industry: '',
+    country: '',
+    city: '',
     message: '',
     file: null,
+    newsletter: false,
+    privacyPolicy: false,
   });
 
   const [errors, setErrors] = useState({});
 
+  const isGeneralInquiry = formData.service === 'General Inquiry';
+
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
+    
+    setFormData({ ...formData, [name]: newValue });
+    
+    // Clear WhatsApp field if phone is WhatsApp
+    if (name === 'isWhatsApp' && checked) {
+      setFormData(prev => ({ ...prev, isWhatsApp: checked, whatsapp: '' }));
+    }
+    
     // Clear error for this field
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
@@ -63,7 +115,6 @@ const Contact = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Validate file size (max 10MB)
       if (file.size > 10 * 1024 * 1024) {
         setErrors({ ...errors, file: 'File size must be less than 10MB' });
         return;
@@ -97,6 +148,15 @@ const Contact = () => {
       newErrors.message = 'Please provide more details (min 20 characters)';
     }
 
+    if (!formData.privacyPolicy) {
+      newErrors.privacyPolicy = 'You must accept the privacy policy';
+    }
+
+    // Validate WhatsApp number if phone is not WhatsApp
+    if (!formData.isWhatsApp && formData.whatsapp && !/^\+?[\d\s-()]+$/.test(formData.whatsapp)) {
+      newErrors.whatsapp = 'Please enter a valid WhatsApp number';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -112,21 +172,26 @@ const Contact = () => {
     setSubmitStatus(null);
 
     try {
-      // Simulate API call - replace with actual API endpoint
       await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // Success
       setSubmitStatus('success');
       setFormData({
         name: '',
         email: '',
         phone: '',
+        isWhatsApp: false,
+        whatsapp: '',
         company: '',
-        role: '',
         service: '',
         budget: '',
+        timeline: '',
+        contactMethod: '',
+        industry: '',
+        country: '',
+        city: '',
         message: '',
         file: null,
+        newsletter: false,
+        privacyPolicy: false,
       });
       setFileName('');
     } catch (error) {
@@ -139,7 +204,6 @@ const Contact = () => {
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-6xl mx-auto'>
-        {/* Header */}
         <div className='text-center mb-12'>
           <h1 className="text-4xl md:text-5xl font-medium text-white mb-4 font-['poppins']">
             Your Digital Journey Starts{' '}
@@ -152,7 +216,6 @@ const Contact = () => {
         </div>
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
-          {/* Contact Form */}
           <div className='lg:col-span-2'>
             <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-3xl p-8'>
               <form onSubmit={handleSubmit} className='space-y-6'>
@@ -173,7 +236,7 @@ const Contact = () => {
                     placeholder='Your full name'
                     className={`w-full px-4 py-3 bg-base-100/50 border ${
                       errors.name ? 'border-red-400' : 'border-white/20'
-                    } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition`}
+                    } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
                   />
                   {errors.name && (
                     <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
@@ -203,7 +266,7 @@ const Contact = () => {
                         placeholder='you@example.com'
                         className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${
                           errors.email ? 'border-red-400' : 'border-white/20'
-                        } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition`}
+                        } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
                       />
                     </div>
                     {errors.email && (
@@ -231,32 +294,161 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder='Optional — for quicker contact'
-                        className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition'
+                        className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition'
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Company Name */}
-                <div>
-                  <label
-                    htmlFor='company'
-                    className='block text-sm font-medium text-white mb-2'
-                  >
-                    Company / Brand Name{' '}
-                    <span className='text-gray-400 text-xs'>(Optional)</span>
-                  </label>
-                  <div className='relative'>
-                    <Building2 className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
-                    <input
-                      type='text'
-                      id='company'
-                      name='company'
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder='Your company or brand'
-                      className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition'
-                    />
+                {/* WhatsApp Checkbox and Number */}
+                {formData.phone && (
+                  <div className='space-y-3'>
+                    <label className='flex items-center gap-2 cursor-pointer'>
+                      <input
+                        type='checkbox'
+                        name='isWhatsApp'
+                        checked={formData.isWhatsApp}
+                        onChange={handleChange}
+                        className='w-4 h-4 rounded border-white/20 bg-base-100/50 text-accent focus:ring-2 focus:ring-accent cursor-pointer'
+                      />
+                      <span className='text-sm text-gray-300'>This phone number is on WhatsApp</span>
+                    </label>
+
+                    {!formData.isWhatsApp && (
+                      <div>
+                        <label
+                          htmlFor='whatsapp'
+                          className='block text-sm font-medium text-white mb-2'
+                        >
+                          WhatsApp Number{' '}
+                          <span className='text-gray-400 text-xs'>(Optional)</span>
+                        </label>
+                        <div className='relative'>
+                          <MessageSquare className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                          <input
+                            type='tel'
+                            id='whatsapp'
+                            name='whatsapp'
+                            value={formData.whatsapp}
+                            onChange={handleChange}
+                            placeholder='WhatsApp number if different'
+                            className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${
+                              errors.whatsapp ? 'border-red-400' : 'border-white/20'
+                            } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
+                          />
+                        </div>
+                        {errors.whatsapp && (
+                          <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
+                            <AlertCircle className='w-4 h-4' />
+                            {errors.whatsapp}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Company Name and Industry */}
+                {!isGeneralInquiry && (
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    <div>
+                      <label
+                        htmlFor='company'
+                        className='block text-sm font-medium text-white mb-2'
+                      >
+                        Company / Brand Name{' '}
+                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                      </label>
+                      <div className='relative'>
+                        <Building2 className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                        <input
+                          type='text'
+                          id='company'
+                          name='company'
+                          value={formData.company}
+                          onChange={handleChange}
+                          placeholder='Your company or brand'
+                          className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition'
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor='industry'
+                        className='block text-sm font-medium text-white mb-2'
+                      >
+                        Industry Type{' '}
+                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                      </label>
+                      <select
+                        id='industry'
+                        name='industry'
+                        value={formData.industry}
+                        onChange={handleChange}
+                        className='w-full px-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer'
+                      >
+                        <option value='' className='bg-slate-900'>
+                          Select your industry
+                        </option>
+                        {industries.map((industry) => (
+                          <option
+                            key={industry}
+                            value={industry}
+                            className='bg-slate-900'
+                          >
+                            {industry}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                )}
+
+                {/* Location */}
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                  <div>
+                    <label
+                      htmlFor='country'
+                      className='block text-sm font-medium text-white mb-2'
+                    >
+                      Country{' '}
+                      <span className='text-gray-400 text-xs'>(Optional)</span>
+                    </label>
+                    <div className='relative'>
+                      <Globe className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                      <input
+                        type='text'
+                        id='country'
+                        name='country'
+                        value={formData.country}
+                        onChange={handleChange}
+                        placeholder='Your country'
+                        className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition'
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor='city'
+                      className='block text-sm font-medium text-white mb-2'
+                    >
+                      City{' '}
+                      <span className='text-gray-400 text-xs'>(Optional)</span>
+                    </label>
+                    <div className='relative'>
+                      <MapPin className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                      <input
+                        type='text'
+                        id='city'
+                        name='city'
+                        value={formData.city}
+                        onChange={handleChange}
+                        placeholder='Your city'
+                        className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition'
+                      />
+                    </div>
                   </div>
                 </div>
 
@@ -276,7 +468,7 @@ const Contact = () => {
                       onChange={handleChange}
                       className={`w-full px-4 py-3 bg-base-100/50 border ${
                         errors.service ? 'border-red-400' : 'border-white/20'
-                      } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition appearance-none cursor-pointer`}
+                      } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer`}
                     >
                       <option value='' className='bg-slate-900'>
                         Select a service
@@ -299,39 +491,109 @@ const Contact = () => {
                     )}
                   </div>
 
-                  <div>
-                    <label
-                      htmlFor='budget'
-                      className='block text-sm font-medium text-white mb-2'
-                    >
-                      Project Budget{' '}
-                      <span className='text-gray-400 text-xs'>(Optional)</span>
-                    </label>
-                    <div className='relative'>
-                      <DollarSign className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                  {!isGeneralInquiry && (
+                    <div>
+                      <label
+                        htmlFor='budget'
+                        className='block text-sm font-medium text-white mb-2'
+                      >
+                        Project Budget{' '}
+                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                      </label>
+                      <div className='relative'>
+                        <DollarSign className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                        <select
+                          id='budget'
+                          name='budget'
+                          value={formData.budget}
+                          onChange={handleChange}
+                          className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer'
+                        >
+                          <option value='' className='bg-slate-900'>
+                            Select your estimated budget
+                          </option>
+                          {budgetRanges.map((range) => (
+                            <option
+                              key={range}
+                              value={range}
+                              className='bg-slate-900'
+                            >
+                              {range}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Timeline and Contact Method */}
+                {!isGeneralInquiry && (
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    <div>
+                      <label
+                        htmlFor='timeline'
+                        className='block text-sm font-medium text-white mb-2'
+                      >
+                        Project Timeline{' '}
+                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                      </label>
+                      <div className='relative'>
+                        <Calendar className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
+                        <select
+                          id='timeline'
+                          name='timeline'
+                          value={formData.timeline}
+                          onChange={handleChange}
+                          className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer'
+                        >
+                          <option value='' className='bg-slate-900'>
+                            When do you need this?
+                          </option>
+                          {timelines.map((timeline) => (
+                            <option
+                              key={timeline}
+                              value={timeline}
+                              className='bg-slate-900'
+                            >
+                              {timeline}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor='contactMethod'
+                        className='block text-sm font-medium text-white mb-2'
+                      >
+                        Preferred Contact Method{' '}
+                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                      </label>
                       <select
-                        id='budget'
-                        name='budget'
-                        value={formData.budget}
+                        id='contactMethod'
+                        name='contactMethod'
+                        value={formData.contactMethod}
                         onChange={handleChange}
-                        className='w-full pl-11 pr-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition appearance-none cursor-pointer'
+                        className='w-full px-4 py-3 bg-base-100/50 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer'
                       >
                         <option value='' className='bg-slate-900'>
-                          Select your estimated budget
+                          How should we reach you?
                         </option>
-                        {budgetRanges.map((range) => (
+                        {contactMethods.map((method) => (
                           <option
-                            key={range}
-                            value={range}
+                            key={method}
+                            value={method}
                             className='bg-slate-900'
                           >
-                            {range}
+                            {method}
                           </option>
                         ))}
                       </select>
                     </div>
                   </div>
-                </div>
+                )}
 
                 {/* Project Details */}
                 <div>
@@ -339,7 +601,7 @@ const Contact = () => {
                     htmlFor='message'
                     className='block text-sm font-medium text-white mb-2'
                   >
-                    Project Details / Message{' '}
+                    {isGeneralInquiry ? 'Your Message' : 'Project Details / Message'}{' '}
                     <span className='text-red-400'>*</span>
                   </label>
                   <textarea
@@ -348,10 +610,10 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows='6'
-                    placeholder='Tell us about your project, goals, or challenges...'
+                    placeholder={isGeneralInquiry ? 'Tell us what you need help with...' : 'Tell us about your project, goals, or challenges...'}
                     className={`w-full px-4 py-3 bg-base-100/50 border ${
                       errors.message ? 'border-red-400' : 'border-white/20'
-                    } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition resize-none`}
+                    } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition resize-none`}
                   ></textarea>
                   {errors.message && (
                     <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
@@ -362,37 +624,78 @@ const Contact = () => {
                 </div>
 
                 {/* File Upload */}
-                <div>
-                  <label className='block text-sm font-medium text-white mb-2'>
-                    File Upload{' '}
-                    <span className='text-gray-400 text-xs'>(Optional)</span>
-                  </label>
-                  <div className='relative'>
-                    <input
-                      type='file'
-                      id='file'
-                      onChange={handleFileChange}
-                      accept='.pdf,.doc,.docx,.txt,.jpg,.jpeg,.png'
-                      className='hidden'
-                    />
-                    <label
-                      htmlFor='file'
-                      className='flex items-center justify-center w-full px-4 py-3 bg-base-100/50 border border-white/20 border-dashed rounded-lg text-gray-300 cursor-pointer hover:bg-white/10 transition'
-                    >
-                      <Upload className='w-5 h-5 mr-2' />
-                      {fileName ||
-                        'Attach brief, mockup, or document (optional)'}
+                {!isGeneralInquiry && (
+                  <div>
+                    <label className='block text-sm font-medium text-white mb-2'>
+                      File Upload{' '}
+                      <span className='text-gray-400 text-xs'>(Optional)</span>
                     </label>
+                    <div className='relative'>
+                      <input
+                        type='file'
+                        id='file'
+                        onChange={handleFileChange}
+                        accept='.pdf,.doc,.docx,.txt,.jpg,.jpeg,.png'
+                        className='hidden'
+                      />
+                      <label
+                        htmlFor='file'
+                        className='flex items-center justify-center w-full px-4 py-3 bg-base-100/50 border border-white/20 border-dashed rounded-lg text-gray-300 cursor-pointer hover:bg-white/10 transition'
+                      >
+                        <Upload className='w-5 h-5 mr-2' />
+                        {fileName ||
+                          'Attach brief, mockup, or document (optional)'}
+                      </label>
+                    </div>
+                    {errors.file && (
+                      <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
+                        <AlertCircle className='w-4 h-4' />
+                        {errors.file}
+                      </p>
+                    )}
+                    <p className='mt-1 text-xs text-gray-400'>
+                      Max file size: 10MB
+                    </p>
                   </div>
-                  {errors.file && (
-                    <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
+                )}
+
+                {/* Newsletter and Privacy Policy */}
+                <div className='space-y-3'>
+                  <label className='flex items-start gap-2 cursor-pointer'>
+                    <input
+                      type='checkbox'
+                      name='newsletter'
+                      checked={formData.newsletter}
+                      onChange={handleChange}
+                      className='w-4 h-4 rounded border-white/20 bg-base-100/50 text-accent cursor-pointer mt-0.5'
+                    />
+                    <span className='text-sm text-gray-300'>
+                      Subscribe to our newsletter for updates, tips, and exclusive offers
+                    </span>
+                  </label>
+
+                  <label className='flex items-start gap-2 cursor-pointer'>
+                    <input
+                      type='checkbox'
+                      name='privacyPolicy'
+                      checked={formData.privacyPolicy}
+                      onChange={handleChange}
+                      className='w-4 h-4 rounded border-white/20 bg-base-100/50 text-accent cursor-pointer mt-0.5'
+                    />
+                    <span className='text-sm text-gray-300'>
+                      I agree to the{' '}
+                      <a href='#' className='text-accent hover:text-purple-300 underline'>
+                        Privacy Policy
+                      </a>{' '}
+                      and consent to data processing <span className='text-red-400'>*</span>
+                    </span>
+                  </label>
+                  {errors.privacyPolicy && (
+                    <p className='ml-6 text-sm text-red-400 flex items-center gap-1'>
                       <AlertCircle className='w-4 h-4' />
-                      {errors.file}
+                      {errors.privacyPolicy}
                     </p>
                   )}
-                  <p className='mt-1 text-xs text-gray-400'>
-                    Max file size: 10MB
-                  </p>
                 </div>
 
                 {/* Submit Button */}
@@ -408,7 +711,6 @@ const Contact = () => {
                     </>
                   ) : (
                     <>
-                      {/* <Mail className='w-5 h-5' /> */}
                       Send Message
                     </>
                   )}
@@ -446,9 +748,8 @@ const Contact = () => {
                   <p className='text-sm text-gray-400 mb-1'>Email:</p>
                   <a
                     href='mailto:pixelspulsedev@gmail.com'
-                    className='text-primary hover:text-purple-300 transition flex items-center gap-2'
+                    className='text-primary hover:text-accent transition flex items-center gap-2'
                   >
-                    {/* <Mail className="w-4 h-4" /> */}
                     pixelspulsedev@gmail.com
                   </a>
                 </div>
@@ -461,11 +762,9 @@ const Contact = () => {
                 <div>
                   <p className='text-sm text-gray-400 mb-2'>Follow Us:</p>
                   <div className='flex gap-3'>
-                    {/* <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition"> */}
                     <a href='https://www.instagram.com/pixelspulse.dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
                       <img src='instagram.png' alt='' className='size-10' />
                     </a>
-                    {/* </a> */}
                     <a href='https://twitter.com/pixelspulsedev'>
                       <img src='twitter.png' alt='' className='size-10' />
                     </a>

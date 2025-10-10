@@ -23,6 +23,7 @@ import Privacy from './pages/privacy';
 import CookiePolicy from './pages/cookie';
 import UnsubscribeSuccess from './pages/unsubscribeSuccess';
 import AISolutions from './pages/AI';
+import Booking from './pages/Booking';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path='/' element={<LandingPage />} />
+        <Route path='/booking' element={<Booking />} />
         <Route path='/services' element={<Services />} />
         <Route path='/ai' element={<AISolutions />} />
         <Route path='/portfolio' element={<Portfolio />} />
