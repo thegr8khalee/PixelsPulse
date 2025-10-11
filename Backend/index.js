@@ -26,6 +26,8 @@ app.use(
 const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/api/contact', ContactRoutes);
 app.use('/api/newsteller', NewstellerRoutes);
 
