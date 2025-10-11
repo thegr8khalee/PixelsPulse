@@ -1,5 +1,5 @@
 // controllers/contact.controller.js
-import { sendEmail } from '../services/gmail.service.js';
+import { sendEmail } from '../services/zoho.service.js';
 import dotenv from 'dotenv';
 import { registerToNewsteller } from './newsteller.controller.js';
 
@@ -68,6 +68,9 @@ ${newsletter ? 'Newsletter: Subscribed' : ''}
 
 Message:
 ${message}
+
+---
+Reply to: ${email}
   `;
 
   // Build HTML content
@@ -161,6 +164,10 @@ ${message}
         </div>
         ` : ''}
 
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 15px; border-radius: 4px; margin-bottom: 20px;">
+          <p style="margin: 0; color: #856404; font-size: 14px;"><strong>Reply to:</strong> <a href="mailto:${email}" style="color: #667eea;">${email}</a></p>
+        </div>
+
         <div style="text-align: center; padding-top: 20px; border-top: 1px solid #e0e0e0;">
           <p style="color: #999; font-size: 12px; margin: 0;">This message was sent from your website contact form</p>
           <p style="color: #999; font-size: 12px; margin: 5px 0 0 0;">Received on ${new Date().toLocaleString('en-US', {
@@ -173,14 +180,13 @@ ${message}
   `;
 
   try {
-    // Send email
+    // Send email using Zoho Mail
     await sendEmail({
       to: process.env.RECEIVING_EMAIL,
       subject: `${isGeneralInquiry ? 'General Inquiry' : 'New Project'}: ${service} - ${name}`,
       text: textContent,
       html: htmlContent,
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      replyTo: email,
+      from: process.env.ZOHO_EMAIL_USER, // Zoho requires authenticated sender
     });
 
     // Handle newsletter subscription if opted in
