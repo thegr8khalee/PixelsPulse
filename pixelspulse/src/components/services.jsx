@@ -105,7 +105,7 @@ const ServicesSection = () => {
     <section className='py-20 px-4 max-w-7xl mx-auto'>
       <div className='mx-auto'>
         <div className='text-start sm:text-center mb-12'>
-          <h2 className='text-3xl sm:text-5xl font-[poppins] font-medium text-white mb-4'>
+          <h2 className='text-3xl sm:text-5xl font-[poppins] font-medium text-primary mb-4'>
             Our Services
           </h2>
           <p className='text-1xl text-gray-400 max-w-2xl mx-auto font-[montserrat]'>

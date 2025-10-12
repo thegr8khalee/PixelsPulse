@@ -12,8 +12,8 @@ const AboutSection = () => {
   return (
     <section className='py-20 px-8 sm:px-6 lg:px-8 bg-base-100 max-w-4xl mx-auto'>
       <div className='max-w-7xl mx-auto'>
-        <div className='text-start sm:text-center mb-16 space-y-8'>
-          <motion.div {...fadeUp}>
+        <div className='text-start sm:text-center space-y-8'>
+          {/* <motion.div {...fadeUp}>
             <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins']">
               About Us
             </h2>
@@ -25,9 +25,9 @@ const AboutSection = () => {
               we're creative engineers crafting bold digital experiences powered
               by clean code, sharp visuals, and intuitive strategy.
             </p>
-          </motion.div>
+          </motion.div> */}
 
-          <motion.div {...fadeUp} className='py-12'>
+          <motion.div {...fadeUp} className='py-'>
             <div className='flex flex-col md:flex-row items-center justify-center gap-8 mb-6 max-w-4xl mx-auto'>
               <TestimonialCard className='' />
               <div className='flex flex-col'>

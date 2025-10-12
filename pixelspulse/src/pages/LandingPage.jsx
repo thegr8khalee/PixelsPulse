@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Marquee from 'react-fast-marquee';
 import { BackgroundGradientAnimation } from '../components/bg';
 import GlassCard from '../components/glass';
 import ServicesSection from '../components/services';
@@ -14,15 +15,24 @@ import {
   ProcessSection,
   WhyChooseUsSection,
 } from '../components/Sections';
+import { useNewstellerStore } from '../store/use.newsteller';
 
 const LandingPage = () => {
-  const navigate = useNavigate();
-  const handleContact = () => {
-    navigate('/contact');
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 10);
+  const { isLoading, registerToNewsteller } = useNewstellerStore();
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    registerToNewsteller({ email });
   };
+
+  const navigate = useNavigate();
+  // const handleContact = () => {
+  //   navigate('/contact');
+  //   setTimeout(() => {
+  //     window.scrollTo(0, 0);
+  //   }, 10);
+  // };
 
   const industries = [
     {
@@ -190,56 +200,31 @@ const LandingPage = () => {
             <div className='absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-base-100 to-transparent z-10 pointer-events-none' />
             <div className='absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-base-100 to-transparent z-10 pointer-events-none' />
 
-            {/* Scrolling wrapper */}
-            <div className='overflow-hidden'>
-              <motion.div
-                className='flex gap-16 items-center'
-                animate={{
-                  x: [0, '-50%'],
-                }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                    duration: 30,
-                    ease: 'linear',
-                  },
-                }}
-              >
-                {/* Duplicate the logos twice for seamless loop */}
-                {[...Array(2)].map((_, setIndex) => (
-                  <div
-                    key={setIndex}
-                    className='flex gap-8 sm:gap-16 items-center flex-shrink-0'
-                  >
-                    {[
-                      { Image: 'one.png', width: 140 },
-                      { Image: 'two.png', width: 140 },
-                      { Image: 'three.png', width: 140 },
-                      { Image: 'four.png', width: 140 },
-                      { Image: 'five.png', width: 140 },
-                      { Image: 'six.png', width: 140 },
-                      { Image: 'seven.png', width: 140 },
-                      { Image: 'eight.png', width: 140 },
-                      { Image: 'nine.png', width: 140 },
-                      { Image: 'ten.png', width: 140 },
-                    ].map((logo, index) => (
-                      <div
-                        key={index}
-                        className='flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100'
-                        style={{ minWidth: `${logo.width}px` }}
-                      >
-                        <img
-                          src={logo.Image}
-                          alt={logo.Image}
-                          className='w-40'
-                        />
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </motion.div>
-            </div>
+            <Marquee speed={30} pauseOnHover={true}>
+              {[
+                { Image: 'one.png' },
+                { Image: 'two.png' },
+                { Image: 'three.png' },
+                { Image: 'four.png' },
+                { Image: 'five.png' },
+                { Image: 'six.png' },
+                { Image: 'seven.png' },
+                { Image: 'eight.png' },
+                { Image: 'nine.png' },
+                { Image: 'ten.png' },
+              ].map((logo) => (
+                <div
+                  // key={`${setIndex}-${index}`}
+                  className='flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100'
+                >
+                  <img
+                    src={logo.Image}
+                    alt={logo.Image}
+                    className='w-20 sm:w-40 mx-4 sm:mx-8'
+                  />
+                </div>
+              ))}
+            </Marquee>
           </div>
         </div>
       </section>
@@ -255,7 +240,7 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className='text-3xl sm:text-5xl font-poppins font-medium text-white'
+                className='text-3xl sm:text-5xl font-poppins font-medium text-primary'
               >
                 Who We Are
               </motion.h1>
@@ -308,7 +293,7 @@ const LandingPage = () => {
                     className='relative aspect-square bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl flex flex-col items-center justify-center text-center shadow-xl transition-colors duration-300'
                   >
                     <div className='absolute inset-0 rounded-3xl pointer-events-none border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' />
-                    <h1 className='text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2'>
+                    <h1 className='text-6xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-2'>
                       <CountUp
                         from={0}
                         to={stat.value}
@@ -346,7 +331,7 @@ const LandingPage = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins']">
+          <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins'] text-primary">
             Industries We Serve
           </h2>
           <p className="max-w-2xl mx-auto font-['montserrat'] mb-2 text-gray-200">
@@ -372,7 +357,7 @@ const LandingPage = () => {
               <h3 className="text-xl font-['Poppins'] mb-2">
                 {industry.title}
               </h3>
-              <p className="text-gray-200 font-['montserrat']">
+              <p className="text-gray-300 font-['montserrat']">
                 {industry.description}
               </p>
             </motion.div>
@@ -393,7 +378,7 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            <h2 className="px-4 text-3xl sm:text-5xl mb-0 font-['poppins'] font-medium">
+            <h2 className="px-4 text-3xl sm:text-5xl mb-0 font-['poppins'] font-medium text-primary">
               Projects
             </h2>
             <p className="text-1xl px-4 pt-2 text-gray-300 max-w-2xl mx-auto font-['montserrat']">
@@ -539,33 +524,109 @@ const LandingPage = () => {
       <AboutSection></AboutSection>
 
       {/* CTA Section */}
-      <section className='pb-20 px-4 sm:px-6 lg:px-8'>
-        <motion.div
-          className='max-w-4xl mx-auto text-center'
-          initial={{
-            opacity: 0.2,
-            scale: 0.9,
-          }}
-          viewport={{ once: true, amount: 0.5 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
-            Let's Build Something <span className='text-primary'>Bold</span>
-          </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
-            Ready to start your project? Get in touch today for a free
-            consultation.
-          </p>
-          <div></div>
-          <button
-            onClick={() => navigate('/booking')}
-            className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
+      <div className='px-4'>
+        <section className='pb-20 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto  rounded-3xl p-8 md:p-16 mb-8'>
+          <motion.div
+            className='max-w-4xl mx-auto text-center'
+            initial={{
+              opacity: 0.2,
+              scale: 0.9,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
           >
-            Get a Free Consultation
-          </button>
-        </motion.div>
-      </section>
+            <img src='book.png' alt='consultation' className='h-70 md:h-100' />
+          </motion.div>
+          <motion.div
+            className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
+            initial={{
+              opacity: 0.2,
+              scale: 0.9,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
+              Let's Build Something <span className='text-primary'>Bold</span>
+            </h2>
+            <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat'] text-gray-300">
+              Ready to start your project? Get in touch today for a free
+              consultation.
+            </p>
+            <div></div>
+            <button
+              onClick={() => navigate('/booking')}
+              className='px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium'
+            >
+              Get a Free Consultation
+            </button>
+          </motion.div>
+        </section>
+      </div>
+
+      {/** newsletter section */}
+      <div className='px-4'>
+        <section className='pb-20 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto rounded-3xl p-8 md:p-16 mb-16'>
+          <motion.div
+            className='max-w-4xl mx-auto text-center'
+            initial={{
+              opacity: 0.2,
+              scale: 0.9,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <img src='news.png' alt='newsletter' className='h-70 md:h-100' />
+          </motion.div>
+          <motion.div
+            className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
+            initial={{
+              opacity: 0.2,
+              scale: 0.9,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
+              Stay Ahead with Our{' '}
+              <span className='text-primary'>Newsletter</span>
+            </h2>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl font-['montserrat']">
+              Subscribe now to get the latest updates, tips, and exclusive
+              offers.
+            </p>
+            <div></div>
+            <form
+              onSubmit={handleSubmit}
+              className='bg-white p-1 pl-4 border rounded-full focus:outline-none w-full flex justify-between'
+            >
+              <input
+                type='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                id='newsletter'
+                placeholder='Email Address'
+                className='w-full bg-transparent text-black placeholder:text-gray-600 border-none outline-none'
+              />
+              <button
+                disabled={isLoading || email.trim() === ''}
+                type='submit'
+                className='bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700  text-white pl-4 p-4 rounded-full font-medium transition-all duration-200 items-center gap-2 shadow-lg hover:shadow-xl'
+              >
+                {isLoading ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </form>
+          </motion.div>
+        </section>
+      </div>
+
+      <div className='hidden md:grid grid-cols-2'>
+
+      </div>
     </div>
   );
 };

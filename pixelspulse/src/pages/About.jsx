@@ -36,6 +36,7 @@ import {
   Trophy,
   UserRound,
 } from 'lucide-react';
+import AboutSection from '../components/about';
 
 const About = () => {
   const coreValues = [
@@ -151,6 +152,7 @@ const About = () => {
           ))}
         </div>
       </section>
+      <AboutSection />
       <section className='py-20 px-4 sm:px-6 lg:px-8'>
         <motion.div
           className='max-w-4xl mx-auto text-center'

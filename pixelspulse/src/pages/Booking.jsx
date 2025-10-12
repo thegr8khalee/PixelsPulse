@@ -23,7 +23,7 @@ const Booking = () => {
           <div className='max-w-[645px] w-full lg:ml-auto lg:mx-0 mx-auto lg:col-span-2'>
             <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-3xl overflow-hidden'>
               <InlineWidget
-                url='https://calendly.com/pixelspulsedev/30min?background_color=000723&text_color=ffffff&primary_color=30d5f3'
+                url='https://calendly.com/pixelspulsedev/30min?background_color=ffffff&text_color=000000&primary_color=30d5f3'
                 styles={{
                   height: '900px',
                   width: '100%',
@@ -34,13 +34,14 @@ const Booking = () => {
                   padding: '0',
                   scrollbarWidth: 'none',
                   overflowY: 'hidden',
+                  backgroundColor: '#ffffff',
                 }}
               />
             </div>
           </div>
 
           {/* Contact Information */}
-          <div className='lg:col-span-1 space-y-6'>
+          <div className='lg:col-span-1 space-y-12'>
             {/* What to Expect */}
             <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6'>
               <h3 className='text-xl font-semibold text-white mb-4'>
@@ -83,7 +84,7 @@ const Booking = () => {
                     href='mailto:pixelspulsedev@gmail.com'
                     className='text-primary hover:text-accent transition flex items-center gap-2 break-all'
                   >
-                    pixelspulsedev@gmail.com
+                    info@pixelspulse.dev
                   </a>
                 </div>
 
@@ -182,6 +183,59 @@ const Booking = () => {
             >
               Contact Us Instead
             </a>
+          </div>
+        </div>
+
+        <div className='mt-6 text-start md:text-center grid grid-cols-1 md:grid-cols-2 gap-6'>
+          <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-2xl p-8'>
+            <h3 className='text-2xl font-semibold text-white'>
+              Contact Sales
+            </h3>
+            <p className='text-gray-300 mb-2 max-w-2xl mx-auto'>
+              Interested in our services? Our sales team is here to help you.
+            </p>
+            <div>
+              <p className='text-sm text-gray-400 mb-1'>Email:</p>
+              <a
+                href='mailto:sales@pixelspulse.dev'
+                className='items-center justify-start md:justify-center text-primary text-start sm:text-center hover:text-accent transition flex gap-2 break-all'
+              >
+                sales@pixelspulse.dev
+              </a>
+            </div>
+
+            <div>
+              <p className='text-sm text-gray-400 mb-1'>Business Hours:</p>
+              <p className='text-white'>Open 24/7</p>
+              <p className='text-xs text-gray-400 mt-1'>
+                We respond within 24 hours
+              </p>
+            </div>
+          </div>
+          <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-2xl p-8'>
+            <h3 className='text-2xl font-semibold text-white'>
+              Contact Support
+            </h3>
+            <p className='text-gray-300 mb-2 max-w-2xl mx-auto'>
+              Interested in our services? Our support team is here to help you.
+            </p>
+            <div>
+              <p className='text-sm text-gray-400 mb-1'>Email:</p>
+              <a
+                href='mailto:support@pixelspulse.dev'
+                className='items-center justify-start md:justify-center text-primary text-start sm:text-center hover:text-accent transition flex gap-2 break-all'
+              >
+                support@pixelspulse.dev
+              </a>
+            </div>
+
+            <div>
+              <p className='text-sm text-gray-400 mb-1'>Business Hours:</p>
+              <p className='text-white'>Open 24/7</p>
+              <p className='text-xs text-gray-400 mt-1'>
+                We respond within 24 hours
+              </p>
+            </div>
           </div>
         </div>
       </div>

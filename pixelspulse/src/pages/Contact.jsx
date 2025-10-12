@@ -46,12 +46,7 @@ const timelines = [
   'Flexible',
 ];
 
-const contactMethods = [
-  'Email',
-  'Phone Call',
-  'WhatsApp',
-  'Video Call',
-];
+const contactMethods = ['Email', 'Phone Call', 'WhatsApp', 'Video Call'];
 
 const industries = [
   'Technology',
@@ -98,14 +93,14 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     const newValue = type === 'checkbox' ? checked : value;
-    
+
     setFormData({ ...formData, [name]: newValue });
-    
+
     // Clear WhatsApp field if phone is WhatsApp
     if (name === 'isWhatsApp' && checked) {
-      setFormData(prev => ({ ...prev, isWhatsApp: checked, whatsapp: '' }));
+      setFormData((prev) => ({ ...prev, isWhatsApp: checked, whatsapp: '' }));
     }
-    
+
     // Clear error for this field
     if (errors[name]) {
       setErrors({ ...errors, [name]: '' });
@@ -153,7 +148,11 @@ const Contact = () => {
     }
 
     // Validate WhatsApp number if phone is not WhatsApp
-    if (!formData.isWhatsApp && formData.whatsapp && !/^\+?[\d\s-()]+$/.test(formData.whatsapp)) {
+    if (
+      !formData.isWhatsApp &&
+      formData.whatsapp &&
+      !/^\+?[\d\s-()]+$/.test(formData.whatsapp)
+    ) {
       newErrors.whatsapp = 'Please enter a valid WhatsApp number';
     }
 
@@ -311,7 +310,9 @@ const Contact = () => {
                         onChange={handleChange}
                         className='w-4 h-4 rounded border-white/20 bg-base-100/50 text-accent focus:ring-2 focus:ring-accent cursor-pointer'
                       />
-                      <span className='text-sm text-gray-300'>This phone number is on WhatsApp</span>
+                      <span className='text-sm text-gray-300'>
+                        This phone number is on WhatsApp
+                      </span>
                     </label>
 
                     {!formData.isWhatsApp && (
@@ -321,7 +322,9 @@ const Contact = () => {
                           className='block text-sm font-medium text-white mb-2'
                         >
                           WhatsApp Number{' '}
-                          <span className='text-gray-400 text-xs'>(Optional)</span>
+                          <span className='text-gray-400 text-xs'>
+                            (Optional)
+                          </span>
                         </label>
                         <div className='relative'>
                           <MessageSquare className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
@@ -333,7 +336,9 @@ const Contact = () => {
                             onChange={handleChange}
                             placeholder='WhatsApp number if different'
                             className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${
-                              errors.whatsapp ? 'border-red-400' : 'border-white/20'
+                              errors.whatsapp
+                                ? 'border-red-400'
+                                : 'border-white/20'
                             } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
                           />
                         </div>
@@ -357,7 +362,9 @@ const Contact = () => {
                         className='block text-sm font-medium text-white mb-2'
                       >
                         Company / Brand Name{' '}
-                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                        <span className='text-gray-400 text-xs'>
+                          (Optional)
+                        </span>
                       </label>
                       <div className='relative'>
                         <Building2 className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
@@ -379,7 +386,9 @@ const Contact = () => {
                         className='block text-sm font-medium text-white mb-2'
                       >
                         Industry Type{' '}
-                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                        <span className='text-gray-400 text-xs'>
+                          (Optional)
+                        </span>
                       </label>
                       <select
                         id='industry'
@@ -498,7 +507,9 @@ const Contact = () => {
                         className='block text-sm font-medium text-white mb-2'
                       >
                         Project Budget{' '}
-                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                        <span className='text-gray-400 text-xs'>
+                          (Optional)
+                        </span>
                       </label>
                       <div className='relative'>
                         <DollarSign className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
@@ -536,7 +547,9 @@ const Contact = () => {
                         className='block text-sm font-medium text-white mb-2'
                       >
                         Project Timeline{' '}
-                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                        <span className='text-gray-400 text-xs'>
+                          (Optional)
+                        </span>
                       </label>
                       <div className='relative'>
                         <Calendar className='absolute left-3 top-3.5 w-5 h-5 text-gray-400' />
@@ -569,7 +582,9 @@ const Contact = () => {
                         className='block text-sm font-medium text-white mb-2'
                       >
                         Preferred Contact Method{' '}
-                        <span className='text-gray-400 text-xs'>(Optional)</span>
+                        <span className='text-gray-400 text-xs'>
+                          (Optional)
+                        </span>
                       </label>
                       <select
                         id='contactMethod'
@@ -601,7 +616,9 @@ const Contact = () => {
                     htmlFor='message'
                     className='block text-sm font-medium text-white mb-2'
                   >
-                    {isGeneralInquiry ? 'Your Message' : 'Project Details / Message'}{' '}
+                    {isGeneralInquiry
+                      ? 'Your Message'
+                      : 'Project Details / Message'}{' '}
                     <span className='text-red-400'>*</span>
                   </label>
                   <textarea
@@ -610,7 +627,11 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows='6'
-                    placeholder={isGeneralInquiry ? 'Tell us what you need help with...' : 'Tell us about your project, goals, or challenges...'}
+                    placeholder={
+                      isGeneralInquiry
+                        ? 'Tell us what you need help with...'
+                        : 'Tell us about your project, goals, or challenges...'
+                    }
                     className={`w-full px-4 py-3 bg-base-100/50 border ${
                       errors.message ? 'border-red-400' : 'border-white/20'
                     } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition resize-none`}
@@ -670,7 +691,8 @@ const Contact = () => {
                       className='w-4 h-4 rounded border-white/20 bg-base-100/50 text-accent cursor-pointer mt-0.5'
                     />
                     <span className='text-sm text-gray-300'>
-                      Subscribe to our newsletter for updates, tips, and exclusive offers
+                      Subscribe to our newsletter for updates, tips, and
+                      exclusive offers
                     </span>
                   </label>
 
@@ -684,10 +706,14 @@ const Contact = () => {
                     />
                     <span className='text-sm text-gray-300'>
                       I agree to the{' '}
-                      <a href='#' className='text-accent hover:text-purple-300 underline'>
+                      <a
+                        href='#'
+                        className='text-accent hover:text-purple-300 underline'
+                      >
                         Privacy Policy
                       </a>{' '}
-                      and consent to data processing <span className='text-red-400'>*</span>
+                      and consent to data processing{' '}
+                      <span className='text-red-400'>*</span>
                     </span>
                   </label>
                   {errors.privacyPolicy && (
@@ -710,9 +736,7 @@ const Contact = () => {
                       Sending...
                     </>
                   ) : (
-                    <>
-                      Send Message
-                    </>
+                    <>Send Message</>
                   )}
                 </button>
 
@@ -772,6 +796,50 @@ const Contact = () => {
                       <img src='linkedin.png' alt='' className='size-10' />
                     </a>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6'>
+              <h3 className='text-xl font-semibold text-white mb-4'>
+                Contact Support
+              </h3>
+
+              <div className='space-y-4'>
+                <div>
+                  <p className='text-sm text-gray-400 mb-1'>Email:</p>
+                  <a
+                    href='mailto:support@pixelspulse.dev'
+                    className='text-primary hover:text-accent transition flex items-center gap-2'
+                  >
+                    support@pixelspulse.dev
+                  </a>
+                </div>
+
+                <div>
+                  <p className='text-sm text-gray-400 mb-1'>Business Hours:</p>
+                  <p className='text-white'>Open 24/7</p>
+                </div>
+              </div>
+            </div>
+
+            <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6'>
+              <h3 className='text-xl font-semibold text-white mb-4'>
+                Contact Sales
+              </h3>
+
+              <div className='space-y-4'>
+                <div>
+                  <p className='text-sm text-gray-400 mb-1'>Email:</p>
+                  <a
+                    href='mailto:sales@pixelspulse.dev'
+                    className='text-primary hover:text-accent transition flex items-center gap-2'
+                  >
+                    sales@pixelspulse.dev
+                  </a>
+                </div>
+                <div>
+                  <p className='text-sm text-gray-400 mb-1'>Business Hours:</p>
+                  <p className='text-white'>Open 24/7</p>
                 </div>
               </div>
             </div>

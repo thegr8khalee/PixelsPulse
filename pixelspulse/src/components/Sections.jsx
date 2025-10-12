@@ -44,7 +44,7 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-3xl sm:text-5xl font-[poppins] font-medium text-white mb-4'
+            className='text-3xl sm:text-5xl font-[poppins] font-medium text-primary mb-4'
           >
             Our Process
           </motion.h2>
@@ -79,7 +79,7 @@ const ProcessSection = () => {
                 <h3 className='text-xl font-semibold text-white mb-3 font-poppins'>
                   {step.title}
                 </h3>
-                <p className='text-gray-400 text-sm font-montserrat leading-relaxed'>
+                <p className='text-gray-300 font-montserrat leading-relaxed'>
                   {step.description}
                 </p>
               </div>
@@ -146,7 +146,7 @@ const WhyChooseUsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-3xl sm:text-5xl font-[poppins] text-white mb-4'
+            className='text-3xl sm:text-5xl font-[poppins] text-primary mb-4'
           >
             Why Choose PixelsPulse?
           </motion.h2>
@@ -177,7 +177,7 @@ const WhyChooseUsSection = () => {
               <h3 className='text-xl font-semibold text-white mb-2 font-poppins'>
                 {reason.title}
               </h3>
-              <p className='text-gray-400 text-sm font-montserrat leading-relaxed'>
+              <p className='text-gray-300 font-montserrat leading-relaxed'>
                 {reason.description}
               </p>
             </motion.div>
