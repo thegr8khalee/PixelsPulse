@@ -30,8 +30,8 @@ const App = () => {
   return (
     <div>
       <Navbar />
+      <ScrollToTop />
       <Routes>
-        <ScrollToTop />
         <Route path='/' element={<LandingPage />} />
         <Route path='/booking' element={<Booking />} />
         <Route path='/services' element={<Services />} />
@@ -51,10 +51,13 @@ const App = () => {
         <Route path='/help' element={<Help />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/cookie' element={<CookiePolicy />} />
-        <Route path='/unsubscribe-success/:email' element={<UnsubscribeSuccess />} />
+        <Route
+          path='/unsubscribe-success/:email'
+          element={<UnsubscribeSuccess />}
+        />
       </Routes>
       <Footer />
-      <Toaster/>
+      <Toaster />
     </div>
   );
 };
