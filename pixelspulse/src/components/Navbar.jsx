@@ -101,7 +101,7 @@ const Navbar = () => {
             <div className='hidden lg:flex'>
               <a
                 href='/booking'
-                className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full'
+                className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-lg'
               >
                 Book a Free Consultation
               </a>
@@ -175,7 +175,7 @@ const Navbar = () => {
           <li className='mt-4'>
             <a
               href='/booking'
-              className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full'
+              className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-lg'
             >
               Book a Free Consultation
             </a>

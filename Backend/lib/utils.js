@@ -8,7 +8,7 @@ dotenv.config();
  * Send welcome email using Gmail API
  */
 export const sendWelcomeEmail = async (recipientEmail) => {
-  const textContent = `
+    const textContent = `
 Hello there 👋,
 
 Thank you for subscribing to the PixelsPulse Newsletter! 
@@ -27,7 +27,7 @@ ${process.env.EMAIL_USER}
 © 2025 PixelsPulse. All rights reserved.
   `;
 
-  const htmlContent = `
+    const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,7 +45,7 @@ ${process.env.EMAIL_USER}
             
             <!-- HEADER -->
             <tr>
-                <td align="center" style="background: linear-gradient(135deg, #000723 95%, #d946ef); padding: 30px;">
+                <td align="center" style="background: #000723 ; padding: 30px;">
                     <h1 style="margin: 0; font-family: Poppins, sans-serif; font-weight: 700; font-size: 28px; color: #ffffff;">
                         Welcome to <span style="color: #30d5f3">PixelsPulse!</span>
                     </h1>
@@ -102,19 +102,19 @@ ${process.env.EMAIL_USER}
 </html>
   `;
 
-  try {
-    const result = await sendEmail({
-      to: recipientEmail,
-      subject: 'Welcome to PixelsPulse Newsletter! 🎉',
-      text: textContent,
-      html: htmlContent,
-      from: `"PixelsPulse Newsletter" <${process.env.EMAIL_USER}>`,
-    });
+    try {
+        const result = await sendEmail({
+            to: recipientEmail,
+            subject: 'Welcome to PixelsPulse Newsletter! 🎉',
+            text: textContent,
+            html: htmlContent,
+            from: `"PixelsPulse Newsletter" <${process.env.EMAIL_USER}>`,
+        });
 
-    console.log(`✅ Welcome email sent to ${recipientEmail}:`, result.messageId);
-    return result;
-  } catch (error) {
-    console.error('❌ Failed to send welcome email:', error.message);
-    throw error;
-  }
+        console.log(`✅ Welcome email sent to ${recipientEmail}:`, result.messageId);
+        return result;
+    } catch (error) {
+        console.error('❌ Failed to send welcome email:', error.message);
+        throw error;
+    }
 };

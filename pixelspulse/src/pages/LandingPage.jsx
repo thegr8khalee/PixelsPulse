@@ -558,7 +558,7 @@ const LandingPage = () => {
             <div></div>
             <button
               onClick={() => navigate('/booking')}
-              className='px-8 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white font-medium'
+              className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
             >
               Get a Free Consultation
             </button>

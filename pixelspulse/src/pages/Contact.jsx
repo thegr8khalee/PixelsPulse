@@ -14,6 +14,7 @@ import {
   Calendar,
   MessageSquare,
 } from 'lucide-react';
+import { useContactStore } from '../store/use.email.store';
 
 const services = [
   'General Inquiry',
@@ -29,7 +30,9 @@ const services = [
 ];
 
 const budgetRanges = [
-  'Under $5,000',
+  'Under $250',
+  '$250 - $1,000',
+  '$1,000 - $5,000',
   '$5,000 - $10,000',
   '$10,000 - $25,000',
   '$25,000 - $50,000',
@@ -62,9 +65,10 @@ const industries = [
 ];
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [fileName, setFileName] = useState('');
+  const { sendEmail, isLoading: loading } = useContactStore();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -167,11 +171,11 @@ const Contact = () => {
       return;
     }
 
-    setIsLoading(true);
+    // setIsLoading(true);
     setSubmitStatus(null);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await sendEmail(formData);
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -196,7 +200,7 @@ const Contact = () => {
     } catch (error) {
       setSubmitStatus('error');
     } finally {
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   };
 
@@ -216,7 +220,7 @@ const Contact = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           <div className='lg:col-span-2'>
-            <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-3xl p-8'>
+            <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-3xl p-4 sm:p-8'>
               <form onSubmit={handleSubmit} className='space-y-6'>
                 {/* Full Name */}
                 <div>
@@ -727,10 +731,10 @@ const Contact = () => {
                 {/* Submit Button */}
                 <button
                   type='submit'
-                  disabled={isLoading}
-                  className='w-full bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 duration-300 text-white font-semibold py-4 px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2'
+                  disabled={loading}
+                  className='w-full bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 duration-300 text-white font-semibold py-4 px-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2'
                 >
-                  {isLoading ? (
+                  {loading ? (
                     <>
                       <Loader2 className='w-5 h-5 animate-spin' />
                       Sending...
