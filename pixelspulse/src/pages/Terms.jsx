@@ -286,11 +286,13 @@ const Terms = () => {
           </p>
           <ul className='list-disc px-4'>
             <li>
-              <b>By email:</b> pixelspulsedev@gmail.com
+              <b>By email:</b> <a href='mailto:info@pixelspulse.dev' className='text-primary underline hover:text-primary/80'>info@pixelspulse.dev</a>
             </li>
             <li>
               <b>By visiting this page on our website:</b>{' '}
-              pixelspulse.dev/contact
+              <a href='https://pixelspulse.dev/contact' className='text-primary underline hover:text-primary/80'>
+                pixelspulse.dev/contact
+              </a>
             </li>
           </ul>
         </div>

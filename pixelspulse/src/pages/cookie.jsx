@@ -104,10 +104,10 @@ const CookiePolicy = () => {
           <p className='mt-2 font-[poppins]'>
             If you have any questions about this Cookie Policy, please contact us at{' '}
             <a
-              href='mailto:pixelspulsedev@gmail.com'
+              href='mailto:info@pixelspulse.dev'
               className='text-primary underline hover:text-primary/80'
             >
-              pixelspulsedev@gmail.com
+              info@pixelspulse.dev
             </a>.
           </p>
         </div>

@@ -134,10 +134,10 @@ const Privacy = () => {
             If you have questions about this Privacy Policy, please contact us
             at: <br />
             <a
-              href='mailto:pixelspulsedev@gmail.com'
+              href='mailto:info@pixelspulse.dev'
               className='text-primary underline hover:text-primary/80'
             >
-              pixelspulsedev@gmail.com
+              info@pixelspulse.dev
             </a>{' '}
             <br />
             <a

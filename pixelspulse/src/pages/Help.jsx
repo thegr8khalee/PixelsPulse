@@ -274,10 +274,10 @@ const Help = () => {
           </button>{' '}
           or email us at{' '}
           <a
-            href='mailto:pixelspulsedev@gmail.com'
+            href='mailto:support@pixelspulse.dev'
             className='text-aquaGlow underline'
           >
-            pixelspulsedev@gmail.com
+            support@pixelspulse.dev
           </a>
         </motion.p>
       </div>
