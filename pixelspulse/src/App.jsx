@@ -24,12 +24,14 @@ import CookiePolicy from './pages/cookie';
 import UnsubscribeSuccess from './pages/unsubscribeSuccess';
 import AISolutions from './pages/AI';
 import Booking from './pages/Booking';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <Routes>
+        <ScrollToTop />
         <Route path='/' element={<LandingPage />} />
         <Route path='/booking' element={<Booking />} />
         <Route path='/services' element={<Services />} />

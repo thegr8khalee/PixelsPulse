@@ -182,7 +182,7 @@ Reply to: ${email}
   try {
     // Send email using Zoho Mail
     await sendEmail({
-      to: process.env.RECEIVING_EMAIL,
+      to: 'info@pixelspulse.dev',
       subject: `${isGeneralInquiry ? 'General Inquiry' : 'New Project'}: ${service} - ${name}`,
       text: textContent,
       html: htmlContent,
