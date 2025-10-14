@@ -775,10 +775,10 @@ const Contact = () => {
                 <div>
                   <p className='text-sm text-gray-400 mb-1'>Email:</p>
                   <a
-                    href='mailto:pixelspulsedev@gmail.com'
+                    href='mailto:info@pixelspulse.dev'
                     className='text-primary hover:text-accent transition flex items-center gap-2'
                   >
-                    pixelspulsedev@gmail.com
+                    info@pixelspulse.dev
                   </a>
                 </div>
 
