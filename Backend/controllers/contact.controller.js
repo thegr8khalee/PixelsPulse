@@ -48,7 +48,7 @@ export const sendContactEmail = async (req, res) => {
 
   const isGeneralInquiry = service === 'General Inquiry';
 
-  // Build text content
+  // Build text content for internal email
   let textContent = `
 New Contact Form Submission
 
@@ -73,7 +73,7 @@ ${message}
 Reply to: ${email}
   `;
 
-  // Build HTML content
+  // Build HTML content for internal email
   const htmlContent = `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 650px; margin: 0 auto; background: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
       <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center;">
@@ -179,14 +179,139 @@ Reply to: ${email}
     </div>
   `;
 
+  // Build auto-reply notification email for the user
+  const autoReplyText = `
+Hi ${name},
+
+Thank you for reaching out to PixelsPulse! We've received your ${isGeneralInquiry ? 'inquiry' : 'project request'} regarding ${service}.
+
+We appreciate your interest and will review your message carefully. Our team typically responds within 24-48 hours during business days.
+
+${!isGeneralInquiry ? `
+Here's a summary of your submission:
+- Service: ${service}
+${budget ? `- Budget: ${budget}` : ''}
+${timeline ? `- Timeline: ${timeline}` : ''}
+${contactMethod ? `- Preferred Contact Method: ${contactMethod}` : ''}
+` : ''}
+
+In the meantime, feel free to explore our website or reach out if you have any urgent questions.
+
+${newsletter ? `\nYou've also been subscribed to our newsletter. Stay tuned for updates, tips, and industry insights!\n` : ''}
+
+Best regards,
+The PixelsPulse Team
+
+---
+This is an automated confirmation email. Please do not reply to this message.
+For urgent matters, contact us at info@pixelspulse.dev
+  `;
+
+  const autoReplyHtml = `
+    <div style="font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(48, 213, 243, 0.1);">
+      <div style="background: #0a0a23; padding: 40px 30px; text-align: center;">
+        <h1 style="font-family: 'Poppins', sans-serif; color: #30d5f3; margin: 0; font-size: 34px; font-weight: 700; letter-spacing: -0.5px;">PixelsPulse</h1>
+        <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 16px; opacity: 0.95;">We've received your message!</p>
+      </div>
+      
+      <div style="padding: 40px 30px;">
+        <h2 style="font-family: 'Poppins', sans-serif; color: #0a0a23; margin: 0 0 20px 0; font-size: 26px; font-weight: 600;">Hi ${name},</h2>
+        
+        <p style="color: #1f2937; line-height: 1.7; margin: 0 0 20px 0; font-size: 15px;">
+          Thank you for reaching out to <strong style="font-family: 'Poppins', sans-serif; color: #0a0a23;">PixelsPulse</strong>! We've received your ${isGeneralInquiry ? 'inquiry' : 'project request'} regarding <strong style="color: #30d5f3;">${service}</strong>.
+        </p>
+
+        <p style="color: #1f2937; line-height: 1.7; margin: 0 0 30px 0; font-size: 15px;">
+          We appreciate your interest and will review your message carefully. Our team typically responds within <strong style="font-family: 'Poppins', sans-serif;">24-48 hours</strong> during business days.
+        </p>
+
+        ${!isGeneralInquiry ? `
+        <div style="background: linear-gradient(to right, rgba(48, 213, 243, 0.05), rgba(217, 70, 239, 0.05)); border-left: 4px solid #30d5f3; border-radius: 12px; padding: 24px; margin-bottom: 30px;">
+          <h3 style="font-family: 'Poppins', sans-serif; color: #0a0a23; margin: 0 0 18px 0; font-size: 18px; font-weight: 600;">Your Submission Summary</h3>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px 0; color: #1f2937; font-size: 14px;">Service:</td>
+              <td style="padding: 8px 0; color: #0a0a23; font-weight: 600; font-size: 14px;">${service}</td>
+            </tr>
+            ${budget ? `
+            <tr>
+              <td style="padding: 8px 0; color: #1f2937; font-size: 14px;">Budget:</td>
+              <td style="padding: 8px 0; color: #0a0a23; font-weight: 600; font-size: 14px;">${budget}</td>
+            </tr>` : ''}
+            ${timeline ? `
+            <tr>
+              <td style="padding: 8px 0; color: #1f2937; font-size: 14px;">Timeline:</td>
+              <td style="padding: 8px 0; color: #0a0a23; font-weight: 600; font-size: 14px;">${timeline}</td>
+            </tr>` : ''}
+            ${contactMethod ? `
+            <tr>
+              <td style="padding: 8px 0; color: #1f2937; font-size: 14px;">Contact Method:</td>
+              <td style="padding: 8px 0; color: #0a0a23; font-weight: 600; font-size: 14px;">${contactMethod}</td>
+            </tr>` : ''}
+          </table>
+        </div>
+        ` : ''}
+
+        ${newsletter ? `
+        <div style="background: linear-gradient(135deg, rgba(48, 213, 243, 0.1), rgba(56, 189, 248, 0.1)); border-left: 4px solid #38bdf8; padding: 16px 20px; border-radius: 8px; margin-bottom: 30px;">
+          <p style="margin: 0; color: #0a0a23; font-size: 14px; line-height: 1.6;">
+            <strong style="font-family: 'Poppins', sans-serif;">📧 Newsletter Subscription</strong><br>
+            You've been subscribed to our newsletter. Stay tuned for updates, tips, and industry insights!
+          </p>
+        </div>
+        ` : ''}
+
+        <p style="color: #1f2937; line-height: 1.7; margin: 0 0 30px 0; font-size: 15px;">
+          In the meantime, feel free to explore our website or reach out if you have any urgent questions.
+        </p>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="https://pixelspulse.dev" style="font-family: 'Poppins', sans-serif; display: inline-block; background: linear-gradient(135deg, #30d5f3 0%, #d946ef 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 15px rgba(48, 213, 243, 0.3); transition: all 0.3s ease;">Visit Our Website</a>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #f3f4f6;">
+          <p style="color: #1f2937; line-height: 1.7; margin: 0 0 10px 0; font-size: 15px;">
+            Best regards,<br>
+            <strong style="font-family: 'Poppins', sans-serif; color: #30d5f3; font-size: 16px;">The PixelsPulse Team</strong>
+          </p>
+        </div>
+
+        <div style="background: linear-gradient(to right, #fff8e1, #fef3c7); border-left: 4px solid #facc15; border-radius: 8px; padding: 16px 20px; margin-top: 30px;">
+          <p style="color: #0a0a23; font-size: 13px; margin: 0; line-height: 1.6;">
+            <strong style="font-family: 'Poppins', sans-serif;">⚠️ Note:</strong> This is an automated confirmation email. Please do not reply to this message.<br>
+            For urgent matters, contact us at <a href="mailto:info@pixelspulse.dev" style="color: #30d5f3; text-decoration: none; font-weight: 600;">info@pixelspulse.dev</a>
+          </p>
+        </div>
+      </div>
+
+      <div style="background: #f3f4f6; padding: 24px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
+        <p style="color: #6b7280; font-size: 12px; margin: 0 0 8px 0;">© ${new Date().getFullYear()} PixelsPulse. All rights reserved.</p>
+        <p style="color: #6b7280; font-size: 12px; margin: 0;">
+          <a href="https://pixelspulse.dev" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Website</a> |
+          <a href="https://pixelspulse.dev/privacy" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Privacy Policy</a> |
+          <a href="https://pixelspulse.dev/contact" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Contact</a>
+        </p>
+      </div>
+    </div>
+  `;
+
   try {
-    // Send email using Zoho Mail
+    // Send internal notification email
     await sendEmail({
       to: 'info@pixelspulse.dev',
       subject: `${isGeneralInquiry ? 'General Inquiry' : 'New Project'}: ${service} - ${name}`,
       text: textContent,
       html: htmlContent,
-      from: process.env.ZOHO_EMAIL_USER, // Zoho requires authenticated sender
+      from: process.env.ZOHO_EMAIL_USER,
+    });
+
+    // Send auto-reply notification to the user
+    await sendEmail({
+      to: email,
+      subject: `Thank you for contacting PixelsPulse - We've received your ${isGeneralInquiry ? 'inquiry' : 'project request'}`,
+      text: autoReplyText,
+      html: autoReplyHtml,
+      from: process.env.ZOHO_EMAIL_USER,
     });
 
     // Handle newsletter subscription if opted in
