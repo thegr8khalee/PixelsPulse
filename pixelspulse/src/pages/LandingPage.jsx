@@ -206,6 +206,9 @@ const LandingPage = () => {
                 { Image: 'one.png' },
                 { Image: 'two.png' },
                 { Image: 'three.png' },
+                { Image: '11.png' },
+                { Image: '12.png' },
+                { Image: '13.png' },
                 { Image: 'four.png' },
                 { Image: 'five.png' },
                 { Image: 'six.png' },
@@ -250,7 +253,12 @@ const LandingPage = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 100, damping: 10, delay: 0.2 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 10,
+                  delay: 0.2,
+                }}
                 className='space-y-4'
               >
                 <p className='text-base sm:text-lg font-montserrat text-gray-300 leading-relaxed'>
@@ -367,7 +375,6 @@ const LandingPage = () => {
       </section>
 
       {/* Portfolio Section */}
-      
 
       <AboutSection></AboutSection>
 
@@ -472,9 +479,7 @@ const LandingPage = () => {
         </section>
       </div>
 
-      <div className='hidden md:grid grid-cols-2'>
-
-      </div>
+      <div className='hidden md:grid grid-cols-2'></div>
     </div>
   );
 };
