@@ -88,14 +88,14 @@ const LandingPage = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8, y: 30 },
+    hidden: { opacity: 0, scale: 0.8 },
     show: {
       opacity: 1,
       scale: 1,
-      y: 0,
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
       },
     },
   };
@@ -126,10 +126,10 @@ const LandingPage = () => {
 
           <div className='relative z-10 flex flex-col items-center justify-center h-full text-center space-y-4'>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               className=''
             >
               <a
@@ -149,10 +149,10 @@ const LandingPage = () => {
               </a>
             </motion.div>
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
               className='my-4 text sm:text-lg text-gray-200 font-montserrat max-w-4xl'
             >
               We don't just build websites; we engineer digital experiences that
@@ -160,19 +160,19 @@ const LandingPage = () => {
               presence.
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
               className='sm:text-xl font-montserrat text-accent tracking-wide italic'
             >
               "Your Brand's Digital Heartbeat"
             </motion.h1>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
               className='flex flex-col sm:flex-row gap-4 mt-6'
             >
               <button
@@ -193,14 +193,15 @@ const LandingPage = () => {
       </section>
 
       <section className='relative overflow-hidden'>
-        <div className='max-w-7xl mx-auto px-4'>
+        <div className='w-full mx-auto px-4 text-center'>
+          <p className='font-[montserrat] text-gray-300 py-4'>Trusted by</p>
           {/* Auto-scrolling container */}
           <div className='relative'>
             {/* Gradient overlays for fade effect */}
             <div className='absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-base-100 to-transparent z-10 pointer-events-none' />
             <div className='absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-base-100 to-transparent z-10 pointer-events-none' />
 
-            <Marquee speed={30} pauseOnHover={true}>
+            <Marquee speed={40} pauseOnHover={true}>
               {[
                 { Image: 'one.png' },
                 { Image: 'two.png' },
@@ -236,20 +237,20 @@ const LandingPage = () => {
             {/* Left Content */}
             <div className='flex-1 space-y-6'>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 10 }}
                 className='text-3xl sm:text-5xl font-poppins font-medium text-primary'
               >
                 Who We Are
               </motion.h1>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 10, delay: 0.2 }}
                 className='space-y-4'
               >
                 <p className='text-base sm:text-lg font-montserrat text-gray-300 leading-relaxed'>
@@ -326,10 +327,10 @@ const LandingPage = () => {
       {/** industries section */}
       <section className='py-20 px-4 text-start sm:text-center max-w-7xl mx-auto'>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 10 }}
         >
           <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins'] text-primary">
             Industries We Serve
@@ -343,9 +344,9 @@ const LandingPage = () => {
             <motion.div
               key={index}
               className='bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-6 text-start backdrop-blur-3xl hover:bg-white/15 transition-all duration-300'
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
               viewport={{ once: true }}
             >
               <div className='absolute inset-0 rounded-3xl pointer-events-none border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' />
@@ -366,160 +367,7 @@ const LandingPage = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section className=' py-20 px-0 sm:px-6 lg:px-8 bg-base-100 text-start sm:text-center'>
-        <div className='max-w-7xl mx-auto'>
-          <motion.div
-            className='mb-6'
-            initial={{
-              opacity: 0.5,
-              scale: 0.9,
-            }}
-            viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            <h2 className="px-4 text-3xl sm:text-5xl mb-0 font-['poppins'] font-medium text-primary">
-              Projects
-            </h2>
-            <p className="text-1xl px-4 pt-2 text-gray-300 max-w-2xl mx-auto font-['montserrat']">
-              Explore our portfolio of successful projects and case studies
-            </p>
-          </motion.div>
-
-          {/* Horizontal Scroll Container */}
-          <motion.div
-            className='relative'
-            initial={{
-              opacity: 0.5,
-              scale: 0.9,
-            }}
-            viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            {/* Fade Effects */}
-            <div className='absolute left-0 top-0 bottom-0 w-5 bg-gradient-to-r from-base-100 to-transparent z-10 pointer-events-none'></div>
-            <div className='absolute right-0 top-0 bottom-0 w-5 bg-gradient-to-l from-base-100 to-transparent z-10 pointer-events-none'></div>
-
-            {/* Cards Container */}
-            <div
-              className='flex overflow-x-auto pb-10 gap-8 px-4 text-start'
-              style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
-              }}
-            >
-              {/* Card 3 */}
-              <div className='flex-shrink-0 w-80 md:w-96 space-y-2'>
-                <figure className=''>
-                  <img
-                    src='emm.png'
-                    alt='Project'
-                    className='rounded-xl w-full h-60 object-fill'
-                  />
-                </figure>
-                <div className='space-y-1'>
-                  <h2 className="text-lg font-['poppins'] font-medium">
-                    Everything MIMI
-                  </h2>
-                  <p className='font-["poppins"] text-gray-400'>
-                    E-commerce website, products catalog, full brand Identity.
-                  </p>
-                  {/* <div className='card-actions w-full'>
-                    <a className='text-accent font-[montserrat]'>
-                      Learn More
-                    </a>
-                  </div> */}
-                </div>
-              </div>
-
-              <div className='flex-shrink-0 w-75 md:w-96 space-y-2'>
-                <figure className=''>
-                  <img
-                    src='Domora.png'
-                    alt='Project'
-                    className='rounded-xl w-full h-60 object-cover'
-                  />
-                </figure>
-                <div className='space-y-1'>
-                  <h2 className="text-lg font-['poppins'] font-semibold">
-                    Domora (Ongoing Project)
-                  </h2>
-                  <p className='font-["poppins"] text-gray-400'>
-                    Real-estate Website, UI/UX design and full brand identity.
-                  </p>
-                  {/* <div className='card-actions w-full'>
-                    <a className='text-accent  font-[montserrat]'>
-                      Learn More
-                    </a>
-                  </div> */}
-                </div>
-              </div>
-
-              <div className='flex-shrink-0 w-75 md:w-96 space-y-2'>
-                <figure className=''>
-                  <img
-                    src='kad.png'
-                    alt='Project'
-                    className='rounded-xl w-full h-60'
-                  />
-                </figure>
-                <div className='space-y-1'>
-                  <h2 className="text-lg font-['poppins'] font-semibold">
-                    Kaduna Real Estate Properties
-                  </h2>
-                  <p className='font-["poppins"] text-gray-400'>
-                    An eye-catching Logo design perfect for 3D and use as a
-                    watermark.
-                  </p>
-                  {/* <div className='card-actions w-full'>
-                    <a className='text-accent  font-[montserrat]'>
-                      Learn More
-                    </a>
-                  </div> */}
-                </div>
-              </div>
-
-              <div className='flex-shrink-0 w-75 md:w-96 space-y-2'>
-                <figure className=''>
-                  <img
-                    src='Pheez.png'
-                    alt='Project'
-                    className='rounded-xl w-full h-60'
-                  />
-                </figure>
-                <div className='space-y-1'>
-                  <h2 className="text-lg font-['poppins'] font-semibold">
-                    PHEEZYHOMES & Interior
-                  </h2>
-                  <p className='font-["poppins"] text-gray-400'>
-                    Beautifully design Products and Collections Catalogs with
-                    details.
-                  </p>
-                  {/* <div className='card-actions w-full'>
-                    <a className='text-accent font-[montserrat]'>
-                      Learn More
-                    </a>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-          <div className='w-full text-xl text-center mt- font-semibold text-primary'>
-            <a href='/portfolio'>Explore Projects</a>
-          </div>
-
-          {/* Global CSS for scrollbar hiding */}
-          <style jsx>{`
-            [class*='overflow-x-auto']::-webkit-scrollbar {
-              display: none;
-              width: 0;
-              height: 0;
-              background: transparent;
-            }
-          `}</style>
-        </div>
-      </section>
+      
 
       <AboutSection></AboutSection>
 
@@ -530,11 +378,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto text-center'
             initial={{
               opacity: 0.2,
-              scale: 0.9,
+              scale: 0.8,
             }}
             viewport={{ once: true, amount: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
           >
             <img src='book.png' alt='consultation' className='h-70 md:h-100' />
           </motion.div>
@@ -542,11 +390,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
             initial={{
               opacity: 0.2,
-              scale: 0.9,
+              scale: 0.8,
             }}
             viewport={{ once: true, amount: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
           >
             <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
               Let's Build Something <span className='text-primary'>Bold</span>
@@ -573,11 +421,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto text-center'
             initial={{
               opacity: 0.2,
-              scale: 0.9,
+              scale: 0.8,
             }}
             viewport={{ once: true, amount: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
           >
             <img src='news.png' alt='newsletter' className='h-70 md:h-100' />
           </motion.div>
@@ -585,11 +433,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
             initial={{
               opacity: 0.2,
-              scale: 0.9,
+              scale: 0.8,
             }}
             viewport={{ once: true, amount: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
           >
             <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
               Stay Ahead with Our{' '}

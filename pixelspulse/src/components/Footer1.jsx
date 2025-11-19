@@ -33,11 +33,11 @@ const Footer = () => {
                   Services
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href='/portfolio' className='text-white hover:text-aquaGlow'>
                   Portfolio
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a href='/contact' className='text-white hover:text-aquaGlow'>
                   Contact
