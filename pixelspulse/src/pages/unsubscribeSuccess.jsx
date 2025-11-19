@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { CheckCircle, Mail, ArrowLeft, Home, Loader2 } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import { useNewstellerStore } from '../store/use.newsteller';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const UnsubscribeSuccess = () => {
+  usePageLoader([]);
   const { registerToNewsteller, isLoading } = useNewstellerStore();
   const params = useParams();
   const email = params.email;

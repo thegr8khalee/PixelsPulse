@@ -18,8 +18,10 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const UI = () => {
+  usePageLoader(['UX.jpg']);
   const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 // --- Your FAQ Data ---
 const faqSections = [
@@ -160,6 +161,7 @@ const faqSections = [
 
 // --- FAQ Component ---
 const Help = () => {
+  usePageLoader([]);
   const [openIndexes, setOpenIndexes] = useState({});
 
   const toggleFAQ = (sectionTitle, index) => {

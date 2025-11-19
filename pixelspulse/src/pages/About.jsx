@@ -36,9 +36,11 @@ import {
   Trophy,
   UserRound,
 } from 'lucide-react';
+import { usePageLoader } from '../hooks/usePageLoader';
 import AboutSection from '../components/about';
 
 const About = () => {
+  usePageLoader(['signature.png', 'qq.png', 'ceo.jpg']);
   const coreValues = [
     {
       icon: Lightbulb,

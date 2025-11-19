@@ -22,8 +22,10 @@ import {
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const Performance = () => {
+  usePageLoader(['performance1.jpg']);
   const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');

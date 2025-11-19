@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'; // Keeping this as it was in the origina
 import { X } from 'lucide-react';
 import { BackgroundGradient } from '../components/card.jsx';
 import { cn } from '../lib/utils.jsx';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 // Project data (replace with your actual project details and add more images)
 const projects = [
@@ -205,6 +206,9 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
 const Portfolio = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState(null);
+
+  const allImages = projects.flatMap((p) => p.images);
+  usePageLoader(allImages);
 
   const handleContact = () => {
     navigate('/contact');

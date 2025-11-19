@@ -15,6 +15,7 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import { useContactStore } from '../store/use.email.store';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const services = [
   'General Inquiry',
@@ -65,6 +66,7 @@ const industries = [
 ];
 
 const Contact = () => {
+  usePageLoader(['instagram.png', 'twitter.png', 'linkedin.png']);
   // const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [fileName, setFileName] = useState('');

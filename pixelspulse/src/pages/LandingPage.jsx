@@ -17,9 +17,36 @@ import {
 } from '../components/Sections';
 import { useNewstellerStore } from '../store/use.newsteller';
 
+import { usePageLoader } from '../hooks/usePageLoader';
+
 const LandingPage = () => {
   const { isLoading, registerToNewsteller } = useNewstellerStore();
   const [email, setEmail] = useState('');
+
+  usePageLoader([
+    '/logo-hero.png',
+    'one.png',
+    'two.png',
+    'three.png',
+    'four.png',
+    'five.png',
+    'six.png',
+    'seven.png',
+    'eight.png',
+    'nine.png',
+    'ten.png',
+    '11.png',
+    '12.png',
+    '13.png',
+    'startup.png',
+    'retail.png',
+    'education.png',
+    'health.png',
+    'property.png',
+    'fintech.png',
+    'book.png',
+    'news.png',
+  ]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -25,11 +25,32 @@ import UnsubscribeSuccess from './pages/unsubscribeSuccess';
 import AISolutions from './pages/AI';
 import Booking from './pages/Booking';
 import ScrollToTop from './components/ScrollToTop';
+import { useUiStore } from './store/use.ui.store';
+import { motion } from 'framer-motion';
 
 const App = () => {
+  const { isLoading } = useUiStore();
+
   return (
     <div>
-      <Navbar />
+      {isLoading && (
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black'>
+          <motion.div
+            initial={{ opacity: 0.5, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1.1 }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+            }}
+            className='flex flex-col items-center'
+          >
+            <img src='/logo-hero.png' alt='Loading...' className='w-24 mb-4' />
+          </motion.div>
+        </div>
+      )}
+      {!isLoading && <Navbar />}
       <ScrollToTop />
       <Routes>
         <Route path='/' element={<LandingPage />} />

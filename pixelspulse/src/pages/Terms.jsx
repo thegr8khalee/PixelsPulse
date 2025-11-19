@@ -37,7 +37,10 @@ import {
   UserRound,
 } from 'lucide-react';
 
+import { usePageLoader } from '../hooks/usePageLoader';
+
 const Terms = () => {
+  usePageLoader([]);
   return (
     <div className='pt-16'>
       <section id='Hero' className='w-full text-center'>

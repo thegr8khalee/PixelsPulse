@@ -6,82 +6,29 @@ import { cn } from '../lib/utils.jsx';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ServicesSection from '../components/services.jsx';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const Services = () => {
-    const navigate = useNavigate();
+  usePageLoader([
+    'web.jpg',
+    'mobile.jpg',
+    'ui.jpg',
+    'ecom.jpg',
+    'AI.jpg',
+    'brand.jpg',
+    'landing.jpg',
+    'performance.jpg',
+    'maintain.jpg',
+  ]);
+
+  const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 10);
   };
-  const services = [
-    {
-      title: 'Web Development',
-      description:
-        'From dynamic corporate sites to complex web applications, we build robust, scalable, and user-centric web solutions tailored to your unique needs.',
-      //   icon: "💻",
-      image: 'web.jpg',
-      link: '/web-development' // replace with your actual image path
-    },
-    {
-      title: 'UI/UX Design',
-      description:
-        'Craft captivating and user-friendly interfaces that not only look stunning but also provide seamless, enjoyable interactions for your audience.',
-      image: 'ui.jpg',
-      link: '/ui-ux-design' // replace with your actual image path
-    },
-    {
-      title: 'Mobile Apps',
-      description:
-        'Reach your audience everywhere with intuitive iOS and Android applications. We design and develop engaging mobile experiences that drive connection and growth.',
-      image: 'mobile.jpg',
-      link: '/mobile-app' // replace with your actual image path
-    },
-    {
-      title: 'Branding',
-      description: 'Complete visual identity and brand strategy.',
-      image: 'brand.jpg',
-      link: '/branding-graphics-design' // replace with your actual image path
-    },
-    {
-      title: 'Landing Pages & Micro-sites',
-      description:
-        'High-converting, visually striking pages for launches, products, or campaigns.',
-      image: 'landing.jpg',
-      link: '/landing-pages-microsites' // replace with your actual image path
-    },
-    {
-      title: 'Performance optimization',
-      description:
-        'Speed, accessibility, and core web vitals — fine-tuned to perfection.',
-      image: 'performance.jpg',
-      link: '/performance-optimization' // replace with your actual image path
-    },
-    {
-      title: 'Maintenance & Support',
-      description:
-        'Ongoing updates, backups, and tech support to keep your product stable and secure.',
-      image: 'maintain.jpg',
-      link: '/maintenance-support' // replace with your actual image path
-    },
-    {
-      title: 'E-commerce Solutions',
-      description:
-        'Launch and scale your online store with custom e-commerce solutions. We build secure, user-friendly platforms designed for sales growth.',
-      image: 'e-commerce.jpeg',
-      link: '/e-commerce' // replace with your actual image path
-    },
-  ];
 
-//   const navigate = useNavigate()
-
-  const handleClick = (link) => {
-    navigate(link)
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 10);
-  }
   return (
     <div className='pt-16'>
       <section id='Hero' className='w-full text-center'>

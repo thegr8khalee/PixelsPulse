@@ -1,7 +1,9 @@
 import React from 'react';
 import { BackgroundGradientAnimation } from '../components/bg';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const Privacy = () => {
+  usePageLoader([]);
   return (
     <div className='py-16'>
       {/* Hero Section */}

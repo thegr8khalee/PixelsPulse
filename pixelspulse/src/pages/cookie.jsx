@@ -1,7 +1,9 @@
 import React from 'react';
 import { BackgroundGradientAnimation } from '../components/bg';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const CookiePolicy = () => {
+  usePageLoader([]);
   return (
     <div className='py-16'>
       <section id='Hero' className='w-full text-center'>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { Check, Calendar, Clock, Video } from 'lucide-react';
 import { InlineWidget } from 'react-calendly';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const Booking = () => {
+  usePageLoader(['instagram.png', 'twitter.png', 'linkedin.png']);
+
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
       <div className='max-w-6xl mx-auto'>

@@ -20,8 +20,11 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { usePageLoader } from '../hooks/usePageLoader';
 
 const Apps = () => {
+  usePageLoader(['app-dev.jpg', 'apple.png', 'android.png', 'app-store.png']);
+
   const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');
