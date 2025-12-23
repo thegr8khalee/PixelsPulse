@@ -126,6 +126,7 @@ export default function Aurora(props) {
       alpha: true,
       premultipliedAlpha: true,
       antialias: true,
+      dpr: Math.min(window.devicePixelRatio, 1.5), // Limit DPR for performance
     });
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);

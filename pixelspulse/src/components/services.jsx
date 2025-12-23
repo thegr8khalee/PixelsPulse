@@ -137,7 +137,7 @@ const ServicesSection = () => {
                 </div>
 
                 {/* Content container */}
-                <div className='bg-black/20 relative z-10 p-6 flex flex-col justify-end h-full'>
+                <div className='bg-black/50 relative z-10 p-6 flex flex-col justify-end h-full'>
                   <h3 className='text-xl md:text-2xl text-white mb-2 font-[poppins]'>
                     {service.title}
                   </h3>

@@ -19,10 +19,10 @@ const GlassmorphicHero = () => {
           className='backdrop-blur-xl bg-white/5 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 border border-white/10 shadow-2xl flex flex-col md:flex-row items-center gap-6 sm:gap-8 lg:gap-12 w-full'
           initial={{
             opacity: 0,
-            scale: 0.95
+            y: 20
           }}
           viewport={{ once: true, amount: 0.3 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Inner glow effect */}
@@ -56,8 +56,8 @@ const GlassmorphicHero = () => {
             {/* Mobile Image - Shows only on small screens */}
             <motion.div 
               className='md:hidden flex items-center justify-center my-6 sm:my-8'
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >

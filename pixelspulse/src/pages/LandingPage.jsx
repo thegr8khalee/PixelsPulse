@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Marquee from 'react-fast-marquee';
-import { BackgroundGradientAnimation } from '../components/bg';
+// import { BackgroundGradientAnimation } from '../components/bg';
 import GlassCard from '../components/glass';
 import ServicesSection from '../components/services';
 import { ArrowUpRight, Github, GithubIcon, Play, Video } from 'lucide-react';
@@ -82,6 +82,8 @@ const LandingPage = () => {
     },
   ];
 
+  const smoothTransition = { duration: 0.8, ease: "easeOut" };
+
   const containerVariants = {
     hidden: {},
     show: {
@@ -92,15 +94,11 @@ const LandingPage = () => {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 260,
-        damping: 20,
-      },
+      y: 0,
+      transition: smoothTransition,
     },
   };
 
@@ -130,10 +128,10 @@ const LandingPage = () => {
 
           <div className='relative z-10 flex flex-col items-center justify-center h-full text-center space-y-4'>
             <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              transition={smoothTransition}
               className=''
             >
               <a
@@ -153,10 +151,10 @@ const LandingPage = () => {
               </a>
             </motion.div>
             <motion.p
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+              transition={smoothTransition}
               className='my-4 text sm:text-lg text-gray-200 font-montserrat max-w-4xl'
             >
               We don't just build websites; we engineer digital experiences that
@@ -164,19 +162,19 @@ const LandingPage = () => {
               presence.
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+              transition={smoothTransition}
               className='sm:text-xl font-montserrat text-accent tracking-wide italic'
             >
               "Your Brand's Digital Heartbeat"
             </motion.h1>
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+              transition={smoothTransition}
               className='flex flex-col sm:flex-row gap-4 mt-6'
             >
               <button
@@ -244,23 +242,21 @@ const LandingPage = () => {
             {/* Left Content */}
             <div className='flex-1 space-y-6'>
               <motion.h1
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+                transition={smoothTransition}
                 className='text-3xl sm:text-5xl font-poppins font-medium text-primary'
               >
                 Who We Are
               </motion.h1>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  type: 'spring',
-                  stiffness: 100,
-                  damping: 10,
+                  ...smoothTransition,
                   delay: 0.2,
                 }}
                 className='space-y-4'
@@ -339,10 +335,10 @@ const LandingPage = () => {
       {/** industries section */}
       <section className='py-20 px-4 text-start sm:text-center max-w-7xl mx-auto'>
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+          transition={smoothTransition}
         >
           <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins'] text-primary">
             Industries We Serve
@@ -356,9 +352,9 @@ const LandingPage = () => {
             <motion.div
               key={index}
               className='bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-6 text-start backdrop-blur-3xl hover:bg-white/15 transition-all duration-300'
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={smoothTransition}
               viewport={{ once: true }}
             >
               <div className='absolute inset-0 rounded-3xl pointer-events-none border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' />
@@ -389,11 +385,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto text-center'
             initial={{
               opacity: 0.2,
-              scale: 0.8,
+              y: 20,
             }}
             viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={smoothTransition}
           >
             <img src='book.png' alt='consultation' className='h-70 md:h-100' />
           </motion.div>
@@ -401,11 +397,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
             initial={{
               opacity: 0.2,
-              scale: 0.8,
+              y: 20,
             }}
             viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={smoothTransition}
           >
             <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
               Let's Build Something <span className='text-primary'>Bold</span>
@@ -432,11 +428,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto text-center'
             initial={{
               opacity: 0.2,
-              scale: 0.8,
+              y: 20,
             }}
             viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={smoothTransition}
           >
             <img src='news.png' alt='newsletter' className='h-70 md:h-100' />
           </motion.div>
@@ -444,11 +440,11 @@ const LandingPage = () => {
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
             initial={{
               opacity: 0.2,
-              scale: 0.8,
+              y: 20,
             }}
             viewport={{ once: true, amount: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 100, damping: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={smoothTransition}
           >
             <h2 className="text-3xl sm:text-5xl mb-6 font-['poppins'] ">
               Stay Ahead with Our{' '}

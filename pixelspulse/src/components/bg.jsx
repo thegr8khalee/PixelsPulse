@@ -21,11 +21,22 @@ export const BackgroundGradientAnimation = ({
   pulseSpeed = 100, // New prop to control pulse speed (seconds per cycle)
 }) => {
   const interactiveRef = useRef(null);
-  const [pulseScale, setPulseScale] = useState(1);
-  const [curX, setCurX] = useState(0);
-  const [curY, setCurY] = useState(0);
-  const [tgX, setTgX] = useState(0);
-  const [tgY, setTgY] = useState(0);
+  
+  // Refs for the gradient circles
+  const circle1Ref = useRef(null);
+  const circle2Ref = useRef(null);
+  const circle3Ref = useRef(null);
+  const circle4Ref = useRef(null);
+  const circle5Ref = useRef(null);
+
+  // Mutable state for animation (avoids re-renders)
+  const animationState = useRef({
+    curX: 0,
+    curY: 0,
+    tgX: 0,
+    tgY: 0,
+    startTime: null
+  });
 
   useEffect(() => {
     document.body.style.setProperty(
@@ -46,50 +57,47 @@ export const BackgroundGradientAnimation = ({
     document.body.style.setProperty('--blending-value', blendingValue);
   }, []);
 
-  // Pulse animation effect
+  // Combined animation loop
   useEffect(() => {
     let animationFrameId;
-    let startTime = null;
 
-    const animatePulse = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = (timestamp - startTime) / 1000; // Convert to seconds
+    const animate = (timestamp) => {
+      const state = animationState.current;
+      
+      // 1. Pulse Animation
+      if (!state.startTime) state.startTime = timestamp;
+      const elapsed = (timestamp - state.startTime) / 1000;
+      const pulse = 1 + Math.sin((elapsed * (2 * Math.PI)) / pulseSpeed) * pulseIntensity;
 
-      // Calculate pulse scale using sine wave for smooth oscillation
-      const pulse =
-        1 + Math.sin((elapsed * (2 * Math.PI)) / pulseSpeed) * pulseIntensity;
-      setPulseScale(pulse);
+      // Apply pulse to circles directly
+      if (circle1Ref.current) circle1Ref.current.style.transform = `scale(${pulse})`;
+      if (circle2Ref.current) circle2Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.8})`;
+      if (circle3Ref.current) circle3Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.6})`;
+      if (circle4Ref.current) circle4Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.4})`;
+      if (circle5Ref.current) circle5Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.2})`;
 
-      animationFrameId = requestAnimationFrame(animatePulse);
+      // 2. Interactive Movement
+      if (interactiveRef.current) {
+        state.curX += (state.tgX - state.curX) / 20;
+        state.curY += (state.tgY - state.curY) / 20;
+        interactiveRef.current.style.transform = `translate(${Math.round(state.curX)}px, ${Math.round(state.curY)}px)`;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
     };
 
-    animationFrameId = requestAnimationFrame(animatePulse);
+    animationFrameId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, [pulseIntensity, pulseSpeed]);
 
-  useEffect(() => {
-    function move() {
-      if (!interactiveRef.current) {
-        return;
-      }
-      setCurX(curX + (tgX - curX) / 20);
-      setCurY(curY + (tgY - curY) / 20);
-      interactiveRef.current.style.transform = `translate(${Math.round(
-        curX
-      )}px, ${Math.round(curY)}px)`;
-    }
-
-    move();
-  }, [tgX, tgY]);
-
   const handleMouseMove = (event) => {
     if (interactiveRef.current) {
       const rect = interactiveRef.current.getBoundingClientRect();
-      setTgX(event.clientX - rect.left);
-      setTgY(event.clientY - rect.top);
+      animationState.current.tgX = event.clientX - rect.left;
+      animationState.current.tgY = event.clientY - rect.top;
     }
   };
 
@@ -132,6 +140,7 @@ export const BackgroundGradientAnimation = ({
       >
         {/* Added pulse effect to each gradient circle */}
         <div
+          ref={circle1Ref}
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_var(--first-color)_0,_var(--first-color)_50%)_no-repeat]`,
             `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
@@ -139,9 +148,9 @@ export const BackgroundGradientAnimation = ({
             `animate-first`,
             `opacity-100`
           )}
-          style={{ transform: `scale(${pulseScale})` }}
         ></div>
         <div
+          ref={circle2Ref}
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--second-color),_0.8)_0,_rgba(var(--second-color),_0)_50%)_no-repeat]`,
             `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
@@ -149,9 +158,9 @@ export const BackgroundGradientAnimation = ({
             `animate-second`,
             `opacity-100`
           )}
-          style={{ transform: `scale(${1 + (pulseScale - 1) * 0.8})` }}
         ></div>
         <div
+          ref={circle3Ref}
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`,
             `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
@@ -159,9 +168,9 @@ export const BackgroundGradientAnimation = ({
             `animate-third`,
             `opacity-100`
           )}
-          style={{ transform: `scale(${1 + (pulseScale - 1) * 0.6})` }}
         ></div>
         <div
+          ref={circle4Ref}
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fourth-color),_0.8)_0,_rgba(var(--fourth-color),_0)_50%)_no-repeat]`,
             `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
@@ -169,9 +178,9 @@ export const BackgroundGradientAnimation = ({
             `animate-fourth`,
             `opacity-70`
           )}
-          style={{ transform: `scale(${1 + (pulseScale - 1) * 0.4})` }}
         ></div>
         <div
+          ref={circle5Ref}
           className={cn(
             `absolute [background:radial-gradient(circle_at_center,_rgba(var(--fifth-color),_0.8)_0,_rgba(var(--fifth-color),_0)_50%)_no-repeat]`,
             `[mix-blend-mode:var(--blending-value)] w-[var(--size)] h-[var(--size)] top-[calc(50%-var(--size)/2)] left-[calc(50%-var(--size)/2)]`,
@@ -179,7 +188,6 @@ export const BackgroundGradientAnimation = ({
             `animate-fifth`,
             `opacity-100`
           )}
-          style={{ transform: `scale(${1 + (pulseScale - 1) * 0.2})` }}
         ></div>
 
         {interactive && (
