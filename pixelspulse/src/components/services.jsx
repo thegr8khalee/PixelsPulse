@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BackgroundGradient } from '../components/card.jsx';
+import { motion } from 'framer-motion';
 import { cn } from '../lib/utils.jsx';
 
 const ServicesSection = () => {
@@ -88,19 +88,6 @@ const ServicesSection = () => {
     }
   };
 
-  const getSizeClasses = (size) => {
-    switch (size) {
-      case 'large':
-        return 'md:col-span-2 md:row-span-2';
-      case 'wide':
-        return 'md:col-span-2 md:row-span-1';
-      case 'tall':
-        return 'md:row-span-3 md:col-span-1';
-      default:
-        return '';
-    }
-  };
-
   return (
     <section className='py-20 px-4 max-w-7xl mx-auto'>
       <div className='mx-auto'>
@@ -113,19 +100,21 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[280px] gap-4'>
+        {/* Grid */}
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {services.map((service, index) => (
-            <BackgroundGradient
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className={cn(
-                'rounded-3xl overflow-hidden h-full',
-                'bg-base-100 transition-all duration-300',
-                getSizeClasses(service.size)
+                'rounded-3xl overflow-hidden h-[400px] relative group cursor-pointer',
+                'bg-base-100 transition-all duration-300 border border-white/10 hover:border-white/20 shadow-lg'
               )}
-              containerClassName='h-full'
             >
-              <div className='h-full flex flex-col relative group cursor-pointer'>
+              <div className='h-full flex flex-col relative'>
                 {/* Image container with overlay */}
                 <div className='absolute inset-0 overflow-hidden'>
                   <img
@@ -141,10 +130,7 @@ const ServicesSection = () => {
                   <h3 className='text-xl md:text-2xl text-white mb-2 font-[poppins]'>
                     {service.title}
                   </h3>
-                  <p className={cn(
-                    'text-gray-300 text-sm md:text-base mb-4 font-[montserrat]',
-                    service.size === 'large' ? 'line-clamp-4' : 'line-clamp-3'
-                  )}>
+                  <p className='text-gray-300 text-sm md:text-base mb-4 font-[montserrat] line-clamp-4'>
                     {service.description}
                   </p>
                   {service.link && (
@@ -158,7 +144,7 @@ const ServicesSection = () => {
                   )}
                 </div>
               </div>
-            </BackgroundGradient>
+            </motion.div>
           ))}
         </div>
       </div>
