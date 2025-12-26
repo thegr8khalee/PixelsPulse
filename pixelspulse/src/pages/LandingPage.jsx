@@ -82,7 +82,7 @@ const LandingPage = () => {
     },
   ];
 
-  const smoothTransition = { duration: 0.8, ease: "easeOut" };
+  const smoothTransition = { duration: 0.8, ease: 'easeOut' };
 
   const containerVariants = {
     hidden: {},
@@ -117,7 +117,7 @@ const LandingPage = () => {
         className='relative w-full h-[550px] overflow-hidden px-8 flex justify-center items-center border-none'
       >
         <div className='w-full flex max-w-5xl items-center justify-center border-none'>
-          <div className='absolute inset-0 z-0 border-none'>
+          <div className='absolute inset-0 z-0 border-none opacity-50'>
             <Aurora
               colorStops={['#30d5f3', '#d946ef', '#30d5f3']}
               blend={0.5}
@@ -134,21 +134,9 @@ const LandingPage = () => {
               transition={smoothTransition}
               className=''
             >
-              <a
-                href='/'
-                className="flex text-3xl sm:text-5xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center"
-              >
-                <img
-                  src='/logo-hero.png'
-                  alt='PixelPulse.dev Logo'
-                  className='w-20'
-                />
-                <p>PixelsPulse</p>
-                <p className='text-accent'>.</p>
-                <span className='text-sm sm:text-2xl font-normal flex items-end justify-end mt-2 sm:mt-4'>
-                  dev
-                </span>
-              </a>
+              <div className="flex text-2xl sm:text-4xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center">
+                <h1>Your Brand's Digital Heartbeat</h1>
+              </div>
             </motion.div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -161,7 +149,7 @@ const LandingPage = () => {
               resonate, engage, and convert. Let us infuse life into your online
               presence.
             </motion.p>
-            <motion.h1
+            {/* <motion.h1
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -169,7 +157,7 @@ const LandingPage = () => {
               className='sm:text-xl font-montserrat text-accent tracking-wide italic'
             >
               "Your Brand's Digital Heartbeat"
-            </motion.h1>
+            </motion.h1> */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
