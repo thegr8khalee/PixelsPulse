@@ -116,7 +116,7 @@ const Footer = () => {
         <a href='https://x.com/pixelspulsedev?t=DvQpEamV3Ed9S0Q6mnzHrA&s=09'>
           <img src='twitter.webp' alt='' className='size-10' />
         </a>
-        <a href='https://www.instagram.com/pixelspulse.dev?igsh=MThndWxxemRwZWtzZg=='>
+        <a href='https://www.instagram.com/pixelspulsedev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
           <img src='instagram.webp' alt='' className='size-10' />
         </a>
         <a href='https://www.linkedin.com/company/pixelspulse'>
