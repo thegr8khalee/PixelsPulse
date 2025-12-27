@@ -10,14 +10,22 @@ const Navbar = () => {
         {/* Navbar */}
         <div className='z-110 navbar bg-base-100 shadow-sm sticky top-0'>
           <div className='navbar-start'>
-            {/* Hamburger menu for small screens (toggles drawer) */}
-            <label
-              htmlFor='my-drawer-3'
-              aria-label='open sidebar'
-              className='btn btn-ghost lg:hidden'
+            {/* Logo for mobile - Visible on small screens */}
+            <a
+              href='/'
+              className="flex lg:hidden text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center"
             >
-              <MenuIcon />
-            </label>
+              <img
+                src='/android-chrome-512x512.png'
+                alt='PixelPulse.dev Logo'
+                className='size-12'
+              />
+              <p>PixelsPulse</p>
+              <p className='text-accent'>.</p>
+              <div className='text-xs items-end font-[poppins] font-medium pt-1'>
+                dev
+              </div>
+            </a>
             {/* Desktop Navigation - Hidden on small screens */}
             <div className='hidden lg:flex'>
               <ul className='menu menu-horizontal px-1'>
@@ -78,7 +86,7 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-          <div className='navbar-center'>
+          <div className='navbar-center hidden lg:flex'>
             <a
               href='/'
               className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center"
@@ -91,12 +99,19 @@ const Navbar = () => {
               <p>PixelsPulse</p>
               <p className='text-accent'>.</p>
             </a>
-          </div>
-          {/* Moved 'dev' part to be adjacent to the logo within navbar-center for better alignment */}
-          <div className='text-xs items-end font-[poppins] font-medium pt-1'>
-            dev
+            <div className='text-xs items-end font-[poppins] font-medium pt-1'>
+              dev
+            </div>
           </div>
           <div className='navbar-end'>
+            {/* Hamburger menu for small screens (toggles drawer) */}
+            <label
+              htmlFor='my-drawer-3'
+              aria-label='open sidebar'
+              className='btn btn-ghost lg:hidden'
+            >
+              <MenuIcon />
+            </label>
             {/* Contact Button for desktop */}
             <div className='hidden lg:flex'>
               <a
