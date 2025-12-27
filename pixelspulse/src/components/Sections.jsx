@@ -10,28 +10,28 @@ const ProcessSection = () => {
       title: 'Discovery & Strategy',
       description:
         'We dive deep into your brand, goals, and target audience to craft a strategic roadmap tailored to your vision.',
-      image: 'process1.png',
+      image: 'process1.webp',
     },
     {
       number: '02',
       title: 'Design & Prototyping',
       description:
         'Our designers create stunning, user-centric mockups and interactive prototypes that bring your ideas to life.',
-      image: 'process2.png',
+      image: 'process2.webp',
     },
     {
       number: '03',
       title: 'Development & Testing',
       description:
         'We build robust, scalable solutions using cutting-edge technologies, with rigorous testing at every stage.',
-      image: 'process3.png',
+      image: 'process3.webp',
     },
     {
       number: '04',
       title: 'Launch & Optimization',
       description:
         'We deploy your project seamlessly and continuously optimize for performance, user experience, and growth.',
-      image: 'process4.png',
+      image: 'process4.webp',
     },
   ];
 
@@ -44,7 +44,7 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-3xl sm:text-5xl font-[poppins] font-medium text-primary mb-4'
+            className='text-3xl sm:text-5xl font-[poppins] text-white mb-4'
           >
             Our Process
           </motion.h2>
@@ -53,7 +53,7 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className=' text-gray-200 max-w-2xl mx-auto font-[montserrat]'
+            className=' text-gray-400 max-w-2xl mx-auto font-[montserrat]'
           >
             Our proven process ensures your project is delivered on time, on
             budget, and beyond expectations
@@ -103,37 +103,37 @@ const WhyChooseUsSection = () => {
       title: 'Expert Team',
       description:
         'Seasoned designers, developers, and strategists with years of industry experience.',
-      image: 'reason1.png',
+      image: 'reason1.webp',
     },
     {
       title: 'Custom Solutions',
       description:
         'No templates. Every project is uniquely crafted to match your brand and goals.',
-      image: 'reason2.png',
+      image: 'reason2.webp',
     },
     {
       title: 'Fast Turnaround',
       description:
         'We value your time. Efficient workflows mean faster delivery without compromising quality.',
-      image: 'reason3.png',
+      image: 'reason3.webp',
     },
     {
       title: 'Ongoing Support',
       description:
         "We don't disappear after launch. Continuous support and maintenance to keep you running smoothly.",
-      image: 'reason4.png',
+      image: 'reason4.webp',
     },
     {
       title: 'Transparent Process',
       description:
         "Regular updates, clear communication, and full visibility into your project's progress.",
-      image: 'reason5.png',
+      image: 'reason5.webp',
     },
     {
       title: 'Results-Driven',
       description:
         'We focus on measurable outcomes that drive real business growth and ROI.',
-      image: 'reason6.png',
+      image: 'reason6.webp',
     },
   ];
 
@@ -146,9 +146,9 @@ const WhyChooseUsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className='text-3xl sm:text-5xl font-[poppins] text-primary mb-4'
+            className='text-3xl sm:text-5xl font-[poppins] text-white mb-4'
           >
-            Why Choose PixelsPulse?
+            Why Choose <span className='text-primary'>PixelsPulse</span>?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

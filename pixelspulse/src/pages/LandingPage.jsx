@@ -42,42 +42,42 @@ const LandingPage = () => {
     {
       title: 'Startups & Entrepreneurs',
       description: 'Helping new ideas grow into powerful digital brands.',
-      icon: 'startup.png',
+      icon: 'startup.webp',
       size: 'medium',
     },
     {
       title: 'E-commerce & Retail',
       description:
         'Building modern online stores and digital shopping experiences.',
-      icon: 'retail.png',
+      icon: 'retail.webp',
       size: 'medium',
     },
     {
       title: 'Education & E-learning',
       description:
         'Creating engaging platforms that make learning interactive and accessible.',
-      icon: 'education.png',
+      icon: 'education.webp',
       size: 'medium',
     },
     {
       title: 'Healthcare & Wellness',
       description:
         'Designing secure, intuitive systems that connect patients and providers.',
-      icon: 'health.png',
+      icon: 'health.webp',
       size: 'medium',
     },
     {
       title: 'Real Estate & Architecture',
       description:
         'Developing elegant, data-driven websites and property platforms.',
-      icon: 'property.png',
+      icon: 'property.webp',
       size: 'medium',
     },
     {
       title: 'Finance & Technology',
       description:
         'Crafting scalable web and mobile solutions for fintech and SaaS businesses.',
-      icon: 'fintech.png',
+      icon: 'fintech.webp',
       size: 'medium',
     },
   ];
@@ -134,7 +134,7 @@ const LandingPage = () => {
               transition={smoothTransition}
               className=''
             >
-              <div className="flex text-2xl sm:text-4xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center">
+              <div className="flex text-3xl sm:text-5xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-medium items-center">
                 <h1>Your Brand's Digital Heartbeat</h1>
               </div>
             </motion.div>
@@ -193,19 +193,19 @@ const LandingPage = () => {
 
             <Marquee speed={40} pauseOnHover={true}>
               {[
-                { Image: 'one.png' },
-                { Image: 'two.png' },
-                { Image: 'three.png' },
-                { Image: '11.png' },
-                { Image: '12.png' },
-                { Image: '13.png' },
-                { Image: 'four.png' },
-                { Image: 'five.png' },
-                { Image: 'six.png' },
-                { Image: 'seven.png' },
-                { Image: 'eight.png' },
-                { Image: 'nine.png' },
-                { Image: 'ten.png' },
+                { Image: 'one.webp' },
+                { Image: 'two.webp' },
+                { Image: 'three.webp' },
+                { Image: '11.webp' },
+                { Image: '12.webp' },
+                { Image: '13.webp' },
+                { Image: 'four.webp' },
+                { Image: 'five.webp' },
+                { Image: 'six.webp' },
+                { Image: 'seven.webp' },
+                { Image: 'eight.webp' },
+                { Image: 'nine.webp' },
+                { Image: 'ten.webp' },
               ].map((logo) => (
                 <div
                   // key={`${setIndex}-${index}`}
@@ -234,7 +234,7 @@ const LandingPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={smoothTransition}
-                className='text-3xl sm:text-5xl font-poppins font-medium text-primary'
+                className='text-3xl sm:text-5xl font-poppins text-primary'
               >
                 Who We Are
               </motion.h1>
@@ -328,10 +328,10 @@ const LandingPage = () => {
           viewport={{ once: true }}
           transition={smoothTransition}
         >
-          <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins'] text-primary">
+          <h2 className="text-3xl sm:text-5xl mb-1 font-['Poppins'] text-white">
             Industries We Serve
           </h2>
-          <p className="max-w-2xl mx-auto font-['montserrat'] mb-2 text-gray-200">
+          <p className="max-w-2xl mx-auto font-['montserrat'] mb-2 text-gray-400">
             Tailored Solutions for Diverse Sectors
           </p>
         </motion.div>
@@ -379,7 +379,7 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={smoothTransition}
           >
-            <img src='book.png' alt='consultation' className='h-70 md:h-100' />
+            <img src='book.webp' alt='consultation' className='h-70 md:h-100' />
           </motion.div>
           <motion.div
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
@@ -422,7 +422,7 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={smoothTransition}
           >
-            <img src='news.png' alt='newsletter' className='h-70 md:h-100' />
+            <img src='news.webp' alt='newsletter' className='h-70 md:h-100' />
           </motion.div>
           <motion.div
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'

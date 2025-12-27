@@ -8,7 +8,7 @@ const ServicesSection = () => {
       title: 'Web Development',
       description:
         'From dynamic corporate sites to complex web applications, we build robust, scalable, and user-centric web solutions tailored to your unique needs.',
-      image: 'web.jpg',
+      image: 'web.webp',
       link: '/web-development',
       size: 'large', // spans 2 columns, 2 rows
     },
@@ -16,7 +16,7 @@ const ServicesSection = () => {
       title: 'Mobile Apps',
       description:
         'Reach your audience everywhere with intuitive iOS and Android applications. We design and develop engaging mobile experiences that drive connection and growth.',
-      image: 'mobile.jpg',
+      image: 'mobile.webp',
       link: '/mobile-app',
       size: 'tall', // spans 2 rows
     },
@@ -24,7 +24,7 @@ const ServicesSection = () => {
       title: 'UI/UX Design',
       description:
         'Craft captivating and user-friendly interfaces that not only look stunning but also provide seamless, enjoyable interactions for your audience.',
-      image: 'ui.jpg',
+      image: 'ui.webp',
       link: '/ui-ux-design',
       size: 'medium',
     },
@@ -32,7 +32,7 @@ const ServicesSection = () => {
       title: 'E-commerce Solutions',
       description:
         'Launch and scale your online store with custom e-commerce solutions. We build secure, user-friendly platforms designed for sales growth.',
-      image: 'ecom.jpg',
+      image: 'ecom.webp',
       size: 'medium',
       link: '/e-commerce',
     },
@@ -40,7 +40,7 @@ const ServicesSection = () => {
       title: 'AI Solutions & Integrations',
       description:
         'Leverage the power of AI to enhance your applications and workflows. We offer custom AI solutions and integrations tailored to your business needs.',
-      image: 'AI.jpg',
+      image: 'AI.webp',
       size: 'wide', // spans 2 columns
       link: '/ai-solutions',
     },
@@ -48,7 +48,7 @@ const ServicesSection = () => {
       title: 'Branding',
       description:
         'Complete visual identity and brand strategy that communicates your values and connects emotionally with your audience.',
-      image: 'brand.jpg',
+      image: 'brand.webp',
       size: 'medium',
       link: '/branding-graphics-design',
     },
@@ -56,7 +56,7 @@ const ServicesSection = () => {
       title: 'Landing Pages & Micro-sites',
       description:
         'High-converting, visually striking pages for launches, products, or campaigns.',
-      image: 'landing.jpg',
+      image: 'landing.webp',
       size: 'medium',
       link: '/landing-pages-microsites',
     },
@@ -64,7 +64,7 @@ const ServicesSection = () => {
       title: 'Performance Optimization',
       description:
         'Speed, accessibility, and core web vitals — fine-tuned to perfection for peak performance.',
-      image: 'performance.jpg',
+      image: 'performance.webp',
       size: 'medium',
       link: '/performance-optimization',
     },
@@ -72,7 +72,7 @@ const ServicesSection = () => {
       title: 'Maintenance & Support',
       description:
         'Ongoing updates, backups, and tech support to keep your product stable and secure.',
-      image: 'maintain.jpg',
+      image: 'maintain.webp',
       size: 'wide', // spans 2 columns
       link: '/maintenance-support',
     },
@@ -92,7 +92,7 @@ const ServicesSection = () => {
     <section className='py-20 px-4 max-w-7xl mx-auto'>
       <div className='mx-auto'>
         <div className='text-start sm:text-center mb-12'>
-          <h2 className='text-3xl sm:text-5xl font-[poppins] font-medium text-primary mb-4'>
+          <h2 className='text-3xl sm:text-5xl font-[poppins]  text-white mb-4'>
             Our Services
           </h2>
           <p className='text-1xl text-gray-400 max-w-2xl mx-auto font-[montserrat]'>

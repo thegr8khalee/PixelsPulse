@@ -21,7 +21,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
 
 const Maintenance = () => {
-  usePageLoader(['support.jpg']);
+  usePageLoader(['support.webp']);
   const navigate = useNavigate();
   const handleContact = () => {
     navigate('/contact');
@@ -137,14 +137,14 @@ const Maintenance = () => {
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img
-            src='support.jpg' // Original image source
+            src='support.webp' // Original image source
             alt='Website Maintenance'
             className='relative w-full h-full object-cover'
           />
         </div>
-        <div className=' absolute bg-black/50 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
+        <div className=' absolute bg-black/70 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
           <div className='max-w-7xl p-4'>
-            <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-bold font-[poppins]'>
+            <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-[poppins]'>
               Peace of Mind:
               <span className='text-primary'>
                 {' '}

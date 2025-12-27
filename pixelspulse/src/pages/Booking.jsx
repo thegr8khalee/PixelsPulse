@@ -1,10 +1,16 @@
 import React from 'react';
-import { Check, Calendar, Clock, Video } from 'lucide-react';
+import { Check, Calendar, Clock, Video, Loader2 } from 'lucide-react';
 import { InlineWidget } from 'react-calendly';
 import { usePageLoader } from '../hooks/usePageLoader';
 
 const Booking = () => {
-  usePageLoader(['instagram.png', 'twitter.png', 'linkedin.png']);
+  usePageLoader(['instagram.webp', 'twitter.webp', 'linkedin.webp']);
+
+  const CustomLoader = () => (
+    <div className='flex items-center justify-center h-[900px] w-full'>
+      <Loader2 className='size-10 animate-spin text-primary' />
+    </div>
+  );
 
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
@@ -24,9 +30,10 @@ const Booking = () => {
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Calendly Widget */}
           <div className='max-w-[645px] w-full lg:ml-auto lg:mx-0 mx-auto lg:col-span-2'>
-            <div className='bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-3xl overflow-hidden'>
+            <div className='relative bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-lg rounded-3xl overflow-hidden'>
               <InlineWidget
                 url='https://calendly.com/pixelspulsedev/30min?background_color=ffffff&text_color=000000&primary_color=30d5f3'
+                LoadingSpinner={CustomLoader}
                 styles={{
                   height: '900px',
                   width: '100%',
@@ -37,7 +44,6 @@ const Booking = () => {
                   padding: '0',
                   scrollbarWidth: 'none',
                   overflowY: 'hidden',
-                  backgroundColor: '#ffffff',
                 }}
               />
             </div>
@@ -109,7 +115,7 @@ const Booking = () => {
                       className='hover:opacity-80 transition'
                     >
                       <img
-                        src='instagram.png'
+                        src='instagram.webp'
                         alt='Instagram'
                         className='size-10'
                       />
@@ -121,7 +127,7 @@ const Booking = () => {
                       className='hover:opacity-80 transition'
                     >
                       <img
-                        src='twitter.png'
+                        src='twitter.webp'
                         alt='Twitter'
                         className='size-10'
                       />
@@ -133,7 +139,7 @@ const Booking = () => {
                       className='hover:opacity-80 transition'
                     >
                       <img
-                        src='linkedin.png'
+                        src='linkedin.webp'
                         alt='LinkedIn'
                         className='size-10'
                       />

@@ -23,7 +23,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
 
 const Apps = () => {
-  usePageLoader(['app-dev.jpg', 'apple.png', 'android.png', 'app-store.png']);
+  usePageLoader(['app-dev.webp', 'apple.webp', 'android.webp', 'app-store.webp']);
 
   const navigate = useNavigate();
   const handleContact = () => {
@@ -65,12 +65,12 @@ const Apps = () => {
 
   const keyFeatures = [
     {
-      icon: 'apple.png',
+      icon: 'apple.webp',
       title: 'Native iOS App Development',
       isImage: true,
     },
     {
-      icon: 'android.png',
+      icon: 'android.webp',
       title: 'Native Android App Development',
       isImage: true,
     },
@@ -100,7 +100,7 @@ const Apps = () => {
       isImage: false,
     },
     {
-      icon: 'app-store.png',
+      icon: 'app-store.webp',
       title: 'App Store Optimization (ASO) Guidance',
       isImage: true,
     },
@@ -111,14 +111,14 @@ const Apps = () => {
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img
-            src='app-dev.jpg'
+            src='app-dev.webp'
             alt='Mobile App Development'
             className='relative w-full h-full object-cover'
           />
         </div>
-        <div className='absolute bg-black/50 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
+        <div className='absolute bg-black/70 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
           <div className='max-w-7xl p-4'>
-            <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-bold font-[poppins]'>
+            <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-[poppins]'>
               Engage On-The-Go:{' '}
               <span className='text-primary'>
                 Intuitive Mobile App Development

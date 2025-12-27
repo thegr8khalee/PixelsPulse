@@ -40,7 +40,7 @@ import { usePageLoader } from '../hooks/usePageLoader';
 import AboutSection from '../components/about';
 
 const About = () => {
-  usePageLoader(['signature.png', 'qq.png', 'ceo.jpg']);
+  usePageLoader(['signature.webp', 'qq.webp', 'ceo.webp']);
   const coreValues = [
     {
       icon: Lightbulb,

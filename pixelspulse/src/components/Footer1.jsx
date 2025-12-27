@@ -114,18 +114,18 @@ const Footer = () => {
       </div>
       <div className='border-t border-b border-gray-500 mt-8 py-8 items-center justify-center w-full flex space-x-20 md:space-x-40'>
         <a href='https://x.com/pixelspulsedev?t=DvQpEamV3Ed9S0Q6mnzHrA&s=09'>
-          <img src='twitter.png' alt='' className='size-10' />
+          <img src='twitter.webp' alt='' className='size-10' />
         </a>
         <a href='https://www.instagram.com/pixelspulse.dev?igsh=MThndWxxemRwZWtzZg=='>
-          <img src='instagram.png' alt='' className='size-10' />
+          <img src='instagram.webp' alt='' className='size-10' />
         </a>
         <a href='https://www.linkedin.com/company/pixelspulse'>
-          <img src='linkedin.png' alt='' className='size-10' />
+          <img src='linkedin.webp' alt='' className='size-10' />
         </a>
       </div>
       <div className='hidden lg:flex border-b border-gray-500 space-y-8 md:space-y-0 md:space-x-20 items-center justify-center w-full px-4 mt-8'>
         <div className='flex flex-1 space-x-10 items-center justify-center'>
-          <img src='/Logo.png' alt='' className='w-40' />
+          <img src='/Logo.webp' alt='' className='w-40' />
           <a
             href='/'
             className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-end"
@@ -192,7 +192,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='flex flex-1 space-x-5 items-center justify-center'>
-          <img src='/Logo.png' alt='' className='w-20 sm:w-40' />
+          <img src='/Logo.webp' alt='' className='w-20 sm:w-40' />
           <a
             href='/'
             className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-end"

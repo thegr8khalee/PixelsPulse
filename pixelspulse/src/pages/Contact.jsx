@@ -66,7 +66,7 @@ const industries = [
 ];
 
 const Contact = () => {
-  usePageLoader(['instagram.png', 'twitter.png', 'linkedin.png']);
+  usePageLoader(['instagram.webp', 'twitter.webp', 'linkedin.webp']);
   // const [isLoading, setIsLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -793,13 +793,13 @@ const Contact = () => {
                   <p className='text-sm text-gray-400 mb-2'>Follow Us:</p>
                   <div className='flex gap-3'>
                     <a href='https://www.instagram.com/pixelspulse.dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
-                      <img src='instagram.png' alt='' className='size-10' />
+                      <img src='instagram.webp' alt='' className='size-10' />
                     </a>
                     <a href='https://twitter.com/pixelspulsedev'>
-                      <img src='twitter.png' alt='' className='size-10' />
+                      <img src='twitter.webp' alt='' className='size-10' />
                     </a>
                     <a href='https://www.linkedin.com/company/pixelspulse'>
-                      <img src='linkedin.png' alt='' className='size-10' />
+                      <img src='linkedin.webp' alt='' className='size-10' />
                     </a>
                   </div>
                 </div>

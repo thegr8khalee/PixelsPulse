@@ -25,7 +25,7 @@ import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
 
 const Web = () => {
-  usePageLoader(['webdev.jpg']);
+  usePageLoader(['webdev.webp']);
 
   const navigate = useNavigate();
   const handleContact = () => {
@@ -102,14 +102,14 @@ const Web = () => {
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img
-            src='webdev.jpg'
+            src='webdev.webp'
             alt='Web Development'
             className='relative w-full h-full object-cover'
           />
         </div>
-        <div className=' absolute bg-black/50 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
+        <div className=' absolute bg-black/70 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
           <div className='max-w-7xl p-4'>
-            <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-bold font-[poppins]'>
+            <h1 className='relative z-50 text-2xl sm:text-3xl lg:text-5xl font-[poppins]'>
               Building Your Digital Foundation:
               <span className='text-primary'>Custom Web Development</span>
             </h1>

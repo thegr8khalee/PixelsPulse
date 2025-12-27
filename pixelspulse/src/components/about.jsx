@@ -40,7 +40,7 @@ const AboutSection = () => {
                   heartbeat, and our job is to make it stronger through design,
                   innovation, and seamless user experiences.”
                 </p>
-                <img src="signature.png" alt="Signature" className='invert w-25 mt-6'/>
+                <img src="signature.webp" alt="Signature" className='invert w-25 mt-6'/>
                 <h1 className='text-lg font-bold text-start'>Ibrahim Abdullahi</h1>
                 <p className='text-sm text-gray-400 text-start'>Founder & CEO, PixelsPulse</p>
               </div>
@@ -58,7 +58,7 @@ const TestimonialCard = () => {
       <div className='relative max-w-md mx-auto'>
         {/* Decorative Quote Mark */}
         <div className='absolute -top-4 -right-4 z-10'>
-          <img src="qq.png" alt="" className='w-20' />
+          <img src="qq.webp" alt="" className='w-20' />
         </div>
 
         <img

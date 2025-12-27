@@ -67,7 +67,7 @@ const App = () => {
             }}
             className='flex flex-col items-center'
           >
-            <img src='/logo-hero.png' alt='Loading...' className='w-24 mb-4' />
+            <img src='/logo-hero.webp' alt='Loading...' className='w-24 mb-4' />
           </motion.div>
         </div>
       )}
@@ -86,7 +86,7 @@ const App = () => {
             }}
             className='flex flex-col items-center'
           >
-            <img src='/logo-hero.png' alt='Loading...' className='w-24 mb-4' />
+            <img src='/logo-hero.webp' alt='Loading...' className='w-24 mb-4' />
           </motion.div>
         </div>
       }>
