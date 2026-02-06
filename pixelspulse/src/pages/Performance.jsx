@@ -23,6 +23,7 @@ import {
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Performance = () => {
   usePageLoader(['performance1.webp']);
@@ -138,6 +139,10 @@ const Performance = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="Website Performance Optimization | PixelsPulse"
+        description="Speed up your website with our performance optimization services. Improve core web vitals and SEO rankings."
+      />
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img

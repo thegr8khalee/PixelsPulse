@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 // --- Your FAQ Data ---
 const faqSections = [
@@ -173,6 +174,10 @@ const Help = () => {
 
   return (
     <div className='py-16'>
+      <SEO 
+        title="Help & Support | PixelsPulse"
+        description="Find answers to frequently asked questions about PixelsPulse services and processes."
+      />
       <div className='bg-deepBlue mt-20'>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

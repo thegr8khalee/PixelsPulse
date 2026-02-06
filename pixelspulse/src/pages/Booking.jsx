@@ -2,6 +2,7 @@ import React from 'react';
 import { Check, Calendar, Clock, Video, Loader2 } from 'lucide-react';
 import { InlineWidget } from 'react-calendly';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Booking = () => {
   usePageLoader(['instagram.webp', 'twitter.webp', 'linkedin.webp']);
@@ -14,6 +15,10 @@ const Booking = () => {
 
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
+      <SEO 
+        title="Book a Consultation | PixelsPulse"
+        description="Schedule a free consultation call with the PixelsPulse team to discuss your digital project."
+      />
       <div className='max-w-6xl mx-auto'>
         {/* Header */}
         <div className='text-center mb-12'>

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useContactStore } from '../store/use.email.store';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const services = [
   'General Inquiry',
@@ -208,6 +209,10 @@ const Contact = () => {
 
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
+      <SEO 
+        title="Contact Us | PixelsPulse"
+        description="Get in touch with PixelsPulse for your web development, app, or design project. Let's build something great together."
+      />
       <div className='max-w-6xl mx-auto'>
         <div className='text-center mb-12'>
           <h1 className="text-4xl md:text-5xl font-medium text-white mb-4 font-['poppins']">

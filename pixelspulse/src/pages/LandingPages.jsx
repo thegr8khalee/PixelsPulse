@@ -21,6 +21,7 @@ import {
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const LandingPages = () => {
   usePageLoader(['land.webp']);
@@ -123,6 +124,10 @@ const LandingPages = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="Landing Pages & Microsites | PixelsPulse"
+        description="High-converting landing pages and microsites designed to maximize your marketing campaign ROI."
+      />
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70 w-full'>
           <img

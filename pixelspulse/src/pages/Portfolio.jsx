@@ -8,6 +8,7 @@ import { X } from 'lucide-react';
 import { BackgroundGradient } from '../components/card.jsx';
 import { cn } from '../lib/utils.jsx';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 // Project data (replace with your actual project details and add more images)
 const projects = [
@@ -229,6 +230,10 @@ const Portfolio = () => {
 
   return (
     <div className='pt-16 bg-base-100 text-base-content mx-auto'>
+      <SEO 
+        title="Our Portfolio | PixelsPulse"
+        description="Showcase of our recent projects in web development, branding, and UI/UX design."
+      />
       <section id='Hero' className='w-full text-center'>
         <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-4'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>

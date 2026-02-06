@@ -38,11 +38,16 @@ import {
 } from 'lucide-react';
 
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Terms = () => {
   usePageLoader([]);
   return (
     <div className='pt-16'>
+      <SEO 
+        title="Terms of Service | PixelsPulse"
+        description="Read the terms and conditions for using PixelsPulse services and website."
+      />
       <section id='Hero' className='w-full text-center'>
         <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>

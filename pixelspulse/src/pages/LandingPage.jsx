@@ -18,6 +18,7 @@ import {
 import { useNewstellerStore } from '../store/use.newsteller';
 
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const LandingPage = () => {
   const { isLoading, registerToNewsteller } = useNewstellerStore();
@@ -111,6 +112,10 @@ const LandingPage = () => {
 
   return (
     <div className='relative flex flex-col overflow-x-hidden pt-16'>
+      <SEO 
+        title="PixelsPulse | Digital Design & Development Agency"
+        description="PixelsPulse is a creative digital agency specializing in web design, app development, and branding for startups and enterprises."
+      />
       {/* Gradient Background Section */}
       <section
         id='hero'

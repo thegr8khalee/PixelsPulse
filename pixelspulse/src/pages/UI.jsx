@@ -19,6 +19,7 @@ import {
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const UI = () => {
   usePageLoader(['UX.webp']);
@@ -71,6 +72,10 @@ const UI = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="UI/UX Design Services | PixelsPulse"
+        description="User-centric design solutions including prototyping, wireframing, and interface design for web and mobile apps."
+      />
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img

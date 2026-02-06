@@ -25,6 +25,7 @@ import {
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const ECommerce = () => {
   usePageLoader(['ecom.webp']);
@@ -151,6 +152,10 @@ const ECommerce = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="E-commerce Development Solutions | PixelsPulse"
+        description="Build scalable online stores with our e-commerce development services. Custom solutions, Shopify, and more."
+      />
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img

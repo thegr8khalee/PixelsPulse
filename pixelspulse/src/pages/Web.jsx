@@ -23,6 +23,7 @@ import {
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Web = () => {
   usePageLoader(['webdev.webp']);
@@ -99,6 +100,10 @@ const Web = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="Web Development Services | PixelsPulse"
+        description="Custom web development solutions including e-commerce, portfolios, and corporate sites. Built with React, Next.js, and modern technologies."
+      />
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img

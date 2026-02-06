@@ -1,11 +1,16 @@
 import React from 'react';
 import { BackgroundGradientAnimation } from '../components/bg';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Privacy = () => {
   usePageLoader([]);
   return (
     <div className='py-16'>
+      <SEO 
+        title="Privacy Policy | PixelsPulse"
+        description="Read our privacy policy to understand how PixelsPulse collects, uses, and protects your personal information."
+      />
       {/* Hero Section */}
       <section id='Hero' className='w-full text-center'>
         <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>

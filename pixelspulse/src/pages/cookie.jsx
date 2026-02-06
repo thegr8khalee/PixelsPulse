@@ -1,11 +1,16 @@
 import React from 'react';
 import { BackgroundGradientAnimation } from '../components/bg';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const CookiePolicy = () => {
   usePageLoader([]);
   return (
     <div className='py-16'>
+      <SEO 
+        title="Cookie Policy | PixelsPulse"
+        description="Learn about how PixelsPulse uses cookies to improve your browsing experience."
+      />
       <section id='Hero' className='w-full text-center'>
         <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>

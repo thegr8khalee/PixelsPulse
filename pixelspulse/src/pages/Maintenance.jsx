@@ -19,6 +19,7 @@ import {
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Maintenance = () => {
   usePageLoader(['support.webp']);
@@ -134,6 +135,10 @@ const Maintenance = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="Website Maintenance & Support | PixelsPulse"
+        description="Reliable website maintenance and support services to keep your digital presence secure, up-to-date, and running smoothly."
+      />
       <section id='Hero' className='relative w-full text-center'>
         <div className='h-50 lg:h-70'>
           <img

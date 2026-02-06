@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ServicesSection from '../components/services.jsx';
 import { usePageLoader } from '../hooks/usePageLoader';
+import SEO from '../components/SEO';
 
 const Services = () => {
   usePageLoader([
@@ -31,6 +32,10 @@ const Services = () => {
 
   return (
     <div className='pt-16'>
+      <SEO 
+        title="Our Digital Services | PixelsPulse"
+        description="Comprehensive digital services including web development, mobile apps, UI/UX design, and AI solutions to elevate your brand."
+      />
       <section id='Hero' className='w-full text-center'>
         <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-[poppins]'>
