@@ -65,7 +65,7 @@ const GlassmorphicHero = () => {
                 src='/mobile2.png'
                 alt='Mobile application showcase'
                 className='w-48 sm:w-56 h-auto object-contain drop-shadow-2xl'
-              />
+               loading='lazy' decoding='async' />
             </motion.div>
 
             <motion.div 
@@ -96,7 +96,7 @@ const GlassmorphicHero = () => {
               src='/mobile2.png'
               alt='Mobile application showcase'
               className='w-64 lg:w-80 xl:w-96 h-auto object-contain drop-shadow-2xl'
-            />
+             loading='lazy' decoding='async' />
           </motion.div>
         </motion.div>
 

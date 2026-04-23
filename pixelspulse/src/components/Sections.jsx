@@ -72,7 +72,7 @@ const ProcessSection = () => {
             >
               <div className='bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-6 h-full transition-all duration-300'>
                 <div className='absolute inset-0 rounded-3xl pointer-events-none border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' />
-                <img src={step.image} alt="" className='w-25 object-cover rounded-lg mb-4' />
+                <img src={step.image} alt="" className='w-25 object-cover rounded-lg mb-4'  loading='lazy' decoding='async' />
                 <div className='text-6xl font-bold text-primary/20 mb-2 font-poppins'>
                   {step.number}
                 </div>
@@ -173,7 +173,7 @@ const WhyChooseUsSection = () => {
               className='relative text-start bg-gradient-to-br from-primary/10 to-accent/10 rounded-3xl p-6 transition-all duration-300'
             >
               <div className='absolute inset-0 rounded-3xl pointer-events-none border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' />
-                <img src={reason.image} alt="" className='w-25 object-cover rounded-lg mb-4' />
+                <img src={reason.image} alt="" className='w-25 object-cover rounded-lg mb-4'  loading='lazy' decoding='async' />
               <h3 className='text-xl font-semibold text-white mb-2 font-poppins'>
                 {reason.title}
               </h3>

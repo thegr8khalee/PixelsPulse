@@ -220,7 +220,7 @@ const LandingPage = () => {
                     src={logo.Image}
                     alt={logo.Image}
                     className='w-20 sm:w-40 mx-4 sm:mx-8'
-                  />
+                   loading='lazy' decoding='async' />
                 </div>
               ))}
             </Marquee>
@@ -355,7 +355,7 @@ const LandingPage = () => {
                 src={industry.icon}
                 alt={industry.title}
                 className='w-40 mb-4'
-              />
+               loading='lazy' decoding='async' />
               <h3 className="text-xl font-['Poppins'] mb-2">
                 {industry.title}
               </h3>
@@ -384,7 +384,7 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={smoothTransition}
           >
-            <img src='book.webp' alt='consultation' className='h-70 md:h-100' />
+            <img src='book.webp' alt='consultation' className='h-70 md:h-100'  loading='lazy' decoding='async' />
           </motion.div>
           <motion.div
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'
@@ -427,7 +427,7 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={smoothTransition}
           >
-            <img src='news.webp' alt='newsletter' className='h-70 md:h-100' />
+            <img src='news.webp' alt='newsletter' className='h-70 md:h-100'  loading='lazy' decoding='async' />
           </motion.div>
           <motion.div
             className='max-w-4xl mx-auto flex flex-col justify-center text-center md:text-left'

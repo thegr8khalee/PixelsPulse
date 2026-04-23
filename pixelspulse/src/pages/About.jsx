@@ -1,5 +1,4 @@
 import React from 'react';
-import { BackgroundGradientAnimation } from '../components/bg';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import {
@@ -88,7 +87,7 @@ const About = () => {
         description="Learn about PixelsPulse, our mission, vision, and the team driving your digital transformation."
       />
       <section id='Hero' className='w-full text-center'>
-        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
+        <div className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
             Your Brand's Digital Heartbeat:
             <span className='text-primary'> Our Story, Our Passion</span>
@@ -96,7 +95,7 @@ const About = () => {
           <div className='z-100 text-sm sm:text-base font-[montserrat]'>
             "We Pulse With Code, Design & Vision."
           </div>
-        </BackgroundGradientAnimation>
+        </div>
         <div className='w-full text-start sm:text-center items-center justify-center flex py-4'>
           <p className='px-4 font-[poppins] max-w-5xl'>
             We are more than just a web development agency; we are your

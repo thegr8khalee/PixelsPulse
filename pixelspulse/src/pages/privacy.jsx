@@ -1,5 +1,4 @@
 import React from 'react';
-import { BackgroundGradientAnimation } from '../components/bg';
 import { usePageLoader } from '../hooks/usePageLoader';
 import SEO from '../components/SEO';
 
@@ -13,7 +12,7 @@ const Privacy = () => {
       />
       {/* Hero Section */}
       <section id='Hero' className='w-full text-center'>
-        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
+        <div className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
             PixelsPulse.dev -
             <span className='text-primary'> Privacy Policy</span>
@@ -21,7 +20,7 @@ const Privacy = () => {
           <div className='z-100 text-sm sm:text-base font-[montserrat]'>
             <b>Last Updated:</b> July 16, 2025
           </div>
-        </BackgroundGradientAnimation>
+        </div>
         <div className='w-full text-start items-start justify-center flex py-4'>
           <p className='px-2 font-[poppins] max-w-7xl'>
             PixelsPulse (“we,” “our,” “us”) is committed to protecting your

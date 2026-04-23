@@ -1,5 +1,11 @@
 import { MenuIcon } from 'lucide-react';
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+const closeDrawer = () => {
+  const el = document.getElementById('my-drawer-3');
+  if (el) el.checked = false;
+};
 
 const Navbar = () => {
   return (
@@ -11,26 +17,28 @@ const Navbar = () => {
         <div className='z-110 navbar bg-base-100 shadow-sm sticky top-0'>
           <div className='navbar-start'>
             {/* Logo for mobile - Visible on small screens */}
-            <a
-              href='/'
+            <Link
+              to='/'
               className="flex lg:hidden text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center"
             >
               <img
                 src='/android-chrome-512x512.png'
                 alt='PixelPulse.dev Logo'
                 className='size-12'
-              />
+                width='48'
+                height='48'
+               loading='lazy' decoding='async' />
               <p>PixelsPulse</p>
               <p className='text-accent'>.</p>
               <div className='text-xs items-end font-[poppins] font-medium pt-1'>
                 dev
               </div>
-            </a>
+            </Link>
             {/* Desktop Navigation - Hidden on small screens */}
             <div className='hidden lg:flex'>
               <ul className='menu menu-horizontal px-1'>
                 <li>
-                  <a href='/'>Home</a>
+                  <Link to='/'>Home</Link>
                 </li>
                 {/* Services Dropdown */}
                 <li>
@@ -38,67 +46,68 @@ const Navbar = () => {
                     <summary>Services</summary>
                     <ul className='p-2 w-48 bg-base-100 rounded-t-none z-10 shadow'>
                       <li>
-                        <a href='/web-development'>Web Development</a>
+                        <Link to='/web-development'>Web Development</Link>
                       </li>
                       <li>
-                        <a href='/mobile-app'>Mobile Apps</a>
+                        <Link to='/mobile-app'>Mobile Apps</Link>
                       </li>
                       <li>
-                        <a href='/ui-ux-design'>UI/UX Design</a>
+                        <Link to='/ui-ux-design'>UI/UX Design</Link>
                       </li>
                       <li>
-                        <a href='/branding-graphics-design'>
+                        <Link to='/branding-graphics-design'>
                           Branding & Graphics Design
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href='/ai'>AI Solutions</a>
+                        <Link to='/ai'>AI Solutions</Link>
                       </li>
                       <li>
-                        <a href='/landing-pages-microsites'>
+                        <Link to='/landing-pages-microsites'>
                           Landing Pages & Microsites
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href='/performance-optimization'>
+                        <Link to='/performance-optimization'>
                           Performance Optimization
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a href='/maintenance-support'>Maintenance & Support</a>
+                        <Link to='/maintenance-support'>Maintenance & Support</Link>
                       </li>
                       <li>
-                        <a href='/e-commerce'>E-commerce Solutions</a>
+                        <Link to='/e-commerce'>E-commerce Solutions</Link>
                       </li>
                     </ul>
                   </details>
                 </li>
-                {/* <li>
-                  <a href='/portfolio'>Portfolio</a>
-                </li> */}
                 <li>
-                  <a href='/about'>About</a>
+                  <Link to='/portfolio'>Portfolio</Link>
                 </li>
                 <li>
-                  <a href='/contact'>Contact Us</a>
-                </li>{' '}
-                {/* Added Contact Us */}
+                  <Link to='/about'>About</Link>
+                </li>
+                <li>
+                  <Link to='/contact'>Contact Us</Link>
+                </li>
               </ul>
             </div>
           </div>
           <div className='navbar-center hidden lg:flex'>
-            <a
-              href='/'
+            <Link
+              to='/'
               className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-center"
             >
               <img
                 src='/android-chrome-512x512.png'
                 alt='PixelPulse.dev Logo'
                 className='size-12'
-              />
+                width='48'
+                height='48'
+               loading='lazy' decoding='async' />
               <p>PixelsPulse</p>
               <p className='text-accent'>.</p>
-            </a>
+            </Link>
             <div className='text-xs items-end font-[poppins] font-medium pt-1'>
               dev
             </div>
@@ -114,17 +123,15 @@ const Navbar = () => {
             </label>
             {/* Contact Button for desktop */}
             <div className='hidden lg:flex'>
-              <a
-                href='/booking'
-                className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-lg'
+              <Link
+                to='/booking'
+                className='btn border-none bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-lg'
               >
                 Book a Free Consultation
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-        {/* Page content here */}
-        {/* Your main page content should go here */}
       </div>
       <div className='drawer-side z-9999'>
         <label
@@ -133,9 +140,8 @@ const Navbar = () => {
           className='drawer-overlay'
         ></label>
         <ul className='menu bg-base-200 w-80 min-h-full p-4'>
-          {/* Sidebar content here */}
           <li>
-            <a href='/'>Home</a>
+            <Link to='/' onClick={closeDrawer}>Home</Link>
           </li>
           {/* Services Dropdown (for mobile side drawer) */}
           <li>
@@ -143,57 +149,58 @@ const Navbar = () => {
               <summary>Services</summary>
               <ul className='p-2 bg-base-100 rounded-box z-10 shadow'>
                 <li>
-                  <a href='/web-development'>Web Development</a>
+                  <Link to='/web-development' onClick={closeDrawer}>Web Development</Link>
                 </li>
                 <li>
-                  <a href='/mobile-app'>Mobile Apps</a>
+                  <Link to='/mobile-app' onClick={closeDrawer}>Mobile Apps</Link>
                 </li>
                 <li>
-                  <a href='/ui-ux-design'>UI/UX Design</a>
+                  <Link to='/ui-ux-design' onClick={closeDrawer}>UI/UX Design</Link>
                 </li>
                 <li>
-                  <a href='/branding-graphics-design'>
+                  <Link to='/branding-graphics-design' onClick={closeDrawer}>
                     Branding & Graphics Design
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/ai'>AI Solutions</a>
+                  <Link to='/ai' onClick={closeDrawer}>AI Solutions</Link>
                 </li>
                 <li>
-                  <a href='/landing-pages-microsites'>
+                  <Link to='/landing-pages-microsites' onClick={closeDrawer}>
                     Landing Pages & Microsites
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/performance-optimization'>
+                  <Link to='/performance-optimization' onClick={closeDrawer}>
                     Performance Optimization
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/maintenance-support'>Maintenance & Support</a>
+                  <Link to='/maintenance-support' onClick={closeDrawer}>Maintenance & Support</Link>
                 </li>
                 <li>
-                  <a href='/e-commerce'>E-commerce Solutions</a>
+                  <Link to='/e-commerce' onClick={closeDrawer}>E-commerce Solutions</Link>
                 </li>
               </ul>
             </details>
           </li>
-          {/* <li>
-            <a href='/portfolio'>Portfolio</a>
-          </li> */}
           <li>
-            <a href='/about'>About</a>
+            <Link to='/portfolio' onClick={closeDrawer}>Portfolio</Link>
           </li>
           <li>
-            <a href='/contact'>Contact Us</a>
+            <Link to='/about' onClick={closeDrawer}>About</Link>
+          </li>
+          <li>
+            <Link to='/contact' onClick={closeDrawer}>Contact Us</Link>
           </li>
           <li className='mt-4'>
-            <a
-              href='/booking'
+            <Link
+              to='/booking'
+              onClick={closeDrawer}
               className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-lg'
             >
               Book a Free Consultation
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

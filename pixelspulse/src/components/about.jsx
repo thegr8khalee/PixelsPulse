@@ -40,8 +40,8 @@ const AboutSection = () => {
                   heartbeat, and our job is to make it stronger through design,
                   innovation, and seamless user experiences.”
                 </p>
-                <img src="signature.webp" alt="Signature" className='invert w-25 mt-6'/>
-                <h1 className='text-lg font-bold text-start'>Ibrahim Abdullahi</h1>
+                {/* <img src="signature.webp" alt="Signature" className='invert w-25 mt-6' loading='lazy' decoding='async' /> */}
+                <h1 className='text-lg mt-6 font-bold text-start'>Ibrahim Abdullahi</h1>
                 <p className='text-sm text-gray-400 text-start'>Founder & CEO, PixelsPulse</p>
               </div>
             </div>
@@ -58,14 +58,14 @@ const TestimonialCard = () => {
       <div className='relative max-w-md mx-auto'>
         {/* Decorative Quote Mark */}
         <div className='absolute -top-4 -right-4 z-10'>
-          <img src="qq.webp" alt="" className='w-20' />
+          <img src="qq.webp" alt="" className='w-20'  loading='lazy' decoding='async' />
         </div>
 
         <img
-          src='ceo.jpg'
+          src='ceo.webp'
           alt='Professional portrait'
           className='w-full h-120 object-cover rounded-3xl mx-auto'
-        />
+         loading='lazy' decoding='async' />
       </div>
     </div>
   );

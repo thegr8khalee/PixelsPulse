@@ -1,11 +1,10 @@
 import React from 'react';
 import { Check, Calendar, Clock, Video, Loader2 } from 'lucide-react';
 import { InlineWidget } from 'react-calendly';
-import { usePageLoader } from '../hooks/usePageLoader';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 const Booking = () => {
-  usePageLoader(['instagram.webp', 'twitter.webp', 'linkedin.webp']);
 
   const CustomLoader = () => (
     <div className='flex items-center justify-center h-[900px] w-full'>
@@ -123,7 +122,7 @@ const Booking = () => {
                         src='instagram.webp'
                         alt='Instagram'
                         className='size-10'
-                      />
+                       loading='lazy' decoding='async' />
                     </a>
                     <a
                       href='https://twitter.com/pixelspulsedev'
@@ -135,7 +134,7 @@ const Booking = () => {
                         src='twitter.webp'
                         alt='Twitter'
                         className='size-10'
-                      />
+                       loading='lazy' decoding='async' />
                     </a>
                     <a
                       href='https://www.linkedin.com/company/pixelspulse'
@@ -147,7 +146,7 @@ const Booking = () => {
                         src='linkedin.webp'
                         alt='LinkedIn'
                         className='size-10'
-                      />
+                       loading='lazy' decoding='async' />
                     </a>
                   </div>
                 </div>
@@ -191,12 +190,12 @@ const Booking = () => {
               No worries! Send us a message and we'll work with you to find a
               time that fits your schedule.
             </p>
-            <a
-              href='/contact'
+            <Link
+              to='/contact'
               className='inline-block bg-gradient-to-br from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 duration-300 text-white font-semibold py-3 px-8 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition'
             >
               Contact Us Instead
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { BackgroundGradientAnimation } from '../components/bg';
 import { BackgroundGradient } from '../components/card.jsx';
 import { cn } from '../lib/utils.jsx';
 // eslint-disable-next-line no-unused-vars
@@ -37,7 +36,7 @@ const Services = () => {
         description="Comprehensive digital services including web development, mobile apps, UI/UX design, and AI solutions to elevate your brand."
       />
       <section id='Hero' className='w-full text-center'>
-        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
+        <div className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-[poppins]'>
             Our Comprehensive{' '}
             <span className='text-primary'>Digital Services</span>
@@ -45,7 +44,7 @@ const Services = () => {
           <div className='z-100 text-sm sm:text-base  font-[montserrat]'>
             Bringing Your Business to Live, Pixel by Pixel
           </div>
-        </BackgroundGradientAnimation>
+        </div>
         <div className='w-full text-center items-center justify-center flex py-4'>
           <p className='font-[poppins] max-w-5xl'>
             At PixelsPulse, we offer a full spectrum of digital services

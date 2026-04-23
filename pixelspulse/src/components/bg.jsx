@@ -61,29 +61,42 @@ export const BackgroundGradientAnimation = ({
   useEffect(() => {
     let animationFrameId;
 
+    let lastPulse = null;
+    let lastCurX = null;
+    let lastCurY = null;
     const animate = (timestamp) => {
+      animationFrameId = requestAnimationFrame(animate);
+      if (document.hidden) return; // skip work in background tabs
+
       const state = animationState.current;
-      
+
       // 1. Pulse Animation
       if (!state.startTime) state.startTime = timestamp;
       const elapsed = (timestamp - state.startTime) / 1000;
       const pulse = 1 + Math.sin((elapsed * (2 * Math.PI)) / pulseSpeed) * pulseIntensity;
 
-      // Apply pulse to circles directly
-      if (circle1Ref.current) circle1Ref.current.style.transform = `scale(${pulse})`;
-      if (circle2Ref.current) circle2Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.8})`;
-      if (circle3Ref.current) circle3Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.6})`;
-      if (circle4Ref.current) circle4Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.4})`;
-      if (circle5Ref.current) circle5Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.2})`;
+      // Only write to the DOM when the value actually changed enough to matter.
+      if (lastPulse === null || Math.abs(pulse - lastPulse) > 0.001) {
+        lastPulse = pulse;
+        if (circle1Ref.current) circle1Ref.current.style.transform = `scale(${pulse})`;
+        if (circle2Ref.current) circle2Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.8})`;
+        if (circle3Ref.current) circle3Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.6})`;
+        if (circle4Ref.current) circle4Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.4})`;
+        if (circle5Ref.current) circle5Ref.current.style.transform = `scale(${1 + (pulse - 1) * 0.2})`;
+      }
 
       // 2. Interactive Movement
       if (interactiveRef.current) {
         state.curX += (state.tgX - state.curX) / 20;
         state.curY += (state.tgY - state.curY) / 20;
-        interactiveRef.current.style.transform = `translate(${Math.round(state.curX)}px, ${Math.round(state.curY)}px)`;
+        const nx = Math.round(state.curX);
+        const ny = Math.round(state.curY);
+        if (nx !== lastCurX || ny !== lastCurY) {
+          lastCurX = nx;
+          lastCurY = ny;
+          interactiveRef.current.style.transform = `translate(${nx}px, ${ny}px)`;
+        }
       }
-
-      animationFrameId = requestAnimationFrame(animate);
     };
 
     animationFrameId = requestAnimationFrame(animate);

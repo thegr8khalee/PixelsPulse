@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useNewstellerStore } from '../store/use.newsteller';
 
 const Footer = () => {
@@ -19,29 +20,29 @@ const Footer = () => {
             <h1 className='text-gray-400'>Overview</h1>
             <ul>
               <li>
-                <a href='/' className='text-white hover:text-aquaGlow'>
+                <Link to='/' className='text-white hover:text-aquaGlow'>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/about' className='text-white hover:text-aquaGlow'>
+                <Link to='/about' className='text-white hover:text-aquaGlow'>
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/services' className='text-white hover:text-aquaGlow'>
+                <Link to='/services' className='text-white hover:text-aquaGlow'>
                   Services
-                </a>
+                </Link>
               </li>
-              {/* <li>
-                <a href='/portfolio' className='text-white hover:text-aquaGlow'>
-                  Portfolio
-                </a>
-              </li> */}
               <li>
-                <a href='/contact' className='text-white hover:text-aquaGlow'>
+                <Link to='/portfolio' className='text-white hover:text-aquaGlow'>
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link to='/contact' className='text-white hover:text-aquaGlow'>
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -89,45 +90,45 @@ const Footer = () => {
             <h1 className='text-gray-400'>User Support</h1>
             <ul>
               <li>
-                <a href='/help' className='text-white hover:text-aquaGlow'>
+                <Link to='/help' className='text-white hover:text-aquaGlow'>
                   Help Center
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/privacy' className='text-white hover:text-aquaGlow'>
+                <Link to='/privacy' className='text-white hover:text-aquaGlow'>
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/terms' className='text-white hover:text-aquaGlow'>
+                <Link to='/terms' className='text-white hover:text-aquaGlow'>
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='/cookie' className='text-white hover:text-aquaGlow'>
+                <Link to='/cookie' className='text-white hover:text-aquaGlow'>
                   Cookie Policy / prefernce
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div className='border-t border-b border-gray-500 mt-8 py-8 items-center justify-center w-full flex space-x-20 md:space-x-40'>
-        <a href='https://x.com/pixelspulsedev?t=DvQpEamV3Ed9S0Q6mnzHrA&s=09'>
-          <img src='twitter.webp' alt='' className='size-10' />
+        <a href='https://x.com/pixelspulsedev?t=DvQpEamV3Ed9S0Q6mnzHrA&s=09' target='_blank' rel='noopener noreferrer'>
+          <img src='twitter.webp' alt='Twitter' className='size-10' width='40' height='40' loading='lazy' decoding='async' />
         </a>
-        <a href='https://www.instagram.com/pixelspulsedev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
-          <img src='instagram.webp' alt='' className='size-10' />
+        <a href='https://www.instagram.com/pixelspulsedev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' target='_blank' rel='noopener noreferrer'>
+          <img src='instagram.webp' alt='Instagram' className='size-10' width='40' height='40' loading='lazy' decoding='async' />
         </a>
-        <a href='https://www.linkedin.com/company/pixelspulse'>
-          <img src='linkedin.webp' alt='' className='size-10' />
+        <a href='https://www.linkedin.com/company/pixelspulse' target='_blank' rel='noopener noreferrer'>
+          <img src='linkedin.webp' alt='LinkedIn' className='size-10' width='40' height='40' loading='lazy' decoding='async' />
         </a>
       </div>
       <div className='hidden lg:flex border-b border-gray-500 space-y-8 md:space-y-0 md:space-x-20 items-center justify-center w-full px-4 mt-8'>
         <div className='flex flex-1 space-x-10 items-center justify-center'>
-          <img src='/Logo.webp' alt='' className='w-40' />
-          <a
-            href='/'
+          <img src='/Logo.webp' alt='' className='w-40' loading='lazy' decoding='async' />
+          <Link
+            to='/'
             className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-end"
           >
             <p className='text-6xl'>PixelsPulse</p>
@@ -135,7 +136,7 @@ const Footer = () => {
             <div className='text-xl items-end font-[poppins] font-medium pt-1'>
               dev
             </div>
-          </a>
+          </Link>
         </div>
         <div className='flex-1 py-8 items-center justify-center w-full flex flex-col'>
           <div className='w-full text-start'>
@@ -192,9 +193,9 @@ const Footer = () => {
           </div>
         </div>
         <div className='flex flex-1 space-x-5 items-center justify-center'>
-          <img src='/Logo.webp' alt='' className='w-20 sm:w-40' />
-          <a
-            href='/'
+          <img src='/Logo.webp' alt='' className='w-20 sm:w-40' loading='lazy' decoding='async' />
+          <Link
+            to='/'
             className="flex text-xl hover:bg-transparent border-0 hover:text-inherit hover:shadow-none font-['poppins'] font-bold items-end"
           >
             <p className='text-xl sm:text-6xl'>PixelsPulse</p>
@@ -202,7 +203,7 @@ const Footer = () => {
             <div className='text-xl items-end font-[poppins] font-medium pt-1'>
               dev
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className='mt-8 w-full flex items-center justify-center'>

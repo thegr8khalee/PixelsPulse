@@ -21,7 +21,6 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.9.4",
     "lucide-react": "^0.506.0",
-    "motion": "^12.9.4",
     "ogl": "^1.0.11",
     "pixelspulse": "file:..",
     "prop-types": "^15.8.1",

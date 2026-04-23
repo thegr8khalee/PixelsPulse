@@ -119,7 +119,7 @@ const Apps = () => {
             src='app-dev.webp'
             alt='Mobile App Development'
             className='relative w-full h-full object-cover'
-          />
+           loading='lazy' decoding='async' />
         </div>
         <div className='absolute bg-black/70 h-full top-0 left-1/2 w-full -translate-x-1/2 justify-center items-center text-start flex flex-col'>
           <div className='max-w-7xl p-4'>
@@ -325,7 +325,7 @@ const Apps = () => {
                 whileHover={{ scale: 1.03 }}
               >
                 {isImage ? (
-                  <img src={icon} className='size-8' alt='' />
+                  <img src={icon} className='size-8' alt=''  loading='lazy' decoding='async' />
                 ) : (
                   React.createElement(icon, {
                     className: 'size-8 stroke-accent',

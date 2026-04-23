@@ -1,205 +1,261 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useRef, useEffect } from 'react';
-import { BackgroundGradientAnimation } from '../components/bg'; // Assuming this component exists
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion'; // Keeping this as it was in the original user code
-import { X } from 'lucide-react';
-import { BackgroundGradient } from '../components/card.jsx';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ArrowUpRight, ExternalLink, Sparkles } from 'lucide-react';
 import { cn } from '../lib/utils.jsx';
 import { usePageLoader } from '../hooks/usePageLoader';
 import SEO from '../components/SEO';
+import projects from '../data/projects.json';
 
-// Project data (replace with your actual project details and add more images)
-const projects = [
-  {
-    id: 'mimi',
-    title: 'Everything MIMI',
-    category: 'E-commerce website, products catalog, full brand Identity.',
-    images: ['emm.png', 'em2.png', 'em4.png', 'em5.png'],
-    fullDescription:
-      'Everything MIMI is a comprehensive e-commerce platform for a furniture and interior design company. We developed a user-friendly online store, integrated a detailed products catalog, and crafted a full brand identity that resonates with their aesthetic. The site focuses on high-quality visuals and a seamless shopping experience, allowing customers to easily browse, select, and purchase furniture and interior design elements.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS', 'DaisyUI'],
-    liveLink: 'https://emfurnitureandinterior.com', // Replace with actual link
-  },
-  {
-    id: 'pheez',
-    title: 'PHEEZYHOMES & Interior',
-    category: 'E-commerce Website · Product & Collections Catalogs',
-    images: [
-      'Pheez.png',
-      'pheez1.png',
-      'pheez2.png',
-    ],
-    fullDescription:
-      'PHEEZYHOMES & Interior required a meticulously designed e-commerce website featuring product, collection, and project management systems. We delivered a visually striking layout with rich details, ensuring each item is presented beautifully. The catalogs are crafted to be both informative and aesthetically engaging, guiding customers through their wide range of home and interior products with clarity and elegance.',
-    technologies: ['Canva', 'Node.js', 'Express', 'React', 'MongoDB'], // You can also add: 'UI Design', 'Prototyping'
-    liveLink:
-      'https://www.pheezyhomesinteriors.com',
-  },
-  {
-    id: 'domora',
-    title: 'Domora (Ongoing Project)',
-    category: 'Real-estate Website, UI/UX design and full brand identity.',
-    images: [
-      'Domora.png',
-      'domora1.png',
-      //   'https://placehold.co/800x600/D1C4E9/673AB7?text=Domora+Detail+2',
-    ],
-    fullDescription:
-      'Domora is an ongoing real-estate project focused on creating a modern and intuitive platform for property listings and management. Our work includes comprehensive UI/UX design to ensure a seamless user journey for both buyers and sellers, along with developing a full brand identity that conveys trust and sophistication in the real-estate market. The website will feature advanced search filters, interactive maps, and detailed property profiles.',
-    technologies: [
-      'React',
-      'Firebase',
-      'Figma',
-      'Tailwind CSS',
-      'Node.js',
-      'Canva',
-    ],
-    liveLink:
-      'https://www.figma.com/design/RKSzc7mx8w8tWuneSJkuVn/Domora?node-id=0-1&t=2lFlvOHcUZ4fgqrW-1', // Replace with actual link
-  },
-  {
-    id: 'kaduna',
-    title: 'Kaduna Real Estate Properties',
-    category:
-      'An eye-catching Logo design perfect for 3D and use as a watermark.',
-    images: [
-      'kad.png',
-      //   'https://placehold.co/800x600/C8E6C9/4CAF50?text=Kaduna+Logo+Detail',
-    ],
-    fullDescription:
-      "For Kaduna Real Estate Properties, we focused on creating a distinctive and memorable logo design. The logo was crafted with versatility in mind, ensuring it looks equally striking in 2D and 3D applications, and can be effectively used as a watermark on property images. The design captures the essence of stability and growth, reflecting the company's presence in the real estate sector.",
-    technologies: [
-      'Adobe Illustrator',
-      'Adobe Photoshop',
-      '3D Modeling Software',
-      'Canva',
-    ],
-    liveLink:
-      'https://www.canva.com/design/DAFWmSb06U0/ys0H3SV20SPoTO-hJZt6aw/view?utm_content=DAFWmSb06U0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h45ffc72636', // Replace with actual link
-  },
-];
+const ALL = 'All';
 
-// ProjectDetailsLightbox Component
+const getAllTags = (items) => {
+  const set = new Set();
+  items.forEach((p) => (p.tags || []).forEach((t) => set.add(t)));
+  return [ALL, ...Array.from(set)];
+};
+
+// ProjectDetailsLightbox — two-column on md+, sticky gallery on desktop
 const ProjectDetailsLightbox = ({ project, onClose }) => {
-  if (!project) return null;
-
   const lightboxRef = useRef(null);
-  const [mainImage, setMainImage] = useState(project.images[0]); // State for the main displayed image
+  const [mainImage, setMainImage] = useState(null);
 
-  // Reset main image when project changes
   useEffect(() => {
-    if (project && project.images && project.images.length > 0) {
+    if (project?.images?.length) {
       setMainImage(project.images[0]);
     }
   }, [project]);
 
-  // Close when clicking outside the modal content
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (lightboxRef.current && !lightboxRef.current.contains(event.target)) {
-        onClose();
-      }
+    if (!project) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose();
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [onClose]);
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [project, onClose]);
+
+  if (!project) return null;
 
   return (
-    <div
-      className='z-9999 px-2 modal modal-open flex items-center justify-center overflow-y-auto'
-      style={{
-        scrollbarWidth: 'none',
-        msOverflowStyle: 'none',
-      }}
-    >
-      <div
-        className='h-[90vh] modal-box p-0 pb-10 relative max-w-3xl rounded-3xl shadow-2xl bg-base-200'
-        style={{
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none',
+    <AnimatePresence>
+      <motion.div
+        key='lb'
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm px-2 sm:px-4 overflow-y-auto'
+        onClick={(e) => {
+          if (lightboxRef.current && !lightboxRef.current.contains(e.target)) {
+            onClose();
+          }
         }}
       >
-        <button
-          className='z-999 btn btn-sm btn-circle absolute right-4 top-4'
-          onClick={onClose}
-          aria-label='Close filters'
+        <motion.div
+          ref={lightboxRef}
+          initial={{ y: 30, opacity: 0, scale: 0.98 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 20, opacity: 0, scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 220, damping: 26 }}
+          className='relative w-full max-w-6xl my-6 rounded-3xl overflow-hidden bg-base-200 shadow-2xl border border-white/10'
         >
-          <X size={20} />
-        </button>
-        <figure className='mb-2 w-full h-50 sm:h-90 rounded-lg overflow-hidden relative'>
-          <img
-            src={mainImage}
-            alt={project.title}
-            className='absolute h-full w-full rounded-lg object-cover' // object-contain to fit, max-h for responsiveness
-          />
-        </figure>
+          <button
+            onClick={onClose}
+            aria-label='Close'
+            className='z-20 absolute right-4 top-4 btn btn-sm btn-circle bg-black/50 border-0 hover:bg-black/70 text-white'
+          >
+            <X size={18} />
+          </button>
 
-        <div className='p-4'>
-          {/* Scrollable Thumbnails */}
-          {project.images.length > 1 && (
-            <div className='flex overflow-x-auto gap-2 p-2 mb-6 scrollbar-hide'>
-              {project.images.map((imgSrc, index) => (
-                <img
-                  key={index}
-                  src={imgSrc}
-                  alt={`${project.title} thumbnail ${index + 1}`}
-                  className={`w-20 h-16 object-cover rounded-md cursor-pointer border-2 transition-all duration-200 ${
-                    mainImage === imgSrc
-                      ? 'border-primary shadow-md'
-                      : 'border-transparent hover:border-gray-300'
-                  }`}
-                  onClick={() => setMainImage(imgSrc)}
-                />
-              ))}
-            </div>
-          )}
-          <h2 className="text-2xl sm:text-3xl font-bold font-['poppins'] text-primary mb-2">
-            {project.title}
-          </h2>
-          <p className='text-accent text-md mb-4 font-[montserrat]'>
-            {project.category}
-          </p>
-          <p className="font-['poppins'] leading-relaxed mb-6">
-            {project.fullDescription}
-          </p>
-
-          {project.technologies && project.technologies.length > 0 && (
-            <div className='mb-6'>
-              <h3 className="text-lg font-semibold font-['poppins'] mb-2">
-                Technologies Used:
-              </h3>
-              <div className='flex flex-wrap gap-2'>
-                {project.technologies.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="badge badge-outline badge-accent font-['montserrat']"
-                  >
-                    {tech}
-                  </span>
-                ))}
+          <div className='grid grid-cols-1 md:grid-cols-5 max-h-[90vh]'>
+            {/* Gallery */}
+            <div className='md:col-span-3 bg-black/40 flex flex-col'>
+              <div className='relative w-full h-64 sm:h-96 md:h-[60vh]'>
+                <AnimatePresence mode='wait'>
+                  <motion.img
+                    key={mainImage}
+                    src={mainImage}
+                    alt={project.title}
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className='absolute inset-0 w-full h-full object-cover'
+                  />
+                </AnimatePresence>
               </div>
+              {project.images.length > 1 && (
+                <div className='flex overflow-x-auto gap-2 p-3 scrollbar-hide bg-base-300/50'>
+                  {project.images.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setMainImage(img)}
+                      className={cn(
+                        'shrink-0 w-20 h-14 sm:w-24 sm:h-16 rounded-lg overflow-hidden border-2 transition-all',
+                        mainImage === img
+                          ? 'border-primary shadow-lg shadow-primary/30'
+                          : 'border-transparent opacity-60 hover:opacity-100'
+                      )}
+                    >
+                      <img
+                        src={img}
+                        alt=''
+                        className='w-full h-full object-cover'
+                        loading='lazy'
+                        decoding='async'
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
 
-          {project.liveLink && (
-            <div className='text-center mt-6'>
-              <a
-                href={project.liveLink}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='btn btn-primary btn-lg rounded-full shadow-md hover:shadow-lg transition-all duration-300'
-              >
-                View Live Project
-              </a>
+            {/* Details */}
+            <div className='md:col-span-2 p-6 sm:p-8 overflow-y-auto scrollbar-hide max-h-[90vh]'>
+              <div className='flex items-center gap-2 mb-3'>
+                {project.ongoing && (
+                  <span className='inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-[montserrat]'>
+                    <span className='w-1.5 h-1.5 rounded-full bg-primary animate-pulse' />
+                    Ongoing
+                  </span>
+                )}
+                {project.year && (
+                  <span className='text-xs px-2 py-1 rounded-full bg-base-300 text-base-content/70 font-[montserrat]'>
+                    {project.year}
+                  </span>
+                )}
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-bold font-['poppins'] text-primary mb-2 leading-tight">
+                {project.title}
+              </h2>
+              <p className='text-accent text-sm mb-6 font-[montserrat]'>
+                {project.category}
+              </p>
+
+              <p className="font-['poppins'] leading-relaxed text-base-content/80 mb-6 text-sm sm:text-base">
+                {project.fullDescription}
+              </p>
+
+              {project.technologies?.length > 0 && (
+                <div className='mb-6'>
+                  <h3 className="text-xs uppercase tracking-widest text-base-content/50 font-['montserrat'] mb-3">
+                    Stack
+                  </h3>
+                  <div className='flex flex-wrap gap-2'>
+                    {project.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="text-xs px-3 py-1 rounded-full bg-base-300 border border-white/5 text-base-content/80 font-['montserrat']"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.liveLink && (
+                <a
+                  href={project.liveLink}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='group inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-white font-medium shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all'
+                >
+                  View Live Project
+                  <ExternalLink
+                    size={16}
+                    className='transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+                  />
+                </a>
+              )}
             </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+// Project Card
+const ProjectCard = ({ project, index, onOpen }) => {
+  return (
+    <motion.button
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+      onClick={() => onOpen(project)}
+      className={cn(
+        'group relative flex flex-col text-left rounded-3xl overflow-hidden bg-base-200 border border-white/5 h-full will-change-transform',
+        'hover:border-primary/40 hover:-translate-y-1 transition-[transform,border-color,box-shadow] duration-300',
+        'shadow-lg shadow-black/20 hover:shadow-2xl hover:shadow-primary/10'
+      )}
+    >
+      {/* Image area */}
+      <div className='relative overflow-hidden aspect-video'>
+        <img
+          src={project.images[0]}
+          alt={project.title}
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+          loading={index < 3 ? 'eager' : 'lazy'}
+          decoding='async'
+          fetchpriority={index === 0 ? 'high' : 'auto'}
+        />
+
+        {/* Top badges */}
+        <div className='absolute top-3 left-3 right-3 flex items-start justify-between gap-2'>
+          <div className='flex items-center gap-2 flex-wrap'>
+            {project.ongoing && (
+              <span className='inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-primary text-white font-[montserrat] shadow-lg'>
+                <span className='w-1.5 h-1.5 rounded-full bg-white animate-pulse' />
+                Ongoing
+              </span>
+            )}
+          </div>
+          {project.year && (
+            <span className='text-xs px-2.5 py-1 rounded-full bg-black/60 backdrop-blur text-white/90 font-[montserrat] shrink-0'>
+              {project.year}
+            </span>
           )}
         </div>
+
+        {/* Hover arrow */}
+        <div className='absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+          <div className='w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg'>
+            <ArrowUpRight className='text-white' size={18} />
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Content area */}
+      <div className='flex-1 flex flex-col p-4 sm:p-5 bg-base-200 border-t border-white/5'>
+        <div className='flex flex-wrap gap-1.5 mb-2'>
+          {(project.tags || []).slice(0, 3).map((tag, i) => (
+            <span
+              key={i}
+              className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-base-content/70 font-['montserrat']"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h3 className="font-bold font-['poppins'] text-base-content leading-tight line-clamp-2 text-lg sm:text-xl">
+          {project.title}
+        </h3>
+        <p className='mt-1 text-xs sm:text-sm text-base-content/60 font-[montserrat] line-clamp-2'>
+          {project.category}
+        </p>
+        <div className='mt-auto pt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent group-hover:gap-3 transition-all font-[montserrat]'>
+          View case study
+          <ArrowUpRight
+            size={14}
+            className='transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+          />
+        </div>
+      </div>
+    </motion.button>
   );
 };
 
@@ -207,123 +263,186 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
 const Portfolio = () => {
   const navigate = useNavigate();
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeTag, setActiveTag] = useState(ALL);
 
-  const allImages = projects.flatMap((p) => p.images);
+  const allImages = useMemo(() => projects.flatMap((p) => p.images), []);
   usePageLoader(allImages);
+
+  const tags = useMemo(() => getAllTags(projects), []);
+
+  const filtered = useMemo(() => {
+    if (activeTag === ALL) return projects;
+    return projects.filter((p) => (p.tags || []).includes(activeTag));
+  }, [activeTag]);
 
   const handleContact = () => {
     navigate('/contact');
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 10);
+    setTimeout(() => window.scrollTo(0, 0), 10);
   };
 
   const openLightbox = (project) => {
     setSelectedProject(project);
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+    document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
     setSelectedProject(null);
-    document.body.style.overflow = ''; // Re-enable scrolling
+    document.body.style.overflow = '';
   };
 
+  const stats = [
+    { value: `${projects.length}+`, label: 'Projects Shipped' },
+    { value: `${new Set(projects.flatMap((p) => p.tags || [])).size}`, label: 'Disciplines' },
+    { value: '100%', label: 'Client Satisfaction' },
+  ];
+
   return (
-    <div className='pt-16 bg-base-100 text-base-content mx-auto'>
-      <SEO 
-        title="Our Portfolio | PixelsPulse"
-        description="Showcase of our recent projects in web development, branding, and UI/UX design."
+    <div className='pt-16 bg-base-100 text-base-content'>
+      <SEO
+        title='Our Portfolio | PixelsPulse'
+        description='Showcase of our recent projects in web development, branding, and UI/UX design.'
       />
+
+      {/* Hero */}
       <section id='Hero' className='w-full text-center'>
-        <BackgroundGradientAnimation className='h-50 justify-center items-center flex flex-col space-y-2 px-4'>
-          <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
-            Our Work:
-            <span className='text-primary'>Where Ideas Take Digital Form</span>
-          </div>
-        </BackgroundGradientAnimation>
-        <div className='w-full text-center items-center justify-center flex py-4'>
-          <p className='px-4 font-[poppins] max-w-5xl'>
-            Dive into our portfolio and see how PixelsPulse has brought brands
-            to life with innovative web, mobile, and design solutions.
-          </p>
-        </div>
-      </section>
-
-      <section className='w-full flex justify-center px-4 mt-6 mb-20 max-w-7xl mx-auto'>
-        <div className='grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
-          {projects.map((service, index) => (
-            <div
-              key={index}
-              className={cn(
-                'rounded-3xl overflow-hidden h-full',
-                'bg-base-200 hover:bg-base-300 transition-all duration-300'
-              )}
-              containerClassName='h-full'
-            >
-              <motion.div
-                className='h-full flex flex-col'
-                // initial={{
-                //   opacity: 0.2, scale: 0.9
-                // }}
-                // viewport={{ once: false, amount: 0.5 }}
-                // whileInView={{ opacity: 1, scale: 1 }}
-                // transition={{ duration: 1 }}
-              >
-                {/* Image container */}
-                <div className='h-50 sm:h-70 md:h-55 overflow-hidden'>
-                  <img
-                    src={service.images[0]}
-                    alt={service.title}
-                    className='w-full h-full object-cover'
-                  />
-                </div>
-
-                {/* Content container */}
-                <div className='p-6 pt-0 flex flex-col flex-grow'>
-                  {/* <div className='text-4xl mb-4'>{service.icon}</div> */}
-                  <h3 className='text-xl font-bold text-white my-2 font-[poppins]'>
-                    {service.title}
-                  </h3>
-                  <p className='text-gray-400 flex-grow'>{service.category}</p>
-                  <button
-                    onClick={() => openLightbox(service)}
-                    className='mt-6 self-start text-sm font-medium text-accent hover:text-[#61e8ff]/80 transition-colors font-[montserrat]'
-                  >
-                    Learn more
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className='py-20 px-4 sm:px-6 lg:px-8'>
-        {/* Retained motion div as it was in original user code, though framer-motion import is commented out */}
-        <div
-          className='max-w-4xl mx-auto text-center'
-          // initial={{ opacity: 0.2, scale: 0.9 }}
-          // viewport={{ once: false, amount: 0.5 }}
-          // whileInView={{ opacity: 1, scale: 1 }}
-          // transition={{ duration: 1 }}
-        >
-          <h2 className="text-3xl sm:text-6xl md:text-6xl lg:text-6xl mb-6 font-['poppins'] font-medium">
-            Let's Build Something <span className='text-primary'>Bold</span>
-          </h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto font-['montserrat']">
-            Ready to start your project? Get in touch today for a free
-            consultation.
-          </p>
-          <button
-            onClick={handleContact}
-            className='px-8 py-3 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium'
+        <div className='min-h-[18rem] sm:min-h-[22rem] justify-center items-center flex flex-col space-y-4 px-4'>
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className='z-[100] inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-xs sm:text-sm font-[montserrat] text-white'
           >
-            Get a Free Consultation
-          </button>
+            <Sparkles size={14} className='text-accent' />
+            Selected Work
+          </motion.div> */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className='z-[100] text-3xl sm:text-5xl md:text-6xl font-bold font-[poppins] leading-tight max-w-4xl'
+          >
+            Where Ideas <br className='sm:hidden' />
+            <span className='bg-gradient-to-r from-primary via-accent to-pink-400 bg-clip-text text-transparent'>
+              Take Digital Form
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className='z-[100] max-w-2xl text-sm sm:text-base font-[montserrat] text-white/80'
+          >
+            A collection of brands, experiences, and products we've crafted —
+            from pixel-perfect interfaces to full-stack commerce platforms.
+          </motion.p>
+        </div>
+
+        {/* Stats strip */}
+        <div className='max-w-5xl mx-auto px-4 -mt-8 relative z-10'>
+          <div className='grid grid-cols-3 gap-2 sm:gap-4 p-4 sm:p-6 rounded-2xl bg-base-200 border border-white/10 shadow-xl shadow-black/30'>
+            {stats.map((s, i) => (
+              <div key={i} className='text-center'>
+                <div className='text-2xl sm:text-4xl font-bold font-[poppins] bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
+                  {s.value}
+                </div>
+                <div className='text-[10px] sm:text-xs uppercase tracking-widest text-base-content/60 font-[montserrat] mt-1'>
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Lightbox Component */}
+      {/* Filter chips */}
+      <section className='max-w-7xl mx-auto px-4 mt-12 sm:mt-16'>
+        <div className='flex items-center justify-between flex-wrap gap-4 mb-6'>
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold font-['poppins']">
+              Recent Work
+            </h2>
+            <p className='text-sm text-base-content/60 font-[montserrat] mt-1'>
+              {filtered.length} {filtered.length === 1 ? 'project' : 'projects'}
+              {activeTag !== ALL && ` in ${activeTag}`}
+            </p>
+          </div>
+          <div className='flex flex-wrap gap-2'>
+            {tags.map((tag) => {
+              const active = tag === activeTag;
+              return (
+                <button
+                  key={tag}
+                  onClick={() => setActiveTag(tag)}
+                  className={cn(
+                    'px-4 py-1.5 rounded-full text-xs sm:text-sm font-[montserrat] transition-all border',
+                    active
+                      ? 'bg-primary text-white border-primary shadow-lg shadow-primary/30'
+                      : 'bg-base-200 text-base-content/70 border-white/5 hover:border-primary/40 hover:text-base-content'
+                  )}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects grid */}
+      <section className='max-w-7xl mx-auto px-4 mt-6 mb-24'>
+        <motion.div
+          layout
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'
+        >
+          <AnimatePresence mode='popLayout'>
+            {filtered.map((project, i) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={i}
+                onOpen={openLightbox}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {filtered.length === 0 && (
+          <div className='text-center py-20 text-base-content/50 font-[montserrat]'>
+            No projects match this filter yet.
+          </div>
+        )}
+      </section>
+
+      {/* CTA */}
+      <section className='px-4 sm:px-6 lg:px-8 pb-24'>
+        <div className='max-w-5xl mx-auto relative overflow-hidden rounded-3xl bg-gradient-to-br from-base-200 via-base-300 to-base-200 border border-white/10 p-8 sm:p-14 text-center'>
+          <div className='absolute -top-16 -right-16 w-48 h-48 rounded-full bg-primary/20 blur-3xl' />
+          <div className='absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-accent/20 blur-3xl' />
+          <div className='relative'>
+            <h2 className="text-3xl sm:text-5xl md:text-6xl mb-4 font-['poppins'] font-medium leading-tight">
+              Let's Build Something{' '}
+              <span className='bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'>
+                Bold
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto font-['montserrat'] text-base-content/70">
+              Ready to start your project? Get in touch today for a free
+              consultation.
+            </p>
+            <button
+              onClick={handleContact}
+              className='group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-accent to-pink-400 hover:from-accent-100 hover:to-pink-300 transition-all duration-300 text-white font-medium shadow-lg shadow-accent/30 hover:shadow-accent/50'
+            >
+              Get a Free Consultation
+              <ArrowUpRight
+                size={18}
+                className='transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5'
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
       <ProjectDetailsLightbox
         project={selectedProject}
         onClose={closeLightbox}

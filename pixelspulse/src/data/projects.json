@@ -1,0 +1,409 @@
+[
+  {
+    "id": "corecomm",
+    "title": "CoreComm AI",
+    "category": "SaaS marketing website for an AI communication platform.",
+    "tags": [
+      "SaaS",
+      "AI",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "corecomm_01.webp",
+      "corecomm_02.webp",
+      "corecomm_03.webp",
+      "corecomm_04.webp"
+    ],
+    "fullDescription": "CoreComm AI is the marketing and product website for an AI workforce platform that answers calls, emails, chats and DMs while running tasks across 30+ business apps. We designed and built a fast, animated single-page experience covering the full product surface — voice, email, messaging, social and connector agents — alongside use-case pages for banking, healthcare, retail, education, telecom, energy and government, plus case studies, pricing, docs, blog, contact-sales and interactive demo flows. The site focuses on clean typography, motion-driven storytelling and SEO-friendly rendering to turn enterprise visitors into qualified leads.",
+    "technologies": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Node.js",
+      "Express",
+      "Zustand"
+    ],
+    "liveLink": "https://corecomm.ai"
+  },
+  {
+    "id": "cap-wallet",
+    "title": "Cap Wallet",
+    "category": "Marketing and product site for an AI-guided, multi-chain self-custody crypto wallet.",
+    "tags": [
+      "Fintech",
+      "Crypto",
+      "Web3",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "capwallet_01.webp",
+      "capwallet_02.webp",
+      "capwallet_03.webp",
+      "capwallet_04.webp"
+    ],
+    "fullDescription": "Cap Wallet is the public-facing website for a secure, AI-guided multi-chain crypto wallet, positioning the product as a gateway to the open economy across Bitcoin, Ethereum, Solana, BNB, Polygon, and more. We designed and built a multi-page React experience that walks visitors through the full product surface — Wallet Features (multi-chain support, local key generation, biometric security, panic mode, cold/hot switching, multi-sig, crypto debit card), Trading & DeFi (cross-chain swaps, bridges, on/off-ramps, dApp browser), and AI (fee optimization, risk detection, contract analysis, transaction approvals) — alongside About, Careers, Blog, Support, Contact, Download, and full legal pages. The site uses a code-split, lazy-loaded route architecture with React Suspense, Framer Motion transitions and scroll-triggered animations, a Zustand-managed waitlist and careers flow backed by Axios, a DaisyUI- and Tailwind-driven design system, and a Vite build pipeline tuned for fast first paint, all delivered through a fully responsive layout that converts visitors into waitlist signups, applicants, and downloads.",
+    "technologies": [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "DaisyUI",
+      "Framer Motion",
+      "React Router v7",
+      "Zustand",
+      "Axios",
+      "Lucide React",
+      "React Hot Toast",
+      "Flowbite React"
+      ],
+      "liveLink": "https://capwallet.app"
+  },
+  {
+    "id": "ulanda",
+    "title": "ULANDA Skin Clinic",
+    "category": "Marketing and booking website for a nurse-led regenerative skin clinic.",
+    "tags": [
+      "Healthcare",
+      "Aesthetics",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "ulanda_01.webp",
+      "ulanda_02.webp",
+      "ulanda_03.webp",
+      "ulanda_04.webp"
+    ],
+    "fullDescription": "ULANDA is the digital home of a nurse-led skin clinic in Ware, Hertfordshire specialising in regenerative skin treatments, clinical skin health consultations, and structured aesthetic care. We designed and built a content-rich, SEO-first experience that surfaces the clinic's signature pathways, treatments, conditions library, medical skincare lines (Obagi, prescription skincare), and editorial journal — alongside founder, manifesto, and philosophy pages that carry the brand's clinical-meets-editorial tone. The site includes a dedicated consultation booking flow integrated with Square, a programme hub, condition-to-treatment pathway cross-linking, and a full network of locality pages targeting Hertford, Hoddesdon, Broxbourne, Cheshunt, Bishop's Stortford, Harlow, Welwyn Garden City, Stevenage, and surrounding areas. Built as a statically generated React application with scroll-triggered motion, reCAPTCHA-protected contact forms, rich Schema.org markup for local medical business SEO, PWA support, and an automated sitemap pipeline to turn organic search traffic into booked consultations.",
+    "technologies": [
+      "React",
+      "Vite",
+      "vite-react-ssg",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Framer Motion",
+      "React Router",
+      "Lucide",
+      "vite-plugin-pwa",
+      "Google reCAPTCHA v3"
+    ],
+    "liveLink": "https://www.ulanda.co.uk"
+  },
+  
+  {
+    "id": "pheez",
+    "title": "PHEEZYHOMES & Interior",
+    "category": "E-commerce Website · Product & Collections Catalogs",
+    "tags": [
+      "E-commerce",
+      "Web"
+    ],
+    "year": "2024",
+    "featured": false,
+    "images": [
+      "Pheez.webp",
+      "pheez1.webp",
+      "pheez2.webp"
+    ],
+    "fullDescription": "PHEEZYHOMES & Interior required a meticulously designed e-commerce website featuring product, collection, and project management systems. We delivered a visually striking layout with rich details, ensuring each item is presented beautifully. The catalogs are crafted to be both informative and aesthetically engaging, guiding customers through their wide range of home and interior products with clarity and elegance.",
+    "technologies": [
+      "Canva",
+      "Node.js",
+      "Express",
+      "React",
+      "MongoDB"
+    ],
+    "liveLink": "https://www.pheezyhomesinteriors.com"
+  },
+  {
+    "id": "kaduna",
+    "title": "Kaduna Real Estate Properties",
+    "category": "An eye-catching Logo design perfect for 3D and use as a watermark.",
+    "tags": [
+      "Branding"
+    ],
+    "year": "2023",
+    "featured": false,
+    "images": [
+      "kad.webp"
+    ],
+    "fullDescription": "For Kaduna Real Estate Properties, we focused on creating a distinctive and memorable logo design. The logo was crafted with versatility in mind, ensuring it looks equally striking in 2D and 3D applications, and can be effectively used as a watermark on property images. The design captures the essence of stability and growth, reflecting the company's presence in the real estate sector.",
+    "technologies": [
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "3D Modeling Software",
+      "Canva"
+    ],
+    "liveLink": "https://www.canva.com/design/DAFWmSb06U0/ys0H3SV20SPoTO-hJZt6aw/view?utm_content=DAFWmSb06U0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h45ffc72636"
+  },
+  {
+    "id": "velocity",
+    "title": "Velocity Rentals",
+    "category": "Full-stack car rental & dealership platform.",
+    "tags": [
+      "Web",
+      "Full-Stack",
+      "E-Commerce",
+      "Automotive"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "velocity_rentals_01.webp",
+      "velocity_rentals_02.webp",
+      "velocity_rentals_03.webp",
+      "velocity_rentals_04.webp"
+    ],
+    "fullDescription": "Velocity is a full-stack car rental and dealership web application built around the tagline 'Drive anything. Anywhere. Anytime.' The public storefront lets customers browse and filter inventory, view detailed vehicle pages with image galleries, compare vehicles side-by-side, and transact through sign-up, email verification, profile management, 'Sell Your Car' submissions, blog posts with authenticated comments, and a contact flow. Behind it, a role-based admin suite (Super Admin, Editor, Moderator) covers full inventory CRUD with VIN decoding and Cloudinary image management, a blog/news CMS, newsletter and broadcast campaigns with delivery stats, customer interaction tracking, staff management, and a dashboard with profitability analytics. The stack pairs a React 19 + Vite frontend with Tailwind CSS v4, DaisyUI, Framer Motion, Zustand and React Router against an Express API backed by PostgreSQL via Sequelize, Supabase auth, JWT cookies, Cloudinary uploads, Nodemailer/Gmail delivery, and rate-limited hardened endpoints — deployed on Vercel.",
+    "technologies": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Framer Motion",
+      "Zustand",
+      "Node.js",
+      "Express",
+      "Sequelize",
+      "PostgreSQL",
+      "Supabase",
+      "Cloudinary",
+      "JWT"
+    ],
+    "liveLink": "https://car-rental-neon-theta.vercel.app/"
+  },
+  {
+    "id": "project-earth",
+    "title": "Project EARTH",
+    "category": "Campaign and initiative website for a national development framework.",
+    "tags": [
+      "Non-Profit",
+      "Government",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "earth_01.webp",
+      "earth_02.webp",
+      "earth_03.webp",
+      "earth_04.webp"
+    ],
+    "fullDescription": "Project EARTH (Environmental Action for Resilience and Transformation of Humanity) is the official campaign website for a unified Nigerian national framework spanning security, youth empowerment, environmental restoration, and digital transformation. We designed and built a fast, motion-driven single-page experience that presents the initiative's seven pillars — from safe highways and clean water to green initiatives, productive youth, and digital enterprise — alongside dedicated pillar pages, a Thousand Voices program, webinar hub, partner alignment section, and contact flows. The site leans on clean typography, scroll-triggered animations, a partner marquee featuring institutions like the World Bank, UNDP, USAID, FCDO, and Dangote Group, and a full SEO pipeline with sitemap generation, OG imagery, and Puppeteer-based prerendering to convert visitors into partners, supporters, and program participants.",
+    "technologies": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React Router",
+      "DaisyUI",
+      "Puppeteer"
+    ],
+    "liveLink": "https://earth.bigtech.com"
+  },
+  {
+    "id": "sdt-website",
+    "title": "SHA Development Trust",
+    "category": "Nonprofit impact organization website for ethical and inclusive technology.",
+    "tags": [
+      "Non-Profit",
+      "Education",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "sdt_01.webp",
+      "sdt_02.webp"
+    ],
+    "fullDescription": "The SHA Development Trust website is the official home of the impact arm of Sha Intelligence, a nonprofit dedicated to advancing ethical, inclusive, and responsible technology for people and communities around the world. We designed and built a clean, Google Material Design–inspired multi-page experience covering the organization's mission, focus areas, funding programs, and contact flows — from Education & Skills and Research & Ethics to Innovation & Support and Policy & Governance. The site features smooth Framer Motion transitions, scroll-triggered animations, interactive hero marquees, and a performance-first architecture with lazy-loaded images, Intersection Observer driven reveals, and an optimized Vite build pipeline, all delivered through a fully responsive layout that turns visitors into partners, supporters, and program participants.",
+    "technologies": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "React Router",
+      "Lucide React",
+      "React Fast Marquee"
+    ],
+    "liveLink": "https://development.shaintelligence.com"
+  },
+  {
+    "id": "em-furniture",
+    "title": "EM Furniture & Interior",
+    "category": "Full-stack e-commerce and interior design studio platform with a luxury consumer storefront and a comprehensive operations admin suite.",
+    "tags": [
+      "E-commerce",
+      "Interior Design",
+      "Full-Stack",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "em_web_01.webp",
+      "em_web_02.webp",
+      "em_web_03.webp"
+    ],
+    "fullDescription": "EM Furniture & Interior is a full-stack commerce and studio platform for a luxury furniture and interior design brand, pairing a high-end consumer storefront with a deep internal operations suite. The customer experience spans a styled home page, shop with filtering and comparison, product and collection detail pages, curated style lookbooks, project portfolio, e-catalog, showroom, blog, FAQ, consultation booking, about/contact/legal pages, and a complete purchase funnel — cart, wishlist, coupon-aware checkout, payment verification, order confirmation, order history and tracking, in-app notifications, and a loyalty program — backed by JWT auth with signup, login, password reset, profile, and a cookie-consent banner. The admin side is a protected dashboard layer covering product, collection, and project management, coupon and marketing campaign tools, order fulfillment, review moderation, consultation and designer scheduling, inventory control, finance reporting, analytics, security audit logs, a PDF-generating document builder, and blog/FAQ CMS. The React 19 + Vite 7 frontend uses React Router v7 with animated route transitions via Framer Motion, a Tailwind v4 and DaisyUI design system, Zustand stores wired to an Axios API layer, TinyMCE rich-text editing, React Hot Toast notifications, and a Vitest + Testing Library test setup; the Express + MongoDB backend adds Mongoose models, Cloudinary media, Nodemailer/Resend transactional email, Puppeteer and PDFKit document generation, Helmet, CORS, rate limiting, compression, Swagger docs, and Google APIs integration — delivered as a fully responsive, WhatsApp-integrated storefront that converts browsers into buyers and gives the studio a single surface to run the business.",
+    "technologies": [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "DaisyUI",
+      "Framer Motion",
+      "React Router v7",
+      "Zustand",
+      "Axios",
+      "TinyMCE",
+      "Lucide React",
+      "React Hot Toast",
+      "Vitest",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "Cloudinary",
+      "Nodemailer",
+      "Resend",
+      "Puppeteer",
+      "PDFKit",
+      "Helmet",
+      "Swagger"
+    ],
+    "liveLink": "https://www.emfurnitureandinterior.com"
+  },
+  {
+    "id": "elite-cars",
+    "title": "Elite Cars",
+    "category": "Full-stack car dealership web platform with a customer-facing vehicle marketplace and a comprehensive admin management suite.",
+    "tags": [
+      "E-commerce",
+      "Automotive",
+      "Full-Stack",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "elite_cars_01.webp",
+      "elite_cars_02.webp",
+      "elite_cars_03.webp",
+      "elite_cars_04.webp"
+    ],
+    "fullDescription": "Elite Cars is a full-stack car dealership template pairing a customer-facing vehicle marketplace with a deep internal operations console for running the business. The public experience spans a styled home page with hero search, a listings browser with advanced filtering and pagination, detailed vehicle pages, side-by-side car comparison, browse-by-make and browse-by-category flows, a blog with article detail and authenticated commenting, a sell-your-car lead funnel with a dedicated submission form, plus about, contact, privacy policy, email verification, and 404 pages — all backed by Supabase-integrated JWT authentication with signup, login, profile management, and protected route guards. The admin side is a role-aware dashboard layer (Super Admin, Editor, Moderator) covering vehicle CRUD with VIN decoding and Cloudinary image management, blog and news CMS, sell-submission review, customer interaction tracking, user and staff management, review and comment moderation, newsletter and broadcast composition with send stats, analytics, and an inventory profitability dashboard for financial reporting. The React 19 + Vite 7 frontend uses React Router v7 with lazy-loaded routes and a shared error boundary, a Tailwind v4 and DaisyUI design system accented by Flowbite and Lucide, Framer Motion animations, Zustand stores wired to an Axios API layer, TinyMCE rich-text editing, DOMPurify sanitization, and React Hot Toast notifications; the Express backend adds Sequelize models against MySQL/PostgreSQL, Cloudinary media, Nodemailer transactional email, bcrypt and JWT auth, rate limiting, CORS, Faker-powered seeding, and Google APIs integration — delivered as a responsive, brand-configurable dealership platform driven by a single branding.config.json so the same codebase can be re-skinned per dealer.",
+    "technologies": [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "DaisyUI",
+      "Flowbite React",
+      "Framer Motion",
+      "React Router v7",
+      "Zustand",
+      "Axios",
+      "TinyMCE",
+      "DOMPurify",
+      "Lucide React",
+      "React Hot Toast",
+      "Node.js",
+      "Express",
+      "Sequelize",
+      "MySQL",
+      "PostgreSQL",
+      "Supabase",
+      "JWT",
+      "bcrypt",
+      "Cloudinary",
+      "Nodemailer",
+      "Google APIs",
+      "Jest"
+    ],
+    "liveLink": "https://car-dealership-inventory-prototype.vercel.app/"
+  },
+  {
+    "id": "elite-properties-real-estate",
+    "title": "Elite Properties",
+    "category": "Full-stack real estate web platform with a public property marketplace and a role-based admin operations suite.",
+    "tags": [
+      "Real Estate",
+      "Proptech",
+      "Full-Stack",
+      "Web"
+    ],
+    "year": "2026",
+    "featured": true,
+    "images": [
+      "real_estate_01.webp",
+      "real_estate_02.webp",
+      "real_estate_03.webp",
+      "real_estate_04.webp"
+    ],
+    "fullDescription": "Elite Properties is a full-stack real estate template pairing a customer-facing property marketplace with a deep internal operations console for running a brokerage. The public experience spans a styled home page with hero search, a listings browser with advanced filtering and pagination, detailed property pages, side-by-side property comparison, browse-by-category and browse-by-neighborhood flows, a mortgage calculator, a favorites system, a blog with article detail and authenticated commenting, a sell-your-property lead funnel with a dedicated submission form, a newsletter subscription, plus about, contact, and profile pages — all backed by JWT authentication with signup, login, profile management, and protected route guards. The admin side is a role-aware dashboard (Super Admin, Editor, Moderator) covering property CRUD with Cloudinary image management, blog and news CMS, sell-submission review, customer inquiry and interaction tracking, user and staff management, review and comment moderation, newsletter and broadcast composition with send stats, analytics, and a profitability dashboard for financial reporting. The React 19 + Vite 7 frontend uses React Router v7, a Tailwind v4 and DaisyUI design system accented by Flowbite and Lucide, Framer Motion animations, Zustand stores wired to an Axios API layer, TinyMCE rich-text editing, react-helmet-async for SEO, html2pdf.js for report export, and React Hot Toast notifications; the Express backend adds Sequelize models against MySQL/PostgreSQL, Cloudinary media, Nodemailer transactional email, bcrypt and JWT auth, Faker-powered seeding, Jest + Supertest testing, and Google APIs integration — delivered as a responsive, brand-configurable real estate platform driven by a single branding.config.json (currency, features, colors, typography, contact) so the same codebase can be re-skinned per brokerage.",
+    "technologies": [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "DaisyUI",
+      "Flowbite React",
+      "Framer Motion",
+      "React Router v7",
+      "Zustand",
+      "Axios",
+      "TinyMCE",
+      "react-helmet-async",
+      "html2pdf.js",
+      "Lucide React",
+      "React Icons",
+      "React Hot Toast",
+      "Node.js",
+      "Express",
+      "Sequelize",
+      "MySQL",
+      "PostgreSQL",
+      "JWT",
+      "bcrypt",
+      "Cloudinary",
+      "Nodemailer",
+      "Google APIs",
+      "Jest",
+      "Supertest"
+    ],
+    "liveLink": "https://demo-properties-eight.vercel.app/"
+  },
+  {
+    "id": "clinic-booking",
+    "title": "Clinic Booking Platform",
+    "category": "A modern, full-stack clinic management and appointment booking platform with separate client and admin interfaces.",
+    "tags": [
+      "Web Development",
+      "Healthcare",
+      "Full-Stack"
+    ],
+    "year": "2026",
+    "featured": false,
+    "images": [
+      "smile_care_01.webp",
+      "smile_care_02.webp",
+      "smile_care_03.webp",
+      "smile_care_04.webp"
+    ],
+    "fullDescription": "Clinic Booking is a comprehensive healthcare management platform designed to streamline the appointment scheduling experience for both patients and clinic administrators. The project consists of two dedicated React applications: a patient-facing client app that allows users to browse services, explore doctor profiles, book appointments, manage notifications, and maintain their personal profiles; and an admin dashboard that equips clinic staff with tools to manage appointments, doctors, patients, services, schedules, and reviews, complete with analytics visualizations. Built with a modern stack emphasizing performance, responsive design, and an intuitive user experience, the platform bridges patients and clinicians through a seamless digital workflow.",
+    "technologies": [
+      "React 19",
+      "React Router",
+      "Vite",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Lucide React",
+      "Recharts"
+    ],
+    "liveLink": "https://smile-care-nine.vercel.app/"
+  }
+]
