@@ -45,7 +45,7 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm px-2 sm:px-4 overflow-y-auto'
+        className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto'
         onClick={(e) => {
           if (lightboxRef.current && !lightboxRef.current.contains(e.target)) {
             onClose();
@@ -58,19 +58,19 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
           animate={{ y: 0, opacity: 1, scale: 1 }}
           exit={{ y: 20, opacity: 0, scale: 0.98 }}
           transition={{ type: 'spring', stiffness: 220, damping: 26 }}
-          className='relative w-full max-w-6xl my-6 rounded-3xl overflow-hidden bg-base-200 shadow-2xl border border-white/10'
+          className='relative w-full max-w-6xl my-auto rounded-3xl overflow-hidden bg-base-200 shadow-2xl border border-white/10 max-h-[92vh] max-h-[92dvh] flex flex-col'
         >
           <button
             onClick={onClose}
             aria-label='Close'
-            className='z-20 absolute right-4 top-4 btn btn-sm btn-circle bg-black/50 border-0 hover:bg-black/70 text-white'
+            className='z-30 absolute right-4 top-4 btn btn-sm btn-circle bg-black/60 border-0 hover:bg-black/80 text-white backdrop-blur-md shadow-lg'
           >
             <X size={18} />
           </button>
 
-          <div className='grid grid-cols-1 md:grid-cols-5 max-h-[90vh]'>
+          <div className='grid grid-cols-1 md:grid-cols-5 md:max-h-[92dvh] min-h-0 flex-1 overflow-y-auto md:overflow-hidden overscroll-contain'>
             {/* Gallery */}
-            <div className='md:col-span-3 bg-black/40 flex flex-col'>
+            <div className='md:col-span-3 bg-black/40 flex flex-col shrink-0'>
               <div className='relative w-full h-64 sm:h-96 md:h-[60vh]'>
                 <AnimatePresence mode='wait'>
                   <motion.img
@@ -86,7 +86,7 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
                 </AnimatePresence>
               </div>
               {project.images.length > 1 && (
-                <div className='flex overflow-x-auto gap-2 p-3 scrollbar-hide bg-base-300/50'>
+                <div className='flex overflow-x-auto gap-2 p-3 no-scrollbar bg-base-300/50'>
                   {project.images.map((img, i) => (
                     <button
                       key={i}
@@ -112,7 +112,7 @@ const ProjectDetailsLightbox = ({ project, onClose }) => {
             </div>
 
             {/* Details */}
-            <div className='md:col-span-2 p-6 sm:p-8 overflow-y-auto scrollbar-hide max-h-[90vh]'>
+            <div className='md:col-span-2 p-6 sm:p-8 pb-10 sm:pb-8 pr-14 sm:pr-8 md:pr-8 md:overflow-y-auto no-scrollbar min-h-0 md:max-h-[92dvh]'>
               <div className='flex items-center gap-2 mb-3'>
                 {project.ongoing && (
                   <span className='inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-[montserrat]'>
@@ -289,6 +289,12 @@ const Portfolio = () => {
     setSelectedProject(null);
     document.body.style.overflow = '';
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   const stats = [
     { value: `${projects.length}+`, label: 'Projects Shipped' },
