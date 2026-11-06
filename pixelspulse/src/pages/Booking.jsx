@@ -14,7 +14,7 @@ const Booking = () => {
 
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
-      <SEO 
+      <SEO
         title="Book a Consultation | PixelsPulse"
         description="Schedule a free consultation call with the PixelsPulse team to discuss your digital project."
       />
@@ -97,7 +97,7 @@ const Booking = () => {
                     href='mailto:pixelspulsedev@gmail.com'
                     className='text-primary hover:text-accent transition flex items-center gap-2 break-all'
                   >
-                    info@pixelspulse.dev
+                    info@pixelspulse.tech
                   </a>
                 </div>
 
@@ -113,7 +113,7 @@ const Booking = () => {
                   <p className='text-sm text-gray-400 mb-2'>Follow Us:</p>
                   <div className='flex gap-3'>
                     <a
-                      href='https://www.instagram.com/pixelspulse.dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
+                      href='https://www.instagram.com/pixelspulse.tech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
                       target='_blank'
                       rel='noopener noreferrer'
                       className='hover:opacity-80 transition'
@@ -122,7 +122,7 @@ const Booking = () => {
                         src='instagram.webp'
                         alt='Instagram'
                         className='size-10'
-                       loading='lazy' decoding='async' />
+                        loading='lazy' decoding='async' />
                     </a>
                     <a
                       href='https://twitter.com/pixelspulsedev'
@@ -134,7 +134,7 @@ const Booking = () => {
                         src='twitter.webp'
                         alt='Twitter'
                         className='size-10'
-                       loading='lazy' decoding='async' />
+                        loading='lazy' decoding='async' />
                     </a>
                     <a
                       href='https://www.linkedin.com/company/pixelspulse'
@@ -146,7 +146,7 @@ const Booking = () => {
                         src='linkedin.webp'
                         alt='LinkedIn'
                         className='size-10'
-                       loading='lazy' decoding='async' />
+                        loading='lazy' decoding='async' />
                     </a>
                   </div>
                 </div>
@@ -210,10 +210,10 @@ const Booking = () => {
             <div>
               <p className='text-sm text-gray-400 mb-1'>Email:</p>
               <a
-                href='mailto:sales@pixelspulse.dev'
+                href='mailto:sales@pixelspulse.tech'
                 className='items-center justify-start md:justify-center text-primary text-start sm:text-center hover:text-accent transition flex gap-2 break-all'
               >
-                sales@pixelspulse.dev
+                sales@pixelspulse.tech
               </a>
             </div>
 
@@ -235,10 +235,10 @@ const Booking = () => {
             <div>
               <p className='text-sm text-gray-400 mb-1'>Email:</p>
               <a
-                href='mailto:support@pixelspulse.dev'
+                href='mailto:support@pixelspulse.tech'
                 className='items-center justify-start md:justify-center text-primary text-start sm:text-center hover:text-accent transition flex gap-2 break-all'
               >
-                support@pixelspulse.dev
+                support@pixelspulse.tech
               </a>
             </div>
 

@@ -204,7 +204,7 @@ The PixelsPulse Team
 
 ---
 This is an automated confirmation email. Please do not reply to this message.
-For urgent matters, contact us at info@pixelspulse.dev
+For urgent matters, contact us at info@pixelspulse.tech
   `;
 
   const autoReplyHtml = `
@@ -266,7 +266,7 @@ For urgent matters, contact us at info@pixelspulse.dev
         </p>
 
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://pixelspulse.dev" style="font-family: 'Poppins', sans-serif; display: inline-block; background: linear-gradient(135deg, #30d5f3 0%, #d946ef 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 15px rgba(48, 213, 243, 0.3); transition: all 0.3s ease;">Visit Our Website</a>
+          <a href="https://pixelspulse.tech" style="font-family: 'Poppins', sans-serif; display: inline-block; background: linear-gradient(135deg, #30d5f3 0%, #d946ef 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 10px; font-weight: 600; font-size: 15px; box-shadow: 0 4px 15px rgba(48, 213, 243, 0.3); transition: all 0.3s ease;">Visit Our Website</a>
         </div>
 
         <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #f3f4f6;">
@@ -279,7 +279,7 @@ For urgent matters, contact us at info@pixelspulse.dev
         <div style="background: linear-gradient(to right, #fff8e1, #fef3c7); border-left: 4px solid #facc15; border-radius: 8px; padding: 16px 20px; margin-top: 30px;">
           <p style="color: #0a0a23; font-size: 13px; margin: 0; line-height: 1.6;">
             <strong style="font-family: 'Poppins', sans-serif;">⚠️ Note:</strong> This is an automated confirmation email. Please do not reply to this message.<br>
-            For urgent matters, contact us at <a href="mailto:info@pixelspulse.dev" style="color: #30d5f3; text-decoration: none; font-weight: 600;">info@pixelspulse.dev</a>
+            For urgent matters, contact us at <a href="mailto:info@pixelspulse.tech" style="color: #30d5f3; text-decoration: none; font-weight: 600;">info@pixelspulse.tech</a>
           </p>
         </div>
       </div>
@@ -287,9 +287,9 @@ For urgent matters, contact us at info@pixelspulse.dev
       <div style="background: #f3f4f6; padding: 24px 30px; text-align: center; border-top: 1px solid #e5e7eb;">
         <p style="color: #6b7280; font-size: 12px; margin: 0 0 8px 0;">© ${new Date().getFullYear()} PixelsPulse. All rights reserved.</p>
         <p style="color: #6b7280; font-size: 12px; margin: 0;">
-          <a href="https://pixelspulse.dev" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Website</a> |
-          <a href="https://pixelspulse.dev/privacy" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Privacy Policy</a> |
-          <a href="https://pixelspulse.dev/contact" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Contact</a>
+          <a href="https://pixelspulse.tech" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Website</a> |
+          <a href="https://pixelspulse.tech/privacy" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Privacy Policy</a> |
+          <a href="https://pixelspulse.tech/contact" style="color: #30d5f3; text-decoration: none; margin: 0 8px; font-weight: 500;">Contact</a>
         </p>
       </div>
     </div>
@@ -298,7 +298,7 @@ For urgent matters, contact us at info@pixelspulse.dev
   try {
     // Send internal notification email
     await sendEmail({
-      to: 'info@pixelspulse.dev',
+      to: 'info@pixelspulse.tech',
       subject: `${isGeneralInquiry ? 'General Inquiry' : 'New Project'}: ${service} - ${name}`,
       text: textContent,
       html: htmlContent,

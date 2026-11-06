@@ -16,9 +16,9 @@ Expect updates on web development, design inspiration, and digital strategy tips
 
 We're more than just a web agency — we're your digital partners 🚀.
 
-Explore what we do: https://pixelspulse.dev 
+Explore what we do: https://pixelspulse.tech 
 
-If you wish to unsubscribe, click here: https://pixelspulse.dev/api/newsteller/unsubscribe/${encodeURIComponent(recipientEmail)}
+If you wish to unsubscribe, click here: https://pixelspulse.tech/api/newsteller/unsubscribe/${encodeURIComponent(recipientEmail)}
 
 Best regards, 
 The PixelsPulse Team 
@@ -73,7 +73,7 @@ ${process.env.EMAIL_USER}
             <!-- CTA -->
             <tr>
                 <td align="center" style="padding: 20px">
-                    <a href="https://pixelspulse.dev" target="_blank"
+                    <a href="https://pixelspulse.tech" target="_blank"
                         style="display: inline-block; background: #30d5f3; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-family: Poppins, sans-serif; font-weight: 600; font-size: 16px;">
                         Explore PixelsPulse
                     </a>
@@ -91,7 +91,7 @@ ${process.env.EMAIL_USER}
                     </p>
 
                     <!-- UNSUBSCRIBE BUTTON -->
-                    <a href="https://pixelspulse.dev/api/newsteller/unsubscribe/${encodeURIComponent(recipientEmail)}" target="_blank"
+                    <a href="https://pixelspulse.tech/api/newsteller/unsubscribe/${encodeURIComponent(recipientEmail)}" target="_blank"
                         style="display: inline-block; margin-top: 10px; background: #d946ef; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-family: Poppins, sans-serif; font-weight: 600; font-size: 14px;">
                         Unsubscribe
                     </a>

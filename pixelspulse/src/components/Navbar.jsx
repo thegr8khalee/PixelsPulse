@@ -23,15 +23,15 @@ const Navbar = () => {
             >
               <img
                 src='/android-chrome-512x512.png'
-                alt='PixelPulse.dev Logo'
+                alt='PixelPulse.tech Logo'
                 className='size-12'
                 width='48'
                 height='48'
-               loading='lazy' decoding='async' />
+                loading='lazy' decoding='async' />
               <p>PixelsPulse</p>
               <p className='text-accent'>.</p>
               <div className='text-xs items-end font-[poppins] font-medium pt-1'>
-                dev
+                tech
               </div>
             </Link>
             {/* Desktop Navigation - Hidden on small screens */}
@@ -100,11 +100,11 @@ const Navbar = () => {
             >
               <img
                 src='/android-chrome-512x512.png'
-                alt='PixelPulse.dev Logo'
+                alt='PixelPulse.tech Logo'
                 className='size-12'
                 width='48'
                 height='48'
-               loading='lazy' decoding='async' />
+                loading='lazy' decoding='async' />
               <p>PixelsPulse</p>
               <p className='text-accent'>.</p>
             </Link>

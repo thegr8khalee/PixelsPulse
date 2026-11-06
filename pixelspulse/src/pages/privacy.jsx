@@ -6,7 +6,7 @@ const Privacy = () => {
   usePageLoader([]);
   return (
     <div className='py-16'>
-      <SEO 
+      <SEO
         title="Privacy Policy | PixelsPulse"
         description="Read our privacy policy to understand how PixelsPulse collects, uses, and protects your personal information."
       />
@@ -14,7 +14,7 @@ const Privacy = () => {
       <section id='Hero' className='w-full text-center'>
         <div className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
-            PixelsPulse.dev -
+            PixelsPulse.tech -
             <span className='text-primary'> Privacy Policy</span>
           </div>
           <div className='z-100 text-sm sm:text-base font-[montserrat]'>
@@ -140,10 +140,10 @@ const Privacy = () => {
             If you have questions about this Privacy Policy, please contact us
             at: <br />
             <a
-              href='mailto:info@pixelspulse.dev'
+              href='mailto:info@pixelspulse.tech'
               className='text-primary underline hover:text-primary/80'
             >
-              info@pixelspulse.dev
+              info@pixelspulse.tech
             </a>{' '}
             <br />
             <a

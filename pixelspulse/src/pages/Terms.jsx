@@ -43,14 +43,14 @@ const Terms = () => {
   usePageLoader([]);
   return (
     <div className='pt-16'>
-      <SEO 
+      <SEO
         title="Terms of Service | PixelsPulse"
         description="Read the terms and conditions for using PixelsPulse services and website."
       />
       <section id='Hero' className='w-full text-center'>
         <div className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
-            PixelsPulse.dev -
+            PixelsPulse.tech -
             <span className='text-primary'> Terms and Conditions</span>
           </div>
           <div className='z-100 text-sm sm:text-base font-[montserrat]'>
@@ -60,10 +60,10 @@ const Terms = () => {
         <div className='w-full text-start items-start justify-center flex py-4'>
           <p className='px-2 font-[poppins] max-w-7xl'>
             Please read these Terms and Conditions ("Terms", "Terms and
-            Conditions") carefully before using the PixelsPulse.dev website and
+            Conditions") carefully before using the PixelsPulse.tech website and
             engaging with our services. These Terms apply to all visitors,
             users, and others who access or use our services. By accessing or
-            using the services provided by PixelsPulse.dev ("the Agency", "we",
+            using the services provided by PixelsPulse.tech ("the Agency", "we",
             "us", or "our"), you agree to be bound by these Terms. If you
             disagree with any part of the terms, then you may not access our
             services.
@@ -76,19 +76,19 @@ const Terms = () => {
             1. Introduction
           </h1>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            PixelsPulse.dev is a web development and design agency specializing
+            PixelsPulse.tech is a web development and design agency specializing
             in custom web development, mobile app solutions, UI/UX design,
             branding and graphic design, landing pages and microsites,
             performance optimization, maintenance and support, and e-commerce
             solutions. These Terms govern the relationship between
-            PixelsPulse.dev and its clients ("Client", "you").
+            PixelsPulse.tech and its clients ("Client", "you").
           </p>
           <h1 className='text-2xl mt-6 sm:text-3xl font-bold font-[poppins] text-primary'>
             2. Services
           </h1>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
             <b>2.1. Scope of Work:</b> The specific services to be provided by
-            PixelsPulse.dev will be detailed in a separate Project Proposal,
+            PixelsPulse.tech will be detailed in a separate Project Proposal,
             Statement of Work (SOW), or Service Agreement ("Agreement") signed
             by both parties. This Agreement will outline the project scope,
             deliverables, timelines, and specific terms relevant to that
@@ -97,16 +97,16 @@ const Terms = () => {
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
             <b>2.2. Changes to Scope:</b> Any changes to the agreed-upon scope
             of work must be submitted in writing by the Client and approved by
-            PixelsPulse.dev. Such changes may result in adjustments to the
+            PixelsPulse.tech. Such changes may result in adjustments to the
             project timeline and cost, which will be communicated and agreed
             upon before implementation.
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            <b>2.3. Third-Party Services:</b> PixelsPulse.dev may recommend or
+            <b>2.3. Third-Party Services:</b> PixelsPulse.tech may recommend or
             utilize third-party services (e.g., hosting providers, stock photo
             sites, payment gateways, CMS platforms, plugins). The Client
             acknowledges that these services are subject to their own terms and
-            conditions, and PixelsPulse.dev is not responsible for their
+            conditions, and PixelsPulse.tech is not responsible for their
             performance or any issues arising from their use.
           </p>
           <h1 className='text-2xl mt-6 sm:text-3xl font-bold font-[poppins] text-primary'>
@@ -127,7 +127,7 @@ const Terms = () => {
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
             <b>3.3. Accuracy of Information:</b> The Client warrants that all
-            information and content provided to PixelsPulse.dev is accurate,
+            information and content provided to PixelsPulse.tech is accurate,
             complete, and does not infringe upon the intellectual property or
             other rights of any third party.
           </p>
@@ -152,14 +152,14 @@ const Terms = () => {
             days of the invoice date.
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            <b>4.4. Late Payments:</b> PixelsPulse.dev reserves the right to
+            <b>4.4. Late Payments:</b> PixelsPulse.tech reserves the right to
             charge a late payment fee of [e.g., 1.5%] per month (or the maximum
             allowed by law) on overdue balances. Services may be suspended or
             terminated for accounts with overdue payments until the balance is
             paid in full.
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            <b>4.5. Refunds:</b> All payments made to PixelsPulse.dev are
+            <b>4.5. Refunds:</b> All payments made to PixelsPulse.tech are
             non-refundable once work has commenced on the respective project
             phase or service period, unless explicitly stated otherwise in a
             separate written agreement.
@@ -170,8 +170,8 @@ const Terms = () => {
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
             <b>5.1. Client Content:</b> The Client retains all intellectual
             property rights to any content, materials, or intellectual property
-            provided to PixelsPulse.dev for use in the project. The Client
-            grants PixelsPulse.dev a non-exclusive, royalty-free license to use
+            provided to PixelsPulse.tech for use in the project. The Client
+            grants PixelsPulse.tech a non-exclusive, royalty-free license to use
             such content solely for the purpose of performing the agreed-upon
             services.
           </p>
@@ -180,14 +180,14 @@ const Terms = () => {
             services, the Client will be granted a non-exclusive, perpetual,
             worldwide license to use the final deliverables (e.g., website code,
             final design files, completed mobile applications) for their
-            intended business purposes. PixelsPulse.dev retains the right to use
+            intended business purposes. PixelsPulse.tech retains the right to use
             the project for its portfolio and marketing purposes.
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
             <b>5.3. Tools & Resources:</b> Any proprietary tools, templates,
-            methodologies, or pre-existing code owned by PixelsPulse.dev or
+            methodologies, or pre-existing code owned by PixelsPulse.tech or
             licensed from third parties, which are used in the development of
-            the deliverables, remain the property of PixelsPulse.dev or their
+            the deliverables, remain the property of PixelsPulse.tech or their
             respective owners. These are licensed to the Client for use as part
             of the final deliverable.
           </p>
@@ -195,7 +195,7 @@ const Terms = () => {
             6. Confidentiality
           </h1>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            Both PixelsPulse.dev and the Client agree to keep confidential all
+            Both PixelsPulse.tech and the Client agree to keep confidential all
             non-public information received from the other party during the
             course of the project. This obligation of confidentiality will
             survive the termination of these Terms.
@@ -204,16 +204,16 @@ const Terms = () => {
             7. Limitation of Liability
           </h1>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            <b>7.1. No Guarantees:</b> PixelsPulse.dev does not guarantee
+            <b>7.1. No Guarantees:</b> PixelsPulse.tech does not guarantee
             specific results (e.g., sales, traffic, rankings) from the services
             provided. Our services are performed to the best of our ability and
             expertise.
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            <b>7.2. Maximum Liability:</b> PixelsPulse.dev's total liability to
+            <b>7.2. Maximum Liability:</b> PixelsPulse.tech's total liability to
             the Client for any claim arising out of or relating to these Terms
             or the services provided, regardless of the form of action, shall
-            not exceed the total fees paid by the Client to PixelsPulse.dev for
+            not exceed the total fees paid by the Client to PixelsPulse.tech for
             the specific services directly giving rise to the claim.
           </p>
           <h1 className='text-2xl mt-6 sm:text-3xl font-bold font-[poppins] text-primary'>
@@ -221,7 +221,7 @@ const Terms = () => {
           </h1>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
             The Client agrees to defend, indemnify and hold harmless
-            PixelsPulse.dev and its licensee and licensors, and their employees,
+            PixelsPulse.tech and its licensee and licensors, and their employees,
             contractors, agents, officers and directors, from and against any
             and all claims, damages, obligations, losses, liabilities, costs or
             debt, and expenses (including but not limited to attorney's fees),
@@ -237,11 +237,11 @@ const Terms = () => {
             Agreement by providing written notice of [e.g., 30] days. In such
             cases, the Client will be responsible for payment for all work
             completed up to the termination date, plus any non-cancellable
-            third-party costs incurred by PixelsPulse.dev on behalf of the
+            third-party costs incurred by PixelsPulse.tech on behalf of the
             Client.
           </p>
           <p className='px- mt-2 font-[poppins] max-w-7xl'>
-            <b>9.2. Termination by Agency:</b> PixelsPulse.dev may terminate an
+            <b>9.2. Termination by Agency:</b> PixelsPulse.tech may terminate an
             Agreement by providing written notice if the Client breaches any
             material term of these Terms or the Agreement, including but not
             limited to non-payment, failure to provide necessary
@@ -293,12 +293,12 @@ const Terms = () => {
           </p>
           <ul className='list-disc px-4'>
             <li>
-              <b>By email:</b> <a href='mailto:info@pixelspulse.dev' className='text-primary underline hover:text-primary/80'>info@pixelspulse.dev</a>
+              <b>By email:</b> <a href='mailto:info@pixelspulse.tech' className='text-primary underline hover:text-primary/80'>info@pixelspulse.tech</a>
             </li>
             <li>
               <b>By visiting this page on our website:</b>{' '}
-              <a href='https://pixelspulse.dev/contact' className='text-primary underline hover:text-primary/80'>
-                pixelspulse.dev/contact
+              <a href='https://pixelspulse.tech/contact' className='text-primary underline hover:text-primary/80'>
+                pixelspulse.tech/contact
               </a>
             </li>
           </ul>

@@ -174,7 +174,7 @@ const Help = () => {
 
   return (
     <div className='py-16'>
-      <SEO 
+      <SEO
         title="Help & Support | PixelsPulse"
         description="Find answers to frequently asked questions about PixelsPulse services and processes."
       />
@@ -274,17 +274,17 @@ const Help = () => {
           className='text-center'
         >
           Reach out at{' '}
-          <button 
-          onClick={() => window.location.href = '/contact'}
-          className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full'>
+          <button
+            onClick={() => window.location.href = '/contact'}
+            className='btn bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 text-white rounded-full'>
             Contact Page
           </button>{' '}
           or email us at{' '}
           <a
-            href='mailto:support@pixelspulse.dev'
+            href='mailto:support@pixelspulse.tech'
             className='text-aquaGlow underline'
           >
-            support@pixelspulse.dev
+            support@pixelspulse.tech
           </a>
         </motion.p>
       </div>

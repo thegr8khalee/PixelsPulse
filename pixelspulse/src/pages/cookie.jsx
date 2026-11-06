@@ -6,14 +6,14 @@ const CookiePolicy = () => {
   usePageLoader([]);
   return (
     <div className='py-16'>
-      <SEO 
+      <SEO
         title="Cookie Policy | PixelsPulse"
         description="Learn about how PixelsPulse uses cookies to improve your browsing experience."
       />
       <section id='Hero' className='w-full text-center'>
         <div className='h-50 justify-center items-center flex flex-col space-y-2 px-2'>
           <div className='z-100 text-2xl sm:text-4xl font-bold font-[poppins]'>
-            PixelsPulse.dev - 
+            PixelsPulse.tech -
             <span className='text-primary'> Cookie Policy</span>
           </div>
           <div className='z-100 text-sm sm:text-base font-[montserrat]'>
@@ -22,8 +22,8 @@ const CookiePolicy = () => {
         </div>
         <div className='w-full text-start items-start justify-center flex py-4'>
           <p className='px-2 font-[poppins] max-w-7xl'>
-            PixelsPulse (“we,” “our,” “us”) uses cookies and similar technologies 
-            to improve your browsing experience on our website. This Cookie Policy 
+            PixelsPulse (“we,” “our,” “us”) uses cookies and similar technologies
+            to improve your browsing experience on our website. This Cookie Policy
             explains what cookies are, how we use them, and how you can manage your preferences.
           </p>
         </div>
@@ -36,8 +36,8 @@ const CookiePolicy = () => {
             1. What Are Cookies?
           </h1>
           <p className='mt-2 font-[poppins]'>
-            Cookies are small text files placed on your device when you visit a website. 
-            They help websites recognize your device and remember information about your visit, 
+            Cookies are small text files placed on your device when you visit a website.
+            They help websites recognize your device and remember information about your visit,
             such as preferences and activity.
           </p>
 
@@ -47,15 +47,15 @@ const CookiePolicy = () => {
           </h1>
           <ul className='list-disc px-4 font-[poppins]'>
             <li>
-              <b>Essential Cookies:</b> Required for the website to function properly 
+              <b>Essential Cookies:</b> Required for the website to function properly
               (e.g., navigation, security).
             </li>
             <li>
-              <b>Analytics Cookies:</b> Used to understand how visitors interact with our site, 
+              <b>Analytics Cookies:</b> Used to understand how visitors interact with our site,
               so we can improve functionality and content.
             </li>
             <li>
-              <b>Preference Cookies:</b> Remember your settings and preferences 
+              <b>Preference Cookies:</b> Remember your settings and preferences
               (such as language or newsletter subscription state).
             </li>
           </ul>
@@ -88,9 +88,9 @@ const CookiePolicy = () => {
             5. Managing Cookies
           </h1>
           <p className='mt-2 font-[poppins]'>
-            You can manage or disable cookies through your browser settings. 
-            Most browsers allow you to delete existing cookies, block cookies from specific sites, 
-            or receive alerts before cookies are stored. Please note: disabling cookies may affect 
+            You can manage or disable cookies through your browser settings.
+            Most browsers allow you to delete existing cookies, block cookies from specific sites,
+            or receive alerts before cookies are stored. Please note: disabling cookies may affect
             the functionality of our website.
           </p>
 
@@ -99,7 +99,7 @@ const CookiePolicy = () => {
             6. Updates to This Policy
           </h1>
           <p className='mt-2 font-[poppins]'>
-            We may update this Cookie Policy from time to time to reflect changes in technology, 
+            We may update this Cookie Policy from time to time to reflect changes in technology,
             law, or our practices. Updates will be posted on this page with a revised “Last Updated” date.
           </p>
 
@@ -110,10 +110,10 @@ const CookiePolicy = () => {
           <p className='mt-2 font-[poppins]'>
             If you have any questions about this Cookie Policy, please contact us at{' '}
             <a
-              href='mailto:info@pixelspulse.dev'
+              href='mailto:info@pixelspulse.tech'
               className='text-primary underline hover:text-primary/80'
             >
-              info@pixelspulse.dev
+              info@pixelspulse.tech
             </a>.
           </p>
         </div>

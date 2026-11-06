@@ -209,7 +209,7 @@ const Contact = () => {
 
   return (
     <div className='font-[montserrat] min-h-screen bg-base-100 py-20 px-4 sm:px-6 lg:px-8'>
-      <SEO 
+      <SEO
         title="Contact Us | PixelsPulse"
         description="Get in touch with PixelsPulse for your web development, app, or design project. Let's build something great together."
       />
@@ -244,9 +244,8 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder='Your full name'
-                    className={`w-full px-4 py-3 bg-base-100/50 border ${
-                      errors.name ? 'border-red-400' : 'border-white/20'
-                    } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
+                    className={`w-full px-4 py-3 bg-base-100/50 border ${errors.name ? 'border-red-400' : 'border-white/20'
+                      } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
                   />
                   {errors.name && (
                     <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
@@ -274,9 +273,8 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder='you@example.com'
-                        className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${
-                          errors.email ? 'border-red-400' : 'border-white/20'
-                        } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
+                        className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${errors.email ? 'border-red-400' : 'border-white/20'
+                          } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
                       />
                     </div>
                     {errors.email && (
@@ -346,11 +344,10 @@ const Contact = () => {
                             value={formData.whatsapp}
                             onChange={handleChange}
                             placeholder='WhatsApp number if different'
-                            className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${
-                              errors.whatsapp
+                            className={`w-full pl-11 pr-4 py-3 bg-base-100/50 border ${errors.whatsapp
                                 ? 'border-red-400'
                                 : 'border-white/20'
-                            } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
+                              } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition`}
                           />
                         </div>
                         {errors.whatsapp && (
@@ -486,9 +483,8 @@ const Contact = () => {
                       name='service'
                       value={formData.service}
                       onChange={handleChange}
-                      className={`w-full px-4 py-3 bg-base-100/50 border ${
-                        errors.service ? 'border-red-400' : 'border-white/20'
-                      } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer`}
+                      className={`w-full px-4 py-3 bg-base-100/50 border ${errors.service ? 'border-red-400' : 'border-white/20'
+                        } rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition appearance-none cursor-pointer`}
                     >
                       <option value='' className='bg-slate-900'>
                         Select a service
@@ -643,9 +639,8 @@ const Contact = () => {
                         ? 'Tell us what you need help with...'
                         : 'Tell us about your project, goals, or challenges...'
                     }
-                    className={`w-full px-4 py-3 bg-base-100/50 border ${
-                      errors.message ? 'border-red-400' : 'border-white/20'
-                    } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition resize-none`}
+                    className={`w-full px-4 py-3 bg-base-100/50 border ${errors.message ? 'border-red-400' : 'border-white/20'
+                      } rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition resize-none`}
                   ></textarea>
                   {errors.message && (
                     <p className='mt-1 text-sm text-red-400 flex items-center gap-1'>
@@ -782,10 +777,10 @@ const Contact = () => {
                 <div>
                   <p className='text-sm text-gray-400 mb-1'>Email:</p>
                   <a
-                    href='mailto:info@pixelspulse.dev'
+                    href='mailto:info@pixelspulse.tech'
                     className='text-primary hover:text-accent transition flex items-center gap-2'
                   >
-                    info@pixelspulse.dev
+                    info@pixelspulse.tech
                   </a>
                 </div>
 
@@ -797,14 +792,14 @@ const Contact = () => {
                 <div>
                   <p className='text-sm text-gray-400 mb-2'>Follow Us:</p>
                   <div className='flex gap-3'>
-                    <a href='https://www.instagram.com/pixelspulse.dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
-                      <img src='instagram.webp' alt='' className='size-10'  loading='lazy' decoding='async' />
+                    <a href='https://www.instagram.com/pixelspulse.tech?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>
+                      <img src='instagram.webp' alt='' className='size-10' loading='lazy' decoding='async' />
                     </a>
                     <a href='https://twitter.com/pixelspulsedev'>
-                      <img src='twitter.webp' alt='' className='size-10'  loading='lazy' decoding='async' />
+                      <img src='twitter.webp' alt='' className='size-10' loading='lazy' decoding='async' />
                     </a>
                     <a href='https://www.linkedin.com/company/pixelspulse'>
-                      <img src='linkedin.webp' alt='' className='size-10'  loading='lazy' decoding='async' />
+                      <img src='linkedin.webp' alt='' className='size-10' loading='lazy' decoding='async' />
                     </a>
                   </div>
                 </div>
@@ -819,10 +814,10 @@ const Contact = () => {
                 <div>
                   <p className='text-sm text-gray-400 mb-1'>Email:</p>
                   <a
-                    href='mailto:support@pixelspulse.dev'
+                    href='mailto:support@pixelspulse.tech'
                     className='text-primary hover:text-accent transition flex items-center gap-2'
                   >
-                    support@pixelspulse.dev
+                    support@pixelspulse.tech
                   </a>
                 </div>
 
@@ -842,10 +837,10 @@ const Contact = () => {
                 <div>
                   <p className='text-sm text-gray-400 mb-1'>Email:</p>
                   <a
-                    href='mailto:sales@pixelspulse.dev'
+                    href='mailto:sales@pixelspulse.tech'
                     className='text-primary hover:text-accent transition flex items-center gap-2'
                   >
-                    sales@pixelspulse.dev
+                    sales@pixelspulse.tech
                   </a>
                 </div>
                 <div>
