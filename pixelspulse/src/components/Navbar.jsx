@@ -109,7 +109,7 @@ const Navbar = () => {
               <p className='text-accent'>.</p>
             </Link>
             <div className='text-xs items-end font-[poppins] font-medium pt-1'>
-              dev
+              tech
             </div>
           </div>
           <div className='navbar-end'>
