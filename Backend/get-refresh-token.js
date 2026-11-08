@@ -22,6 +22,7 @@ app.get('/start', (req, res) => {
         `client_id=${CLIENT_ID}&` +
         `response_type=code&` +
         `access_type=offline&` +
+        `prompt=consent&` +
         `redirect_uri=${encodeURIComponent(REDIRECT_URI)}`;
 
     res.redirect(authUrl);
@@ -30,13 +31,14 @@ app.get('/start', (req, res) => {
 // Step 2: Handle callback
 app.get('/oauth/callback', async (req, res) => {
     const { code } = req.query;
+    const accountsServer = req.query['accounts-server'] || 'https://accounts.zoho.com';
 
     if (!code) {
         return res.status(400).send('❌ No authorization code received');
     }
 
     try {
-        const response = await axios.post('https://accounts.zoho.com/oauth/v2/token', null, {
+        const response = await axios.post(`${accountsServer}/oauth/v2/token`, null, {
             params: {
                 code,
                 client_id: CLIENT_ID,
@@ -47,6 +49,15 @@ app.get('/oauth/callback', async (req, res) => {
         });
 
         const { refresh_token } = response.data;
+
+        if (!refresh_token) {
+            console.error('❌ Zoho response did not include a refresh_token:', response.data);
+            return res.status(400).send(`
+                <h2>❌ No refresh_token returned by Zoho</h2>
+                <pre>${JSON.stringify(response.data, null, 2)}</pre>
+                <p>Try starting again at <a href="/start">http://localhost:${PORT}/start</a></p>
+            `);
+        }
 
         res.send(`
       <html>

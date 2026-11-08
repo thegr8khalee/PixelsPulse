@@ -149,7 +149,7 @@ export const verifyConnection = async () => {
 
         if (accounts && accounts.length > 0) {
             const primaryAccount = accounts.find(a => a.isPrimary) || accounts[0];
-            console.log('✅ Zoho Mail API connected. Primary Account:', primaryAccount.emailAddress);
+            console.log('✅ Zoho Mail API connected. Primary Account:', primaryAccount.primaryEmailAddress, `(Account ID: ${primaryAccount.accountId})`);
             return true;
         } else {
             console.error('❌ Zoho Mail API connected, but no accounts found. Check permissions/configuration.');
